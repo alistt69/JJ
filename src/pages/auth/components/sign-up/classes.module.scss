@@ -1,0 +1,28 @@
+@import "src/styles/index";
+
+$auth-index: $index;
+
+.signup_container {
+  display: grid;
+
+  p {
+    color: $primary;
+    text-align: center;
+    letter-spacing: calc($auth-index * -1.5);
+    font-weight: bold;
+    font-size: calc($auth-index * 30);
+    margin-bottom: calc($auth-index * 20);
+  }
+
+  a {
+    padding: calc($auth-index * 10) calc($auth-index * 45);
+    font-size: calc($index * 15);
+    justify-self: center;
+    background-color: $accent;
+    margin-top: calc($auth-index * 85);
+    border-radius: calc($auth-index * 5);
+    color: $secondary;
+    margin-bottom: calc($auth-index * 30);
+  }
+
+}

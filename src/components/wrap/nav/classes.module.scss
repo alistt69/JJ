@@ -1,0 +1,38 @@
+@import "src/styles/index";
+
+.navs {
+  margin-bottom: calc($index * 10);
+  background-color: #ffffff;
+  padding-left: calc($index * 15);
+  border-radius: calc($index * 14) calc($index * 14) calc($index * 7) calc($index * 7);
+}
+
+.nav {
+  display: inline-block;
+}
+
+.navs .nav:first-child a {
+  color: $accent;
+}
+.nav a {
+  font-size: calc($index * 18);
+  color: $primary-dark;
+  text-decoration: underline;
+
+  &:hover{
+    color: $accent;
+  }
+}
+
+.nav:after {
+  content: '>';
+  color: rgb(0, 0, 0);
+  font-size: $font-s;
+  margin-left: calc($index * 10);
+  margin-right: calc($index * 10);
+}
+
+
+.navs .nav:last-child:after {
+  display: none;
+}

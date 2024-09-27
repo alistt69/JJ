@@ -1,0 +1,79 @@
+@import "src/styles/index";
+
+.offers_container {
+
+
+  .jobs_heading {
+    position: relative;
+    color: $secondary;
+    font-size: $font-m;
+    z-index: 1;
+
+    a {
+      color: $secondary;
+      text-decoration: underline;
+    }
+  }
+
+  .start {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 42.2%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    width: calc($index * 600);
+    text-align: center;
+
+    .title {
+      color: $secondary;
+      line-height: calc($font-xl * 1.3);
+      letter-spacing: calc($font-xl * -.035);
+      font-size: $font-xl;
+    }
+
+    .subtitle {
+      color: $secondary;
+      font-size: $font-m;
+      line-height: calc($font-m * 2);
+      letter-spacing: calc($font-m * -.015);
+      margin-bottom: calc($index * 50);
+    }
+  }
+
+  .start_btn {
+    border-radius: calc($index * 7);
+    font-size: $font-s;
+    letter-spacing: calc($font-s * .07);
+    border: calc($index * 1.3) solid $secondary;
+    color: $secondary;
+    text-align: center;
+    align-content: center;
+    padding: calc($index * 8) calc($index * 15);
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+
+  .layer {
+    display: inline-block;
+    position: absolute;
+    border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
+    background-color: $accent;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all 1s cubic-bezier(.85,-0.17,.39,.95);
+
+    &.started {
+      z-index: 0;
+      border-radius: calc($index * 7);
+      bottom: 94%;
+    }
+  }
+}

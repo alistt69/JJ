@@ -1,0 +1,7 @@
+@import "src/styles/index";
+
+.home_container {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  row-gap: calc($index * 10);
+}

@@ -1,0 +1,11 @@
+$index: calc((1vw + 1vh) * 0.04441667);
+$primary: rgb(31, 31, 31);
+$primary-dark: #070707;
+$secondary: #ffffff;
+$accent: rgb(82, 76, 161);
+
+$font-xs: calc($index * 12);
+$font-s: calc($index * 15);
+$font-m: calc($index * 20);
+$font-l: calc($index * 32);
+$font-xl: calc($index * 45);
