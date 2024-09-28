@@ -11,7 +11,7 @@ const App = () => {
         options: {
             scrollbars: {
                 autoHide: 'scroll',
-                theme: 'os-theme-light',
+                theme: 'os-theme-cursor',
                 clickScroll: true,
             },
         },

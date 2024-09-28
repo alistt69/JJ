@@ -13,9 +13,9 @@ const Intro = () => {
                     </p>
 
                     <p className={classes.description}>
-                        Welcome to JobaJob, your premier <br/>
-                        destination for job searching and job <br/>
-                        posting. Simplifying your employment <br/>
+                        Welcome to JobaJob, your premier
+                        destination for job searching and job
+                        posting. Simplifying your employment
                         journey, one click at a time.
                     </p>
 
@@ -28,11 +28,11 @@ const Intro = () => {
                     </p>
 
                     <p className={classes.description}>
-                        Our platform connects thousands <br/>
-                        of employers with potential candidates, <br/>
-                        ensuring the best fit for both parties. <br/>
-                        We offer a range of features designed to help you <br/>
-                        find your ideal job quickly and efficiently. <br/>
+                        Our platform connects thousands
+                        of employers with potential candidates,
+                        ensuring the best fit for both parties.
+                        We offer a range of features designed to help you
+                        find your ideal job quickly and efficiently.
                         Explore below to see what sets us apart.
                     </p>
 

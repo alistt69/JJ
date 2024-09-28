@@ -2,6 +2,8 @@
 
 .features {
   display: grid;
+  position: relative;
+  overflow: hidden;
   grid-template-rows: auto auto;
   row-gap: calc($index * 10);
   border-radius: calc($index * 14);
@@ -32,7 +34,30 @@
     grid-template-columns: auto auto auto;
     column-gap: calc($index * 10);
 
+    div:nth-child(1) {
+
+      :nth-child(3) {
+        width: calc($index * 315);
+      }
+    }
+
+    div:nth-child(2) {
+
+      :nth-child(3) {
+        width: calc($index * 315);
+      }
+    }
+
+    div:nth-child(3) {
+
+      :nth-child(3) {
+        width: calc($index * 270);
+      }
+    }
+
     div {
+      display: grid;
+      grid-template-rows: auto auto auto;
       color: $primary;
       margin-top: calc($index * 20);
       border-radius: calc($index * 7);
@@ -72,9 +97,11 @@
       p:nth-child(2) {
         font-size: $font-s;
         line-height: calc($index * 25);
+        align-self: end;
       }
 
       p:nth-child(3) {
+        align-self: end;
         font-size: $font-xs;
       }
     }

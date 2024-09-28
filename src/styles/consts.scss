@@ -1,4 +1,4 @@
-$index: calc((1vw + 1vh) * 0.04441667);
+$index: min(1.2px, calc((1vw + 1vh) * 0.04441667));
 $primary: rgb(31, 31, 31);
 $primary-dark: #070707;
 $secondary: #ffffff;

@@ -3,6 +3,7 @@ import {BarsOutlined, CloudOutlined, PartitionOutlined} from "@ant-design/icons"
 
 const Features = () => {
 
+
     return(
         <>
             <div className={classes.features}>
@@ -28,9 +29,9 @@ const Features = () => {
                         <p>Easy Navigation</p>
 
                         <p>
-                            Our user-friendly interface ensures that <br/>
-                            both job seekers and employers can easily <br/>
-                            navigate through the myriad options available. <br/>
+                            Our user-friendly interface ensures that
+                            both job seekers and employers can easily
+                            navigate through the myriad options available.
                             Effortlessly search, apply, and post vacancies.
                         </p>
                     </div>
@@ -41,9 +42,9 @@ const Features = () => {
                         <p>Advanced Filters</p>
 
                         <p>
-                            Utilize our advanced search filters to find <br/>
-                            job listings that perfectly match your skills, <br/>
-                            location, and preferences. Employers can also <br/>
+                            Utilize our advanced search filters to find
+                            job listings that perfectly match your skills,
+                            location, and preferences. Employers can also
                             filter candidates to find the ideal match.
                         </p>
                     </div>
@@ -54,9 +55,9 @@ const Features = () => {
                         <p>Secure Platform</p>
 
                         <p>
-                            We prioritize your security. Our platform <br/>
-                            employs the latest security measures to protect <br/>
-                            your data, ensuring a safe and reliable experience <br/>
+                            We prioritize your security. Our platform
+                            employs the latest security measures to protect
+                            your data, ensuring a safe and reliable experience
                             for all users.
                         </p>
                     </div>
