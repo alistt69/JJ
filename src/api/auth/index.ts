@@ -5,6 +5,7 @@ interface User {
     id?: string;
     username: string;
     password: string;
+    offers: string[];
 }
 
 const BASE_URL = 'http://localhost:5000/users';

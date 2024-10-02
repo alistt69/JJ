@@ -1,0 +1,65 @@
+@import "src/styles/index";
+
+.error {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  color: $secondary;
+  background-color: #27282c;
+
+  .error_container {
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: calc($index * 40);
+
+    .number {
+      align-self: center;
+      font-size: calc($index * 300);
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-weight: 800;
+      line-height: .8;
+    }
+
+    .description {
+      display: grid;
+      grid-template-rows: 1fr 5fr 1fr;
+
+      .heading {
+        font-size: $font-m;
+      }
+
+      .subheading {
+        display: grid;
+        row-gap: calc($index * 10);
+        color: #b2b2b2;
+        align-self: center;
+        font-size: $font-s;
+
+        .reasons {
+
+        }
+
+        div {
+          display: grid;
+          grid-template-columns: max-content auto;
+          column-gap: calc($index * 7);
+
+          p:first-child {
+            align-self: start;
+            font-weight: bold;
+            font-size: $font-m;
+            line-height: 1;
+          }
+        }
+      }
+
+      a {
+        color: $secondary;
+        text-decoration: underline;
+        align-self: end;
+        font-size: $font-m;
+      }
+    }
+  }
+}

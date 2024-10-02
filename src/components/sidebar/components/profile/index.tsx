@@ -39,7 +39,7 @@ const Profile = () => {
                 alert('Failed to update username.');
             }
         } else {
-            alert('вы пидорас')
+            alert('This username is already taken')
         }
 
     }
@@ -64,7 +64,7 @@ const Profile = () => {
             <div className={classes.user_info}>
 
                 <div className={classes.profile_pic}>
-                    {username ? username[0] : '?'}
+                    <p>{username ? username[0] : '?'}</p>
                 </div>
 
                 {

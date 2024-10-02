@@ -4,6 +4,7 @@ $auth-index: $index;
 
 .signin_container {
   display: grid;
+  margin-top: calc($index * 15);
 
   p:nth-child(1) {
     color: $primary;
@@ -24,17 +25,6 @@ $auth-index: $index;
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  a {
-    padding: calc($auth-index * 10) calc($auth-index * 45);
-    font-size: calc($index * 15);
-    justify-self: center;
-    background-color: $accent;
-    margin-top: calc($auth-index * 60);
-    border-radius: calc($auth-index * 5);
-    color: $secondary;
-    margin-bottom: calc($auth-index * 30);
   }
 
 }

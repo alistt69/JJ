@@ -1,39 +1,40 @@
 {
   "users": [
     {
-      "id": "1d9b",
-      "username": "sosihuy",
+      "id": "687f",
+      "username": "alistt691",
       "password": "pass1"
     },
     {
-      "id": "27b8",
-      "username": "welcomea",
-      "password": "ASdASD"
+      "id": "b89a",
+      "username": "alistt69",
+      "password": "1024"
     },
     {
-      "id": "bdf1",
-      "username": "welcome",
-      "password": "pass1"
+      "id": "eaee",
+      "username": "alistt6911",
+      "password": "dwadawdawd"
     },
     {
-      "id": "db5a",
-      "username": "user1",
-      "password": "pass1"
+      "id": "a4f0",
+      "username": "username",
+      "password": "password"
     },
     {
-      "id": "1d50",
-      "username": "ASAsASasA",
-      "password": "impass"
+      "id": "ebb2",
+      "username": "imuserloool",
+      "password": "pass"
     },
     {
-      "id": "a01c",
-      "username": "user1",
-      "password": "lol"
+      "id": "3a0a",
+      "username": "soooooos",
+      "password": "ossssssso"
     },
     {
-      "id": "1308",
-      "username": "user1",
-      "password": "hola"
+      "id": "7c17",
+      "username": "newone",
+      "password": "onenew",
+      "offers": []
     }
   ]
 }

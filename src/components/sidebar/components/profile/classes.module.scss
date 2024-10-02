@@ -24,6 +24,10 @@ $forms-index: calc($index * 12);
     width: calc($index * 30);
     text-align: center;
     border-radius: 50%;
+
+    p {
+      margin-bottom: calc($index * 1);
+    }
   }
 
   .username {
@@ -75,7 +79,6 @@ $forms-index: calc($index * 12);
     }
   }
 
-
   .logout_btn {
     justify-self: end;
     align-self: center;
@@ -88,15 +91,9 @@ $forms-index: calc($index * 12);
 
     .logout_img {
       color: $accent;
-      margin-top: calc($index * 4);
+      margin-top: calc($index * 5.5);
       height: calc($index * 19);
       width: calc($index * 19);
     }
   }
-
-
-
-
-
-
 }

@@ -4,7 +4,7 @@ import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
 import { useAddUserMutation, useGetUserByUsernameQuery } from '@/api/auth';
 import {useDispatch} from "react-redux";
 import {setUsername} from "@/store/reducers/auth/authSlice.ts";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -47,7 +47,8 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         e.preventDefault();
 
         if (!user) {
-            await addUser({ username, password }).unwrap();
+            const offers: string[] = []
+            await addUser({ username, password, offers }).unwrap();
             dispatch(setUsername(username));
             console.log('success');
             navigate('/main/home');
@@ -103,7 +104,13 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
                         </div>
 
                     </div>
-                    <button type="submit">Login</button>
+                    { number === "In" && <p className={classes.forgot}>Forgot your password?</p>}
+                    { number === "Up" && <p className={classes.hidden}>Forgot your password?</p>}
+
+                    <button type="submit" className={classes.btn}>
+                        SIGN {number}
+                    </button>
+
                 </form>
             </div>
         </>

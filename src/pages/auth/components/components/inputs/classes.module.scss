@@ -9,7 +9,6 @@ $forms-index: calc($index * 15);
 
 .input_container {
   width: calc($forms-index * 19);
-
 }
 
 .forms_container {
@@ -25,11 +24,13 @@ $forms-index: calc($index * 15);
     background-color: transparent;
     border: none;
 
-     svg {
-       color: $forms-accent-color;
-       height: calc($forms-index * 1.2);
-       width: calc($forms-index * 1.2);
-     }
+    svg {
+      color: $forms-accent-color;
+      height: calc($forms-index * 1.2);
+      width: calc($forms-index * 1.2);
+      cursor: pointer;
+
+    }
   }
 }
 
@@ -81,3 +82,37 @@ $forms-index: calc($index * 15);
   border-image-slice: 1;
   border-color: $forms-main-color;
 }
+
+.hidden {
+  visibility: hidden;
+  color: $accent;
+  font-size: $font-xs;
+  cursor: pointer;
+}
+
+.forgot {
+  color: $accent;
+  font-size: $font-xs;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+
+.btn {
+  border: none;
+  text-transform: uppercase;
+  padding: calc($index * 10) calc($index * 45);
+  font-size: calc($index * 15);
+  justify-self: center;
+  background-color: $accent;
+  margin-top: calc($index * 60);
+  margin-left: calc($index * 65);
+  border-radius: calc($index * 5);
+  color: $secondary;
+  margin-bottom: calc($index * 30);
+}
+
