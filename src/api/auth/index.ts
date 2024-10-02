@@ -1,12 +1,5 @@
-// src/features/userApi.ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-interface User {
-    id?: string;
-    username: string;
-    password: string;
-    offers: string[];
-}
+import {User} from "@/models/user";
 
 const BASE_URL = 'http://localhost:5000/users';
 

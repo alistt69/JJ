@@ -14,7 +14,8 @@ const About = () => {
         skip: username111.length === 0,
     });
 
-    console.log(user && user.id)
+
+    console.log(user, username111)
 
     const handleUpdateUsername = async () => {
         try {

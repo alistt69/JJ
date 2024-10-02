@@ -18,14 +18,16 @@ const Sidebar = () => {
                     <p>main menu</p>
 
                     <li>
-                        <NavLink to={paths.HOME} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                        <NavLink to={paths.HOME}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} HOME
                         </NavLink>
 
                     </li>
 
                     <li>
-                        <NavLink to={paths.ABOUT} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                        <NavLink to={paths.ABOUT}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} ABOUT
                         </NavLink>
                     </li>
@@ -39,13 +41,22 @@ const Sidebar = () => {
                     <p>jobs</p>
 
                     <li>
-                        <NavLink to={offersLink} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                        <NavLink to={paths.MYPOSTS}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                            {'>'} MY POSTS
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to={offersLink}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} OFFERS
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to={paths.LIKED} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                        <NavLink to={paths.LIKED}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} LIKED
                         </NavLink>
                     </li>
@@ -53,7 +64,8 @@ const Sidebar = () => {
                     <p>help</p>
 
                     <li>
-                        <NavLink to={paths.HELP} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
+                        <NavLink to={paths.HELP}
+                                 className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} HELP
                         </NavLink>
                     </li>
@@ -65,7 +77,7 @@ const Sidebar = () => {
                     </li>
 
                 </ul>
-                <Profile />
+                <Profile/>
             </div>
         </>
     )

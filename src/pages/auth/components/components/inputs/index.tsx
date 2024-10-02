@@ -1,10 +1,11 @@
 import classes from "./classes.module.scss"
 import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
-import { useAddUserMutation, useGetUserByUsernameQuery } from '@/api/auth';
+import { useAddUserMutation, useGetUserByUsernameQuery} from '@/api/auth';
 import {useDispatch} from "react-redux";
 import {setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
+import {Item} from "@/models/user";
 
 
 
@@ -47,8 +48,9 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         e.preventDefault();
 
         if (!user) {
-            const offers: string[] = []
-            await addUser({ username, password, offers }).unwrap();
+            const applications: Item[] = [{id: '1', name: 'hueta'}, {id: '2', name: 'hueta2'}]
+            const cvs: Item[] = [{id: '1', name: 'huetaaaa'}, {id: '2', name: 'hueta2'}]
+            await addUser({ username, password, applications, cvs }).unwrap();
             dispatch(setUsername(username));
             console.log('success');
             navigate('/main/home');

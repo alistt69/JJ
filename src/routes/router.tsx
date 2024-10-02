@@ -13,6 +13,7 @@ import Employees from "@/pages/main/jobs/employees";
 import VacanciesLiked from "@/pages/main/liked/vacancies";
 import EmployeesLiked from "@/pages/main/liked/employees";
 import ErrorPage from "@/pages/error";
+import MyPosts from "@/pages/main/posts";
 
 
 const router = createBrowserRouter(
@@ -23,7 +24,9 @@ const router = createBrowserRouter(
             <Route path={paths.MAIN} element={<MainLayout />}>
 
                 <Route path={paths.HOME} element={<Home />} />
+                <Route path={paths.MYPOSTS} element={<MyPosts />} />
                 <Route path={paths.JOBS} element={<JobsLayout />}>
+
                     <Route path={paths.VACANCIES} element={<Vacancies />} />
                     <Route path={paths.EMPLOYEES} element={<Employees />} />
 
