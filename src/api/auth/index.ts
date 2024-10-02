@@ -2,7 +2,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface User {
-    id?: number;
+    id?: string;
     username: string;
     password: string;
 }
@@ -17,6 +17,10 @@ export const userApi = createApi({
             query: (username) => `?username=${username}`,
             transformResponse: (response: User[]) => response[0] || null,
         }),
+        isUserNameUnique: builder.query<boolean, string>({
+            query: (username) => `?username=${username}`,
+            transformResponse: (response: User[]) => response.length > 0,
+        }),
         addUser: builder.mutation<User, Omit<User, 'id'>>({
             query: (newUser) => ({
                 url: '',
@@ -24,7 +28,14 @@ export const userApi = createApi({
                 body: newUser,
             }),
         }),
+        updateUsername: builder.mutation<User, { id: string; newUsername: string }>({
+            query: ({ id, newUsername }) => ({
+                url: `/${id}`,
+                method: 'PATCH',
+                body: { username: newUsername },
+            })
+        }),
     }),
 });
 
-export const { useGetUserByUsernameQuery, useAddUserMutation } = userApi;
+export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery } = userApi;

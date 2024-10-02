@@ -3,68 +3,42 @@
 
 .sidebar_container {
   position: fixed;
+  display: grid;
+  grid-template-rows: calc($index * 55) auto auto;
+  row-gap: calc($index * 10);
   height: calc(100vh - calc($index * 45));
   margin: calc($index * 10);
   width: calc($index * 225);
   font-size: calc($index * 15);
   padding: calc($index * 10) calc($index * 15) calc($index * 15);
   border-radius: calc($index * 15);
-  background-color: white;
+  background-color: $secondary;
 
-  .user_info {
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-    align-items: center;
-    height: calc($index * 30);
-    margin-bottom: calc($index * 20);
-
-    div {
-
-      &:nth-child(1) {
-        background-color: $accent;
-        color: $secondary;
-        justify-self: start;
-        padding: calc($index * 2) calc($index * 9) calc($index * 3);
-        text-align: center;
-        border-radius: 50%;
-      }
-
-      &:nth-child(2) {
-        color: $primary-dark;
-        font-size: $font-s;
-        justify-self: start;
-        padding-left: calc($index * 8);
-      }
-
-      &:nth-child(3) {
-        justify-self: end;
-
-        svg {
-          color: $accent;
-          align-self: center;
-          justify-self: center;
-          height: calc($index * 17);
-          width: calc($index * 17);
-
-        }
-      }
-    }
+  .heading {
+    align-content: center;
+    margin-top: calc($index * 5);
+    background-color: #eeeeee;
+    border-radius: calc($index * 12);
+    padding-left: calc($index * 10);
+    font-size: $font-l;
+    font-weight: bold;
+    color: $accent;
+    line-height: calc($font-l * 1.2);
   }
 
   ul {
-
-
-
     p {
       font-size: $font-xs;
       letter-spacing: calc($index * 1);
       position: relative;
+      color: rgba(0, 0, 0, 0.55);
       margin-left: calc($index * 15);
-      margin-top: calc($index * 20);
-      margin-bottom: calc($index * 10);
+      margin-top: calc($index * 7);
+      margin-bottom: calc($index * 7);
 
 
       &::after {
+        color: rgba(0, 0, 0, 0.55);
         letter-spacing: calc($index * -2.6);
         transform: translate(-50%, -50%);
         position: absolute;
@@ -73,11 +47,11 @@
       }
 
       &::before {
+        color: rgba(0, 0, 0, 0.55);
         content: '__';
-        letter-spacing: calc($index * -2.5);
+        letter-spacing: calc($index * -2.8);
         transform: translate(-50%, -50%);
         position: absolute;
-        color: $primary;
         top: 23%;
         left: -6%;
         right: 102%;
@@ -116,15 +90,20 @@
       a {
         color: $primary-dark;
         height: 100%;
+        letter-spacing: calc($index * .6);
         align-content: center;
+        font-size: $font-s;
         display: block;
-        padding-left: calc($index * 15);
-        border-radius: calc($index * 5);
+        padding-left: calc($index * 12);
+        border-radius: calc($index * 9);
         transition: all .4s ease;
 
+        &:hover {
+          background-color: #eeeeee;
+        }
+
         &.active {
-          color: white;
-          background-color: $accent;
+          background-color: #eeeeee;
         }
       }
     }

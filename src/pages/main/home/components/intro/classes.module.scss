@@ -15,14 +15,14 @@
     &:nth-child(1) {
 
       p:nth-child(2) {
-        width: calc($index * 240);
+        max-width: calc($index * 240);
       }
     }
 
     &:nth-child(2) {
 
       p:nth-child(2) {
-        width: calc($index * 290);
+        max-width: calc($index * 290);
       }
     }
 

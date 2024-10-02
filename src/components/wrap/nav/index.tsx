@@ -21,10 +21,12 @@ const Nav = () => {
     return(
         <>
             <div className={classes.navs}>
-                <div className={classes.nav}>
-                    <Link to='/' className={classes.main}>🏠︎</Link>
+                <div className={classes.nav_wrap}>
+                    <div className={classes.nav}>
+                        <Link to='/' className={classes.main}>🏠︎</Link>
+                    </div>
+                    {crumbs}
                 </div>
-                {crumbs}
             </div>
         </>
     )

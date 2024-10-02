@@ -3,7 +3,7 @@
 .jobs {
   background-color: $secondary;
   padding: calc($index * 10);
-  height: calc(100vh - calc($index * 85));
+  height: calc(100vh - calc($index * 80));
   border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
   position: relative;
 }

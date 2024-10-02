@@ -1,5 +1,5 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
-import {paths} from "@/routes/routes.ts";
+import React, {createContext, useContext} from 'react';
+import useJobsState from "@/hooks/jobs";
 
 interface ContextType {
     started: boolean;
@@ -9,33 +9,19 @@ interface ContextType {
     offersLink: string;
 }
 
-const FunctionsContext = createContext<ContextType | undefined>(undefined);
+interface ContextType {
+    started: boolean;
+    setStarted: (p: (prev: boolean) => boolean) => void;
+    isJobSeeker: boolean;
+    setIsJobSeeker: (isJobSeeker: boolean) => void;
+    offersLink: string;
+}
+
+export const FunctionsContext = createContext<ContextType | undefined>(undefined);
 
 export const FunctionsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-    const [started, setStarted] = useState(() => {
-        const saved = localStorage.getItem('started');
-        return saved === 'true';
-    });
-
-    const [isJobSeeker, setIsJobSeeker] = useState(() => {
-        const saved = localStorage.getItem('isJobSeeker');
-        return saved === 'true';
-    });
-
-    const [offersLink, setOffersLink] = useState<string>(paths.JOBS)
-
-    useEffect(() => {
-        localStorage.setItem('started', JSON.stringify(started));
-        isJobSeeker ? setOffersLink(`${paths.JOBS}/${paths.VACANCIES}`) : setOffersLink(`${paths.JOBS}/${paths.EMPLOYEES}`)
-
-    }, [started]);
-
-    useEffect(() => {
-        localStorage.setItem('isJobSeeker', JSON.stringify(isJobSeeker));
-        isJobSeeker ? setOffersLink(`${paths.JOBS}/${paths.VACANCIES}`) : setOffersLink(`${paths.JOBS}/${paths.EMPLOYEES}`)
-
-    }, [isJobSeeker]);
+   const [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink] = useJobsState()
 
     return (
         <FunctionsContext.Provider value={{
@@ -50,12 +36,11 @@ export const FunctionsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useFunctions = () => {
     const context = useContext(FunctionsContext);
     if (!context) {
-        throw new Error;
+        throw new Error("useFunctions must be used within a FunctionsProvider");
     }
-
     return context;
 };
-

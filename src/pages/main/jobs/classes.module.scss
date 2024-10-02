@@ -64,6 +64,7 @@
     position: absolute;
     border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
     background-color: $accent;
+    height: 100%;
     top: 0;
     bottom: 0;
     right: 0;
@@ -73,7 +74,7 @@
     &.started {
       z-index: 0;
       border-radius: calc($index * 7);
-      bottom: 94%;
+      height: calc($index * 50);
     }
   }
 }

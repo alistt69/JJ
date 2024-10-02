@@ -1,41 +1,19 @@
 import classes from "./classes.module.scss"
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {paths} from "@/routes/routes.ts";
 import {useFunctions} from "@/context/context.tsx";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "@/store";
-import {resetUsername} from "@/store/reducers/auth/authSlice.ts";
-import { LoginOutlined } from "@ant-design/icons"
+import Profile from "@/components/sidebar/components/profile";
 
 const Sidebar = () => {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleSignOut = () => {
-        dispatch(resetUsername());
-        navigate("/");
-    };
-
     const {offersLink} = useFunctions()
-    const username = useSelector((state: RootState) => state.auth.username);
-
+    console.log(offersLink)
 
     return(
         <>
 
             <div className={classes.sidebar_container}>
-                <div className={classes.user_info}>
-                    <div>
-                        {username ? username[0] : '?'}
-                    </div>
-                    <div>
-                        {username}
-                    </div>
-                    <div onClick={handleSignOut}>
-                        <LoginOutlined />
-                    </div>
-                </div>
+                <a className={classes.heading}>JobaJob.</a>
                 <ul>
                     <p>main menu</p>
 
@@ -87,6 +65,7 @@ const Sidebar = () => {
                     </li>
 
                 </ul>
+                <Profile />
             </div>
         </>
     )

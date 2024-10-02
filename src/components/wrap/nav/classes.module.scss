@@ -1,7 +1,9 @@
 @import "src/styles/index";
 
 .navs {
+  position: relative;
   margin-bottom: calc($index * 10);
+  font-size: calc($index * 18);
   background-color: #ffffff;
   padding-left: calc($index * 15);
   border-radius: calc($index * 14) calc($index * 14) calc($index * 7) calc($index * 7);
@@ -9,13 +11,13 @@
 
 .nav {
   display: inline-block;
+  height: calc($index * 12);
 }
 
 .navs .nav:first-child a {
   color: $accent;
 }
 .nav a {
-  font-size: calc($index * 18);
   color: $primary-dark;
   text-decoration: underline;
 

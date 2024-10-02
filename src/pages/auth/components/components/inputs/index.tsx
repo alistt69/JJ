@@ -27,6 +27,8 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         skip: username.length === 0,
     });
 
+    console.log(user)
+
 
 
     const handleSubmitSignIn = async (e: React.FormEvent) => {
@@ -44,10 +46,15 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
     const handleSubmitSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        await addUser({ username, password }).unwrap();
-        dispatch(setUsername(username));
-        console.log('success');
-        navigate('/main/home');
+        if (!user) {
+            await addUser({ username, password }).unwrap();
+            dispatch(setUsername(username));
+            console.log('success');
+            navigate('/main/home');
+        } else {
+            alert('user with this username already exists!')
+        }
+
 
     };
 

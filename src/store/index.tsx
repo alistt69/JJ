@@ -1,4 +1,3 @@
-// src/app/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './reducers/auth/authSlice.ts';
 import { setupListeners } from '@reduxjs/toolkit/query';

@@ -8,7 +8,7 @@ const Div: React.FC<{children: ReactNode}> = ({ children }) => {
         <>
             <div className={classes.wrap}>
                 <Nav />
-                <div className={classes.container}>
+                <div>
                     {children}
                 </div>
             </div>
