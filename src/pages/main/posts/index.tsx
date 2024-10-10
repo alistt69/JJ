@@ -1,32 +1,25 @@
-import {useUserInit} from "@/hooks/init";
+import {useState} from "react";
+import Applications from "@/pages/main/posts/components/applications";
+import Cvs from "@/pages/main/posts/components/cvs";
+import CardsContainer from "@/components/cards/container";
+import classes from "./classes.module.scss"
 
 const MyPosts = () => {
 
-    const user = useUserInit();
-
-
-    if (!user || !user.applications) {
-        return null;
-    }
-
-    const applications = user.applications;
-    console.log(user, applications, user.cvs)
+    const [cvsPage, setCvsPage] = useState(true);
 
     return (
         <>
-            <div>
-                <h2>your applications</h2>
-                {applications.map((item) => (
-                    <>
-                        <div>
-
-                            <p>id: {item.id}</p> <p>name: {item.name}</p>
-
-                        </div>
-                    </>
-                ))}
-            </div>
-
+            <CardsContainer>
+                <div className={classes.postsNav_container}>
+                    <div onClick={() => setCvsPage(prevState => !prevState)} className={classes.posts_switcher}>
+                        My
+                        <p>{cvsPage ? 'cvs' : 'applications'}</p>
+                    </div>
+                    <img className={classes.image} src="/src/images/createnew/createnew.png" alt={''}/>
+                </div>
+                {cvsPage ? <Cvs/> : <Applications/>}
+            </CardsContainer>
         </>
     )
 }

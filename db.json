@@ -1,352 +1,146 @@
 {
   "users": [
     {
-      "id": "6131",
-      "username": "user1",
-      "password": "pass1",
+      "id": "59c9",
+      "username": "alistt69",
+      "password": "hola",
       "applications": [
         {
-          "id": "1",
-          "name": "hueta"
+          "name": "good",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1000$",
+          "location": "efaefsw",
+          "id": "ID43LRHMNG5"
         },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
+        null
       ],
       "cvs": [
         {
-          "id": "1",
-          "name": "huetaaaa"
+          "name": "Artyom Kachyro",
+          "profession": "Frontend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Moscow, Italy",
+          "wantedSalary": "1$",
+          "id": "ID43LOBJM65"
         },
         {
-          "id": "2",
-          "name": "hueta2"
+          "name": "Artyom Listov",
+          "profession": "Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Rome, Italy",
+          "wantedSalary": "10$",
+          "id": "ID43Q9BDRPF"
         }
       ]
     },
     {
-      "id": "e07d",
-      "username": "user2",
-      "password": "pass2",
+      "id": "ab51",
+      "username": "sefsef",
+      "password": "sefs",
       "applications": [
         {
-          "id": "1",
-          "name": "hueta"
+          "name": "good",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1000$",
+          "location": "Ryazan, Russia",
+          "id": "ID71ZQZMZRV"
         },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
+        null
       ],
       "cvs": [
         {
-          "id": "1",
-          "name": "huetaaaa"
+          "name": "Artyom Kachyro",
+          "profession": "Frontend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Moscow, Italy",
+          "wantedSalary": "1$",
+          "id": "ID71O1KYNG0"
         },
         {
-          "id": "2",
-          "name": "hueta2"
+          "name": "Artyom Listov",
+          "profession": "Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Rome, Italy",
+          "wantedSalary": "10$",
+          "id": "ID71H2HOX50"
         }
       ]
     },
     {
-      "id": "c71b",
-      "username": "фЫфы",
-      "password": "ФЫфыФ",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "0d32",
-      "username": "qSs",
-      "password": "Q",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "5c01",
-      "username": "sdsd",
-      "password": "asdasds",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "f33f",
-      "username": "awdawd",
-      "password": "dawdad",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "a08f",
-      "username": "adwdawd",
-      "password": "adda",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "ddd7",
-      "username": "dawdaw",
-      "password": "dadwawd",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "305f",
-      "username": "awdawda",
-      "password": "adad",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "9fbd",
-      "username": "dawdawd",
-      "password": "awdawd",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "04e1",
-      "username": "dawdawda",
-      "password": "dawawd",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "c134",
-      "username": "aqss",
-      "password": "qs",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "1f85",
-      "username": "wewada",
-      "password": "d",
-      "applications": [
-        {
-          "id": "1",
-          "name": "hueta"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "1",
-          "name": "huetaaaa"
-        },
-        {
-          "id": "2",
-          "name": "hueta2"
-        }
-      ]
-    },
-    {
-      "id": "0e09",
-      "username": "a",
+      "id": "abab",
+      "username": "awd",
       "password": "daw",
       "applications": [
         {
-          "id": "1",
-          "name": "hueta"
+          "name": "Junior Frontend Developer1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1000$",
+          "location": "Ryazan, Russia",
+          "id": "ID13CBXBZAH"
         },
         {
-          "id": "2",
-          "name": "hueta2"
+          "name": "Junior Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1100$",
+          "location": "Berlin, Germany",
+          "id": "ID13DDYIJQV"
         }
       ],
       "cvs": [
         {
-          "id": "1",
-          "name": "huetaaaa"
+          "name": "Artyom Kachyro",
+          "profession": "Frontend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Moscow, Italy",
+          "wantedSalary": "1$",
+          "id": "ID133HBFSJZ"
         },
         {
-          "id": "2",
-          "name": "hueta2"
+          "name": "Artyom Listov",
+          "profession": "Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Rome, Italy",
+          "wantedSalary": "10$",
+          "id": "ID13MNL7JT3"
+        }
+      ]
+    },
+    {
+      "id": "f4be",
+      "username": "ggrg",
+      "password": "drgrdgd",
+      "applications": [
+        {
+          "name": "Junior Frontend Developerawr",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1000$",
+          "location": "Ryazan, Russia",
+          "id": "ID31YAXOGXS"
+        },
+        {
+          "name": "Junior Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1100$",
+          "location": "Berlin, Germany",
+          "id": "ID315K8I602"
+        }
+      ],
+      "cvs": [
+        {
+          "name": "Artyom Kachyro",
+          "profession": "Frontend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Moscow, Italy",
+          "wantedSalary": "1$",
+          "id": "ID31KP8BZC9"
+        },
+        {
+          "name": "Artyom Listov",
+          "profession": "Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Rome, Italy",
+          "wantedSalary": "10$",
+          "id": "ID3137KJUYQ"
         }
       ]
     }

@@ -1,16 +1,16 @@
 @import "src/styles/index";
 
 .offers_container {
-
+  color: $primary-dark;
 
   .jobs_heading {
     position: relative;
-    color: $secondary;
-    font-size: $font-m;
+    font-size: calc($font-m *.96);
     z-index: 1;
+    border-bottom: calc($index * 1.5) solid $accent;
 
     a {
-      color: $secondary;
+      color: $primary-dark;
       text-decoration: underline;
     }
   }
@@ -72,9 +72,7 @@
     transition: all 1s cubic-bezier(.85,-0.17,.39,.95);
 
     &.started {
-      z-index: 0;
-      border-radius: calc($index * 7);
-      height: calc($index * 50);
+      height: 0;
     }
   }
 }

@@ -24,12 +24,12 @@ const Jobs = () => {
             <div className={classes.offers_container}>
                 {started ?
                     <div className={classes.jobs_heading}>
-                        You're searching offers as {' '}
+                        I'm {' '}
                         {(isJobSeeker) ?
 
-                            <NavLink to={paths.EMPLOYEES} onClick={handleChange}>a job seeker</NavLink>
+                            <NavLink to={paths.EMPLOYEES} onClick={handleChange}>job seeker</NavLink>
                             :
-                            <NavLink to={paths.VACANCIES} onClick={handleChange}>an employer</NavLink>
+                            <NavLink to={paths.VACANCIES} onClick={handleChange}>employer</NavLink>
                         }
                     </div>
                     :

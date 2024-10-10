@@ -10,20 +10,23 @@
     margin-bottom: calc($index * 3);
   }
 
-  .heading {
-    display: inline-block;
-    margin-right: calc($index * 3);
-    color: #000000;
-  }
-
-  .subheading {
-    display: inline-block;
-  }
-
-  .name {
+  .profession {
     font-size: $font-m;
     color: rgba(0, 0, 0, 0.65);
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      height: calc($index * 17);
+      cursor: pointer;
+      transition: transform .4s ease;
+
+      &:hover {
+        transform: scale(1.13);
+      }
+    }
   }
 
   .location {

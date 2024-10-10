@@ -1,0 +1,31 @@
+@import "src/styles/index";
+
+
+.postsNav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: calc($index * 1.5) solid $accent;
+
+  .posts_switcher {
+    display: inline-block;
+    font-size: calc($font-m *.96);
+    cursor: pointer;
+
+    p {
+      display: inline-block;
+      margin-left: calc($index * 4);
+      text-decoration: underline;
+    }
+  }
+
+  .image {
+    height: calc($index * 25);
+    transition: transform .4s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
