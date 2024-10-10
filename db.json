@@ -128,11 +128,53 @@
       "cvs": [
         {
           "name": "Artyom Kachyro",
-          "profession": "Frontend Developer",
+          "profession": "Frontend Developerawraaaaaaa",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "location": "Moscow, Italy",
           "wantedSalary": "1$",
-          "id": "ID31KP8BZC9"
+          "id": "ID31KP8BZC9",
+          "salary": "1$"
+        },
+        {
+          "name": "Artyom Listov",
+          "profession": "Backend Developeradwd",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Rome, Italy",
+          "wantedSalary": "10$",
+          "id": "ID3137KJUYQ",
+          "salary": "10$"
+        }
+      ]
+    },
+    {
+      "id": "9808",
+      "username": "awdwad",
+      "password": "awd",
+      "applications": [
+        {
+          "name": "Junior Frontend Developerawdwad",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1000$",
+          "location": "Ryazan, Russia",
+          "id": "ID07GP0JZA2"
+        },
+        {
+          "name": "Junior Backend Developer",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "salary": "1100$",
+          "location": "Berlin, Germany",
+          "id": "ID07VCEWEYG"
+        }
+      ],
+      "cvs": [
+        {
+          "name": "Artyom Kachyro",
+          "profession": "Frontend Developersa",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "location": "Moscow, Italy",
+          "wantedSalary": "1$",
+          "id": "ID07EIYX79Q",
+          "salary": "1$"
         },
         {
           "name": "Artyom Listov",
@@ -140,7 +182,7 @@
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "location": "Rome, Italy",
           "wantedSalary": "10$",
-          "id": "ID3137KJUYQ"
+          "id": "ID07804YVP5"
         }
       ]
     }

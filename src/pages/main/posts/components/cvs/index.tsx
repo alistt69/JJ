@@ -20,7 +20,7 @@ const Cvs = () => {
                     <div key={item.id}>
 
                         <FullCard name={item.name} description={item.description} location={item.location}
-                                  id={item.id ? item.id : ''} profession={item.profession} wantedSalary={item.wantedSalary} key={item.id} />
+                                  cvsId={item.id ? item.id : ''} profession={item.profession} wantedSalary={item.wantedSalary} key={item.id} />
 
                     </div>
             ))}
