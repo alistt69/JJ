@@ -8,12 +8,15 @@ import JobsLayout from "@/layouts/jobs";
 import LikedLayout from "@/layouts/liked";
 import Help from "@/pages/main/help";
 import About from "@/pages/main/about";
-import Vacancies from "@/pages/main/jobs/vacancies";
-import Employees from "@/pages/main/jobs/employees";
-import VacanciesLiked from "@/pages/main/liked/vacancies";
-import EmployeesLiked from "@/pages/main/liked/employees";
+import Applications from "@/pages/main/jobs/applications";
+import Cvs from "@/pages/main/jobs/cvs";
+import ApplicationsLiked from "../pages/main/liked/applications";
+import CvsLiked from "../pages/main/liked/cvs";
 import ErrorPage from "@/pages/error";
-import MyPosts from "@/pages/main/posts";
+import PostsLayout from "@/layouts/posts";
+import MyCvs from "@/pages/main/posts/cvs";
+import MyApplications from "@/pages/main/posts/applications";
+import Upload from "@/pages/main/posts/upload";
 
 
 const router = createBrowserRouter(
@@ -24,17 +27,23 @@ const router = createBrowserRouter(
             <Route path={paths.MAIN} element={<MainLayout />}>
 
                 <Route path={paths.HOME} element={<Home />} />
-                <Route path={paths.MYPOSTS} element={<MyPosts />} />
+                <Route path={paths.MYPOSTS} element={<PostsLayout />}>
+
+                    <Route path={paths.CVS} element={<MyCvs />} />
+                    <Route path={paths.APPLICATIONS} element={<MyApplications />} />
+                    <Route path={paths.UPLOAD} element={<Upload />} />
+
+                </Route>
                 <Route path={paths.JOBS} element={<JobsLayout />}>
 
-                    <Route path={paths.VACANCIES} element={<Vacancies />} />
-                    <Route path={paths.EMPLOYEES} element={<Employees />} />
+                    <Route path={paths.APPLICATIONS} element={<Applications />} />
+                    <Route path={paths.CVS} element={<Cvs />} />
 
                 </Route>
                 <Route path={paths.LIKED} element={<LikedLayout />}>
 
-                    <Route path={paths.VACANCIES} element={<VacanciesLiked />} />
-                    <Route path={paths.EMPLOYEES} element={<EmployeesLiked />} />
+                    <Route path={paths.APPLICATIONS} element={<ApplicationsLiked />} />
+                    <Route path={paths.CVS} element={<CvsLiked />} />
 
                 </Route>
                 <Route path={paths.HELP} element={<Help />} />

@@ -1,7 +1,7 @@
 import {useUserInit} from "@/hooks/init";
 import FullCard from "@/components/cards/cvs/vFU";
 
-const Cvs = () => {
+const MyCvs = () => {
 
     const user = useUserInit();
 
@@ -28,4 +28,4 @@ const Cvs = () => {
     )
 }
 
-export default Cvs;
+export default MyCvs;

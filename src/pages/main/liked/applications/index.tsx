@@ -1,4 +1,4 @@
-const VacanciesLiked = () => {
+const ApplicationsLiked = () => {
 
     return(
         <>
@@ -7,4 +7,4 @@ const VacanciesLiked = () => {
     )
 }
 
-export default VacanciesLiked;
+export default ApplicationsLiked;

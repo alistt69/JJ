@@ -1,6 +1,6 @@
 import classes from "./classes.module.scss";
 
-const Employees = () => {
+const Cvs = () => {
 
     return(
         <>
@@ -9,4 +9,4 @@ const Employees = () => {
     )
 }
 
-export default Employees;
+export default Cvs;

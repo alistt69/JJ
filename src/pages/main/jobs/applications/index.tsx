@@ -1,8 +1,6 @@
 import classes from "./classes.module.scss"
 
-const Vacancies = () => {
-
-
+const Applications = () => {
 
     return(
         <>
@@ -11,4 +9,4 @@ const Vacancies = () => {
     )
 }
 
-export default Vacancies;
+export default Applications;

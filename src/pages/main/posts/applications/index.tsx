@@ -1,7 +1,7 @@
 import {useUserInit} from "@/hooks/init";
 import FullCard from "@/components/cards/applications/vFU";
 
-const Applications = () => {
+const MyApplications = () => {
 
     const user = useUserInit();
 
@@ -20,4 +20,4 @@ const Applications = () => {
     )
 }
 
-export default Applications;
+export default MyApplications;

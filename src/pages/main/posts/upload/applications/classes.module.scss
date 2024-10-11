@@ -1,0 +1,106 @@
+@import "src/styles/index";
+
+$forms-main-color: black;
+$forms-accent-color: rgba(0, 0, 0, 0.65);
+$forms-index: calc($index * 13);
+
+.input_container {
+  width: auto;
+}
+
+.forms_container {
+  position: relative;
+  padding: $forms-index 0 0;
+  width: 100%;
+
+  &:nth-child(1) {
+    width: 30%;
+  }
+
+  &:nth-child(2) {
+    width: 25%;
+  }
+
+  &:nth-child(3) {
+    width: 25%;
+  }
+}
+
+.form_field {
+  width: 100%;
+  border: 0;
+  border-bottom: calc($forms-index * .0683) solid $forms-main-color;
+  outline: 0;
+  font-size: $forms-index;
+  color: $forms-main-color;
+  padding: calc($forms-index * .4783) 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form_label {
+    font-size: $forms-index;
+    cursor: text;
+    top: 50%;
+    color: $forms-accent-color;
+  }
+}
+
+.form_label {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: calc($forms-index * .8);
+  color: $forms-accent-color;
+}
+
+.form_field:focus {
+  ~ .form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: calc($forms-index * .8);
+    color: $forms-main-color;
+  }
+
+  padding-bottom: calc($forms-index * .4783);
+  border-image-slice: 1;
+  border-color: $forms-main-color;
+}
+
+.submit_btn {
+  margin-top: calc($index * 10);
+  border-radius: calc($index * 5);
+  background-color: transparent;
+  padding: calc($index * 2) calc($index * 20);
+  color: $accent;
+  border: $index solid $accent;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all .4s ease;
+
+  &:hover {
+    background-color: $accent;
+    color: $secondary-light;
+  }
+}
+
+.forms_description {
+  margin-top: calc($index * 25);
+
+  textarea {
+    height: calc($index * 150);
+    padding: calc($index * 7);
+    border-radius: calc($index * 5);
+    resize: none;
+    width: calc(100% - calc($index * 20));
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}

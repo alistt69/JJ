@@ -12,15 +12,16 @@
     font-size: calc($font-m *.96);
     cursor: pointer;
 
-    p {
+    a {
       display: inline-block;
       margin-left: calc($index * 4);
       text-decoration: underline;
+      color: $primary-dark;
     }
   }
 
   .image {
-    height: calc($index * 25);
+    height: calc($index * 23);
     transition: transform .4s ease;
     cursor: pointer;
 

@@ -41,14 +41,14 @@ const Sidebar = () => {
                     <p>jobs</p>
 
                     <li>
-                        <NavLink to={paths.MYPOSTS}
+                        <NavLink to={offersLink === paths.CVS ? `${paths.MYPOSTS}/${paths.APPLICATIONS}` : `${paths.MYPOSTS}/${paths.CVS}`}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} MY POSTS
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to={offersLink}
+                        <NavLink to={`${paths.JOBS}/${offersLink}`}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
                             {'>'} OFFERS
                         </NavLink>

@@ -1,10 +1,15 @@
 @import "src/styles/index";
 
-.cards {
-  display: grid;
-  grid-auto-rows: auto;
-  row-gap: calc($index * 15);
+.wrap {
+  position: relative;
+  min-height: calc(100vh - calc($index * 58));
+  border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
   background-color: $secondary;
-  padding: calc($index * 15);
-  border-radius: calc($index * 7);
+
+  .cards {
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: calc($index * 15);
+    padding: calc($index * 15);
+  }
 }

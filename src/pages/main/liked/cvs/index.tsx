@@ -1,4 +1,4 @@
-const EmployeesLiked = () => {
+const CvsLiked = () => {
 
     return(
         <>
@@ -7,4 +7,4 @@ const EmployeesLiked = () => {
     )
 }
 
-export default EmployeesLiked;
+export default CvsLiked;

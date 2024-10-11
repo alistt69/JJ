@@ -8,8 +8,8 @@ const Switcher = () => {
         <>
             <div className={classes.switcher}>
                 <nav>
-                    <NavLink to={paths.EMPLOYEES} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>EMPLOYEES</NavLink>
-                    <NavLink to={paths.VACANCIES} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>VACANCIES</NavLink>
+                    <NavLink to={paths.CVS} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>EMPLOYEES</NavLink>
+                    <NavLink to={paths.APPLICATIONS} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>VACANCIES</NavLink>
                     <div className={classes.animation}></div>
                 </nav>
             </div>

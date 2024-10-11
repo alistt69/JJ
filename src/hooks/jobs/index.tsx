@@ -8,7 +8,7 @@ const useJobsState = () => {
         return saved === 'true';
     });
 
-    const [isJobSeeker, setIsJobSeeker] = useState(() => {
+    const [isJobSeeker, setIsJobSeeker] = useState<boolean>(() => {
         const saved = localStorage.getItem('isJobSeeker');
         return saved === 'true';
     });
@@ -21,9 +21,9 @@ const useJobsState = () => {
 
     useEffect(() => {
         localStorage.setItem('isJobSeeker', JSON.stringify(isJobSeeker));
-        const newOffersLink = isJobSeeker ? `${paths.JOBS}/${paths.VACANCIES}` : `${paths.JOBS}/${paths.EMPLOYEES}`;
+        const newOffersLink = isJobSeeker ? paths.APPLICATIONS : paths.CVS;
         setOffersLink(newOffersLink);
-
+        console.log(isJobSeeker, newOffersLink);
     }, [isJobSeeker]);
 
     return [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink] as const;

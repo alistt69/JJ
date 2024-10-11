@@ -27,16 +27,16 @@ const Jobs = () => {
                         I'm {' '}
                         {(isJobSeeker) ?
 
-                            <NavLink to={paths.EMPLOYEES} onClick={handleChange}>job seeker</NavLink>
+                            <NavLink to={paths.CVS} onClick={handleChange}>job seeker</NavLink>
                             :
-                            <NavLink to={paths.VACANCIES} onClick={handleChange}>employer</NavLink>
+                            <NavLink to={paths.APPLICATIONS} onClick={handleChange}>employer</NavLink>
                         }
                     </div>
                     :
                     <div className={classes.start}>
                         <p className={classes.title}>Hello, {username}</p>
                         <p className={classes.subtitle}>JobaJob. Where Aspirations Meet Achievements.</p>
-                        <NavLink to={paths.EMPLOYEES} className={classes.start_btn} onClick={handleClick}>START YOUR JOURNEY</NavLink>
+                        <p className={classes.start_btn} onClick={handleClick}>START YOUR JOURNEY</p>
                     </div>
                 }
 

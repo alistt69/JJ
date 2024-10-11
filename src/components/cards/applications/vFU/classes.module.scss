@@ -9,8 +9,9 @@
 
   .close {
     position: absolute;
-    right:  calc($index * 11);
-    transition: all .4s ease;
+    right: calc($index * 20);
+    top: calc($index * 20);
+    transition: all .25s ease;
 
     &:hover {
       transform: rotate(270deg) scale(1.3);

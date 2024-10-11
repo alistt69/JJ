@@ -1,10 +1,10 @@
-const UploadApplications = () => {
+const UploadCvs = () => {
 
     return(
         <>
-            appl upload page
+            cvs upload page
         </>
     )
 }
 
-export default UploadApplications;
+export default UploadCvs;
