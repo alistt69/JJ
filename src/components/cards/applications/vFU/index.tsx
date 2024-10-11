@@ -12,24 +12,25 @@ const FullCard: React.FC<{
     appId: string,
 }> = ({ name, description, location, salary, appId }) => {
 
-    const user = useUserInit();
-    const [editMode, setEditMode] = useState(false);
     const [newProfession, setNewProfession] = useState(name)
     const [newLocation, setNewLocation] = useState(location)
     const [newSalary, setNewSalary] = useState(salary)
     const [newDescription, setNewDescription] = useState(description)
+    const [editMode, setEditMode] = useState(false);
+    const [objCopy, setObjCopy] = useState({
+        name: name,
+        description: description,
+        salary: salary,
+        location: location
+    })
+
     const [updateApplication] = useUpdateApplicationsMutation()
-
-    if (!user || !user.applications) {
-        return null;
-    }
-
+    const user = useUserInit();
+    if (!user || !user.applications) {return null;}
     const applications = user.applications;
 
     function updateItemById(id: string) {
-
         return applications.map(item => {
-
             if (item.id === id) {
                 return {
                     ...item,
@@ -43,13 +44,18 @@ const FullCard: React.FC<{
         });
     }
 
-
     const handleAppChange = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const newApplications = updateItemById(appId)
             const id: string = user ? user.id ? user.id : '' : ''
             await updateApplication({id, newApplications}).unwrap();
+            setObjCopy({
+                name: newProfession,
+                description: newDescription,
+                salary: newSalary,
+                location: newLocation
+            })
             setEditMode(prev => !prev);
             alert(`Application ${appId} updated successfully!`);
         } catch (error) {
@@ -58,11 +64,20 @@ const FullCard: React.FC<{
     }
 
     const handleCancellation = () => {
-        setNewProfession(name)
-        setNewLocation(location)
-        setNewDescription(description)
-        setNewSalary(salary)
-        setEditMode(prevState => !prevState)
+
+        if (objCopy) {
+            const { name, description, location, salary } = objCopy;
+            console.log(name, description, location, salary)
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            setNewProfession(_prev => {return name})
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            setNewLocation(_prev => {return location})
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            setNewDescription(_prev => {return description})
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            setNewSalary(_prev => {return salary})
+            setEditMode(prevState => !prevState)
+        }
     }
 
     return (
@@ -123,8 +138,6 @@ const FullCard: React.FC<{
                         </>
                 }
             </div>
-
-
         </>
     )
 }

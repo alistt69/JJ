@@ -152,10 +152,10 @@
       "password": "awd",
       "applications": [
         {
-          "name": "Junior Frontend Developerawdwad",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "salary": "1000$",
-          "location": "Ryazan, Russia",
+          "name": "12",
+          "description": "12",
+          "salary": "12",
+          "location": "12",
           "id": "ID07GP0JZA2"
         },
         {
@@ -168,13 +168,13 @@
       ],
       "cvs": [
         {
-          "name": "Artyom Kachyro",
-          "profession": "Frontend Developersa",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Moscow, Italy",
-          "wantedSalary": "1$",
+          "name": "1234g123qw123fq1",
+          "profession": "q",
+          "description": "1234g123qw123fq1",
+          "location": "1234g123qw123fq1",
+          "wantedSalary": "1234g123qw123fq1",
           "id": "ID07EIYX79Q",
-          "salary": "1$"
+          "salary": "2"
         },
         {
           "name": "Artyom Listov",
