@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import classes from "./classes.module.scss"
-import {CloseOutlined, EditOutlined} from "@ant-design/icons";
+import {CloseOutlined, EditOutlined, DeleteOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import {useUserInit} from "@/hooks/init";
 import {useUpdateApplicationsMutation} from "@/api/auth";
+import {Popconfirm} from "antd";
 
 const FullCard: React.FC<{
     name: string,
@@ -87,7 +88,19 @@ const FullCard: React.FC<{
                     !editMode ?
                         <>
                             <div className={classes.name}>
-                                <p>{newProfession}</p><EditOutlined onClick={() => setEditMode(prevState => !prevState)}/>
+                                <p>{newProfession}</p>
+                                <div>
+                                    <EditOutlined onClick={() => setEditMode(prevState => !prevState)}/>
+                                    <Popconfirm
+                                        title="DELETING"
+                                        description="Are you sure to delete this application?"
+                                        icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+                                        cancelText="yes"
+                                        okText="no"
+                                    >
+                                        <DeleteOutlined />
+                                    </Popconfirm>
+                                </div>
                             </div>
 
                             <div className={classes.location}>

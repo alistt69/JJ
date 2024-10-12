@@ -20,7 +20,9 @@ img {
 svg, path {
   color: inherit;
 }
-
+.ant-btn {
+  background-color: red !important;
+}
 ::selection {
   background-color: $secondary;
   color: $accent;

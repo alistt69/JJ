@@ -41,8 +41,15 @@
     justify-content: space-between;
     align-items: center;
 
+    .popconfirm {
+      button {
+        background-color: black !important;
+      }
+    }
+
     svg {
       height: calc($index * 17);
+      margin-left: calc($index * 5);
       cursor: pointer;
       transition: transform .4s ease;
 

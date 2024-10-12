@@ -43,6 +43,7 @@
   }
 
   .start_btn {
+    display: inline-block;
     border-radius: calc($index * 7);
     font-size: $font-s;
     letter-spacing: calc($font-s * .07);
