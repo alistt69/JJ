@@ -2,12 +2,11 @@ import classes from "./classes.module.scss"
 import {NavLink} from "react-router-dom";
 import {paths} from "@/routes/routes.ts";
 import {useFunctions} from "@/context/context.tsx";
-import Profile from "@/components/sidebar/components/profile";
+import Profile from "@/components/containers/main/components/sidebar/profile";
 
 const Sidebar = () => {
 
     const {offersLink} = useFunctions()
-    console.log(offersLink)
 
     return(
         <>

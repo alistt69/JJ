@@ -1,15 +1,13 @@
-import Sidebar from "@/components/sidebar";
-import Wrap from "@/components/wrap";
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import MainContainer from "@/components/containers/main";
 
 const MainLayout = () => {
 
     return(
         <>
-            <Sidebar />
-            <Wrap>
+            <MainContainer>
                 <Outlet />
-            </Wrap>
+            </MainContainer>
         </>
     )
 }

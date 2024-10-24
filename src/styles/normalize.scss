@@ -20,9 +20,25 @@ img {
 svg, path {
   color: inherit;
 }
+
 .ant-btn {
-  background-color: red !important;
+  background-color: transparent;
+  color: $accent;
+  border: 1px solid $accent;
+
+  &:hover {
+    background-color: $accent !important;
+    color: white !important;
+    border-color: $accent !important;
+  }
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
 ::selection {
   background-color: $secondary;
   color: $accent;

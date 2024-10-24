@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import classes from "./classes.module.scss"
 import {CloseOutlined, EditOutlined, DeleteOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import {useUserInit} from "@/hooks/init";
-import {useUpdateApplicationsMutation} from "@/api/auth";
+import { useUpdatePostsMutation } from "@/api/auth";
 import {Popconfirm} from "antd";
 
 const FullCard: React.FC<{
@@ -11,7 +11,8 @@ const FullCard: React.FC<{
     location: string,
     salary: string,
     appId: string,
-}> = ({ name, description, location, salary, appId }) => {
+    handleDeleting: () => void,
+}> = ({ name, description, location, salary, appId, handleDeleting }) => {
 
     const [newProfession, setNewProfession] = useState(name)
     const [newLocation, setNewLocation] = useState(location)
@@ -25,9 +26,9 @@ const FullCard: React.FC<{
         location: location
     })
 
-    const [updateApplication] = useUpdateApplicationsMutation()
+    const [updatePost] = useUpdatePostsMutation()
+
     const user = useUserInit();
-    if (!user || !user.applications) {return null;}
     const applications = user.applications;
 
     function updateItemById(id: string) {
@@ -48,9 +49,8 @@ const FullCard: React.FC<{
     const handleAppChange = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const newApplications = updateItemById(appId)
-            const id: string = user ? user.id ? user.id : '' : ''
-            await updateApplication({id, newApplications}).unwrap();
+            const newArr = updateItemById(appId)
+            await updatePost({id: user?.id || '', newArr, haveToBeUpdated: "applications"}).unwrap();
             setObjCopy({
                 name: newProfession,
                 description: newDescription,
@@ -81,6 +81,8 @@ const FullCard: React.FC<{
         }
     }
 
+
+
     return (
         <>
             <div className={classes.cart_container}>
@@ -97,6 +99,7 @@ const FullCard: React.FC<{
                                         icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
                                         cancelText="yes"
                                         okText="no"
+                                        onCancel={handleDeleting}
                                     >
                                         <DeleteOutlined />
                                     </Popconfirm>

@@ -28,7 +28,7 @@ const Profile = () => {
     const handleNewUserName = async (newUsername: string) => {
         if (!isUnique) {
             try {
-                const id: string = user ? user.id ? user.id : '' : ''
+                const id: string = user?.id ? user.id : ''
                 const updatedUser = await updateUsername({id, newUsername}).unwrap();
                 dispatch(setUsername(updatedUser.username));
                 setIsChangingUserName(false)
@@ -41,7 +41,6 @@ const Profile = () => {
         } else {
             alert('This username is already taken')
         }
-
     }
 
     const handleSignOut = () => {

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
 import { useAddUserMutation, useGetUserByUsernameQuery} from '@/api/auth';
 import {useDispatch} from "react-redux";
-import {setUsername} from "@/store/reducers/auth/authSlice.ts";
+import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
 
@@ -30,13 +30,62 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
 
     console.log(user)
 
+    const applications: ItemApp[] = [{
+        name: 'Junior Frontend Developer',
+        description:
+            'Lorem ipsum dolor sit amet,' +
+            ' consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
+            ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ' +
+            'consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat ' +
+            'nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt ' +
+            'mollit anim id est laborum.',
+        salary: "1000$",
+        location: "Ryazan, Russia"
+    }, {
+        name: 'Junior Backend Developer',
+        description:
+            "Lorem ipsum dolor sit amet, " +
+            "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
+            "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
+            "mollit anim id est laborum.",
+        salary: "1100$",
+        location: "Berlin, Germany"
+    }]
 
+    const cvs: ItemCvs[] = [{
+        name: 'Artyom Kachyro',
+        profession: "Frontend Developer",
+        description:
+            "Lorem ipsum dolor sit amet, " +
+            "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
+            "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
+            "mollit anim id est laborum.",
+        location: "Moscow, Italy",
+        wantedSalary: "1$"
+    }, {
+        name: 'Artyom Listov',
+        profession: "Backend Developer",
+        description:
+            "Lorem ipsum dolor sit amet, " +
+            "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
+            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
+            "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
+            "mollit anim id est laborum.",
+        location: "Rome, Italy",
+        wantedSalary: "10$"
+    }]
 
     const handleSubmitSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
         if (user && user.password === password) {
             dispatch(setUsername(username));
             console.log('success');
+            dispatch(setUser({username, password, applications, cvs}))
             navigate('/main/home');
 
         } else {
@@ -48,64 +97,15 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         e.preventDefault();
 
         if (!user) {
-            const applications: ItemApp[] = [{
-                name: 'Junior Frontend Developer',
-                description:
-                    'Lorem ipsum dolor sit amet,' +
-                    ' consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
-                    ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ' +
-                    'consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat ' +
-                    'nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt ' +
-                    'mollit anim id est laborum.',
-                salary: "1000$",
-                location: "Ryazan, Russia"
-            }, {
-                name: 'Junior Backend Developer',
-                description:
-                    "Lorem ipsum dolor sit amet, " +
-                    "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-                    " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-                    "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
-                    "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-                    "mollit anim id est laborum.",
-                salary: "1100$",
-                location: "Berlin, Germany"
-            }]
 
-            const cvs: ItemCvs[] = [{
-                name: 'Artyom Kachyro',
-                profession: "Frontend Developer",
-                description:
-                    "Lorem ipsum dolor sit amet, " +
-                    "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-                    " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-                    "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
-                    "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-                    "mollit anim id est laborum.",
-                location: "Moscow, Italy",
-                wantedSalary: "1$"
-            }, {
-                name: 'Artyom Listov',
-                profession: "Backend Developer",
-                description:
-                    "Lorem ipsum dolor sit amet, " +
-                    "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-                    " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-                    "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
-                    "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-                    "mollit anim id est laborum.",
-                location: "Rome, Italy",
-                wantedSalary: "10$"
-            }]
             await addUser({ username, password, applications, cvs }).unwrap();
+            dispatch(setUser( {username, password, applications, cvs}))
             dispatch(setUsername(username));
             console.log('success');
             navigate('/main/home');
         } else {
             alert('user with this username already exists!')
         }
-
-
     };
 
 

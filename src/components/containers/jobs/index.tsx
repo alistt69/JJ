@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import classes from "./classes.module.scss"
 
-const JobsWrap: React.FC<{children: ReactNode}> = ({ children }) => {
+const JobsContainer: React.FC<{children: ReactNode}> = ({ children }) => {
 
     return(
         <>
@@ -12,4 +12,4 @@ const JobsWrap: React.FC<{children: ReactNode}> = ({ children }) => {
     )
 }
 
-export default JobsWrap;
+export default JobsContainer;

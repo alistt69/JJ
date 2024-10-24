@@ -2,12 +2,10 @@
 
 
 .sidebar_container {
-  position: fixed;
   display: grid;
   grid-template-rows: calc($index * 55) auto auto;
   row-gap: calc($index * 10);
   height: calc(100vh - calc($index * 45));
-  margin: calc($index * 10);
   width: calc($index * 225);
   font-size: calc($index * 15);
   padding: calc($index * 10) calc($index * 15) calc($index * 15);
@@ -17,7 +15,7 @@
   .heading {
     align-content: center;
     margin-top: calc($index * 5);
-    background-color: #eeeeee;
+    background-color: $secondary-light;
     border-radius: calc($index * 12);
     padding-left: calc($index * 10);
     font-size: $font-l;
@@ -99,11 +97,11 @@
         transition: all .4s ease;
 
         &:hover {
-          background-color: #eeeeee;
+          background-color: rgba(82, 76, 161, 0.25);
         }
 
         &.active {
-          background-color: #eeeeee;
+          background-color: $secondary-light;
         }
       }
     }

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {ItemApp, ItemCvs, User} from "@/models/user";
+import { ItemApp, ItemCvs, User } from "@/models/user";
 
 const BASE_URL = 'http://localhost:5000/users';
 
@@ -73,7 +73,15 @@ export const userApi = createApi({
                 body: { cvs: newCvs },
             })
         }),
+
+        updatePosts: builder.mutation<User, { id: string; newArr: (ItemApp | ItemCvs)[], haveToBeUpdated: string}>({
+            query: ({ id, newArr, haveToBeUpdated }) => ({
+                url: `/${id}`,
+                method: 'PATCH',
+                body: haveToBeUpdated === "applications" ? { applications: newArr } : { cvs: newArr },
+            })
+        }),
     }),
 });
 
-export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery, useUpdateApplicationsMutation, useUpdateCvsMutation } = userApi;
+export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery, useUpdateApplicationsMutation, useUpdateCvsMutation, useUpdatePostsMutation } = userApi;

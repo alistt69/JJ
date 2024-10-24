@@ -1,15 +1,18 @@
 import MyPosts from "@/pages/main/posts";
 import {Outlet} from "react-router-dom";
-import CardsContainer from "@/components/cards/container";
+import JobsContainer from "@/components/containers/jobs";
+import CardsContainer from "@/components/containers/cards";
 
 const PostsLayout = () => {
 
     return(
         <>
-            <CardsContainer>
-                <MyPosts />
-                <Outlet />
-            </CardsContainer>
+            <JobsContainer>
+                <MyPosts/>
+                <CardsContainer>
+                    <Outlet/>
+                </CardsContainer>
+            </JobsContainer>
         </>
     )
 }

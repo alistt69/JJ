@@ -1,15 +1,18 @@
-import JobsWrap from "@/components/jobs-wrap";
 import Jobs from "@/pages/main/jobs";
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import JobsContainer from "@/components/containers/jobs";
+import CardsContainer from "@/components/containers/cards";
 
 const JobsLayout = () => {
 
     return(
         <>
-            <JobsWrap>
+            <JobsContainer>
                 <Jobs />
-                <Outlet />
-            </JobsWrap>
+                <CardsContainer>
+                    <Outlet />
+                </CardsContainer>
+            </JobsContainer>
         </>
     )
 }

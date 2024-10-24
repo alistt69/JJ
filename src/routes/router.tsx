@@ -17,6 +17,7 @@ import PostsLayout from "@/layouts/posts";
 import MyCvs from "@/pages/main/posts/cvs";
 import MyApplications from "@/pages/main/posts/applications";
 import Upload from "@/pages/main/posts/upload";
+import ProtectedRoute from "@/routes/protection.tsx";
 
 
 const router = createBrowserRouter(
@@ -24,7 +25,11 @@ const router = createBrowserRouter(
         <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
 
             <Route index element={<AuthPage />} />
-            <Route path={paths.MAIN} element={<MainLayout />}>
+            <Route path={paths.MAIN} element={
+                <ProtectedRoute>
+                    <MainLayout />
+                </ProtectedRoute>
+            }>
 
                 <Route path={paths.HOME} element={<Home />} />
                 <Route path={paths.MYPOSTS} element={<PostsLayout />}>

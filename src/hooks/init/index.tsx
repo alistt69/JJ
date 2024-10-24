@@ -7,6 +7,7 @@ import {useEffect} from "react";
 export const useUserInit = () => {
 
     const username = useSelector((state: RootState) => state.auth.username) || '';
+
     const { data: user, refetch } = useGetUserByUsernameQuery(username, {
         skip: username.length === 0,
     });
@@ -17,5 +18,5 @@ export const useUserInit = () => {
         }
     }, [username, refetch]);
 
-    return user;
+    return user || {id: '', username: '', password: '', applications: [], cvs: []};
 }

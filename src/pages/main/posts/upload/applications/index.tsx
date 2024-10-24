@@ -29,7 +29,7 @@ const UploadApplications = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
-            let newApplications = [...applications]
+            const newApplications = [...applications]
             const newApplication = {
                 id: generateId(),
                 name: newProfession,
