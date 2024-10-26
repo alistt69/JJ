@@ -6,11 +6,6 @@ const MyCvs = () => {
     const user = useUserInit();
 
 
-    if (!user || !user.cvs) {
-        return null;
-    }
-
-
     const cvs = user.cvs;
 
 
@@ -20,7 +15,7 @@ const MyCvs = () => {
                     <div key={item.id}>
 
                         <FullCard name={item.name} description={item.description} location={item.location}
-                                  cvsId={item.id ? item.id : ''} profession={item.profession} wantedSalary={item.wantedSalary} key={item.id} />
+                                  cvsId={item.id ? item.id : ''} profession={item.profession} salary={item.salary} key={item.id} />
 
                     </div>
             ))}

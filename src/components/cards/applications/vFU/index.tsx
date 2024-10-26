@@ -4,6 +4,9 @@ import {CloseOutlined, EditOutlined, DeleteOutlined, QuestionCircleOutlined} fro
 import {useUserInit} from "@/hooks/init";
 import { useUpdatePostsMutation } from "@/api/auth";
 import {Popconfirm} from "antd";
+import {handleEditing} from "@/services/posts/editing";
+import { useDispatch } from "react-redux";
+import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 
 const FullCard: React.FC<{
     name: string,
@@ -29,40 +32,9 @@ const FullCard: React.FC<{
     const [updatePost] = useUpdatePostsMutation()
 
     const user = useUserInit();
-    const applications = user.applications;
+    const post = user.applications;
 
-    function updateItemById(id: string) {
-        return applications.map(item => {
-            if (item.id === id) {
-                return {
-                    ...item,
-                    name: newProfession,
-                    description: newDescription,
-                    salary: newSalary,
-                    location: newLocation
-                };
-            }
-            return item;
-        });
-    }
-
-    const handleAppChange = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            const newArr = updateItemById(appId)
-            await updatePost({id: user?.id || '', newArr, haveToBeUpdated: "applications"}).unwrap();
-            setObjCopy({
-                name: newProfession,
-                description: newDescription,
-                salary: newSalary,
-                location: newLocation
-            })
-            setEditMode(prev => !prev);
-            alert(`Application ${appId} updated successfully!`);
-        } catch (error) {
-            alert(`Failed to update application ${appId}, cause of ${error}`);
-        }
-    }
+    const dispatch = useDispatch();
 
     const handleCancellation = () => {
 
@@ -81,7 +53,31 @@ const FullCard: React.FC<{
         }
     }
 
+    const handleEditing1 = () => {
+        const newArr = post.map(item => {
+            if (item.id === appId) {
+                return {
+                    ...item,
+                    name: newProfession,
+                    description: newDescription,
+                    salary: newSalary,
+                    location: newLocation
+                };
+            }
+            return item;
+        });
 
+        dispatch(updateApplications(newArr));
+
+        setObjCopy({
+            name: newProfession,
+            description: newDescription,
+            salary: newSalary,
+            location: newLocation
+        })
+
+        return newArr;
+    };
 
     return (
         <>
@@ -127,7 +123,23 @@ const FullCard: React.FC<{
                         :
                         <>
                             <CloseOutlined className={classes.close} onClick={handleCancellation}/>
-                            <form className={classes.input_container} onSubmit={handleAppChange}>
+                            <form className={classes.input_container} onSubmit={(e) => handleEditing(
+                                e,
+                                appId,
+                                post,
+                                "",
+                                newProfession,
+                                newSalary,
+                                newDescription,
+                                newLocation,
+                                updatePost,
+                                setObjCopy,
+                                setEditMode,
+                                user,
+                                "applications",
+                                dispatch,
+                                handleEditing1
+                            )}>
                                 <div className={classes.forms_container}>
                                     <input type="input" className={classes.form_field} placeholder="profession"
                                            autoComplete="off" name="profession" id="profession" value={newProfession} onChange={(e) => setNewProfession(e.target.value)} required/>

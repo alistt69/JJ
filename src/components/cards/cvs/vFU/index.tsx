@@ -1,79 +1,48 @@
 import React, {useState} from "react";
 import classes from "./classes.module.scss"
-import {CloseOutlined, EditOutlined} from "@ant-design/icons";
+import { CloseOutlined, EditOutlined } from "@ant-design/icons";
 import {useUserInit} from "@/hooks/init";
-import {useUpdateCvsMutation} from "@/api/auth";
+import { useUpdatePostsMutation } from "@/api/auth";
+import { handleEditing } from "@/services/posts/editing";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useDispatch } from "react-redux";
 
 const FullCard: React.FC<{
     name: string;
     profession: string;
     description: string;
     location: string;
-    wantedSalary: string;
+    salary: string;
     cvsId: string,
-}> = ({ name, profession, description, location, wantedSalary, cvsId }) => {
+}> = ({ name, profession, description, location, salary, cvsId }) => {
 
+    const dispatch = useDispatch();
     const [newProfession, setNewProfession] = useState(profession)
     const [newName, setNewName] = useState(name)
     const [newLocation, setNewLocation] = useState(location)
     const [newDescription, setNewDescription] = useState(description)
-    const [newSalary, setNewSalary] = useState(wantedSalary)
+    const [newSalary, setNewSalary] = useState(salary)
     const [editMode, setEditMode] = useState(false);
     const [objCopy, setObjCopy] = useState({
         profession: profession,
         name: name,
         description: description,
-        wantedSalary: wantedSalary,
+        salary: salary,
         location: location
     })
 
-    const [updateCvs] = useUpdateCvsMutation()
+    const [ updatePosts ] = useUpdatePostsMutation()
     const user = useUserInit();
-    if (!user || !user.cvs) {return null;}
-    const cvs = user.cvs;
 
-    function updateItemById(id: string) {
-        return cvs.map(item => {
-            if (item.id === id) {
-                return {
-                    ...item,
-                    profession: newProfession,
-                    name: newName,
-                    description: newDescription,
-                    wantedSalary: newSalary,
-                    location: newLocation
-                };
-            }
-            return item;
-        });
-    }
+    const post = user.cvs;
 
-    const handleCvsChange = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            const newCvs = updateItemById(cvsId)
-            const id: string = user ? user.id ? user.id : '' : ''
-            await updateCvs({id, newCvs}).unwrap();
-            setObjCopy({
-                profession: newProfession,
-                name: newName,
-                description: newDescription,
-                wantedSalary: newSalary,
-                location: newLocation
-            })
-            console.log(objCopy);
-            setEditMode(prev => !prev);
-            alert(`Application ${cvsId} updated successfully!`);
-        } catch (error) {
-            alert(`Failed to update application ${cvsId}, cause of ${error}`);
-        }
-    }
+
 
     const handleCancellation = () => {
 
         if (objCopy) {
-            const { name, profession, description, location, wantedSalary } = objCopy;
-            console.log(name, profession, description, location, wantedSalary)
+            const { name, profession, description, location, salary } = objCopy;
+            console.log(name, profession, description, location, salary)
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             setNewProfession(_prev => {return profession})
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -83,10 +52,38 @@ const FullCard: React.FC<{
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             setNewDescription(_prev => {return description})
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            setNewSalary(_prev => {return wantedSalary})
+            setNewSalary(_prev => {return salary})
             setEditMode(prevState => !prevState)
         }
     }
+
+    const handleEditing1 = () => {
+        const newArr = post.map(item => {
+            if (item.id === cvsId) {
+                return {
+                    ...item,
+                    profession: newProfession,
+                    name: newName,
+                    description: newDescription,
+                    salary: newSalary,
+                    location: newLocation
+                };
+            }
+            return item;
+        });
+
+        dispatch(updateCvs(newArr));
+
+        setObjCopy({
+            profession: newProfession,
+            name: newName,
+            description: newDescription,
+            salary: newSalary,
+            location: newLocation
+        })
+
+        return newArr;
+    };
 
     return (
         <>
@@ -107,7 +104,23 @@ const FullCard: React.FC<{
                         :
                         <>
                             <CloseOutlined className={classes.close} onClick={handleCancellation}/>
-                            <form className={classes.input_container} onSubmit={handleCvsChange}>
+                            <form className={classes.input_container} onSubmit={(e) => handleEditing(
+                                e,
+                                cvsId,
+                                post,
+                                newName,
+                                newProfession,
+                                newSalary,
+                                newDescription,
+                                newLocation,
+                                updatePosts,
+                                setObjCopy,
+                                setEditMode,
+                                user,
+                                "cvs",
+                                dispatch,
+                                handleEditing1
+                            )}>
                                 <div className={classes.forms_container}>
                                     <input type="input" className={classes.form_field} placeholder="Aprofession"
                                            autoComplete="off" name="Aprofession" id="Aprofession" value={newProfession}

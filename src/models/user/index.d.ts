@@ -1,5 +1,5 @@
 export interface ItemApp {
-    id?: string;
+    id: string;
     name: string;
     description: string;
     salary: string;
@@ -7,16 +7,16 @@ export interface ItemApp {
 }
 
 export interface ItemCvs {
-    id?: string;
+    id: string;
     name: string;
     profession: string;
     description: string;
     location: string;
-    wantedSalary: string;
+    salary: string;
 }
 
 export interface User {
-    id?: string;
+    id: string;
     username: string;
     password: string;
     applications: ItemApp[];

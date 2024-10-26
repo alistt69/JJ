@@ -23,31 +23,12 @@ export const userApi = createApi({
             transformResponse: (response: User[]) => response.length > 0,
         }),
 
-        addUser: builder.mutation<User, Omit<User, 'id'>>({
-            query: (newUser) => {
-
-                const applicationsWithId = newUser.applications.map(app => ({
-                    ...app,
-                    id: generateId(),
-                }));
-
-                const cvsWithId = newUser.cvs.map(cv => ({
-                    ...cv,
-                    id: generateId(),
-                }));
-
-                const userToCreate = {
-                    ...newUser,
-                    applications: applicationsWithId,
-                    cvs: cvsWithId,
-                };
-
-                return {
-                    url: '',
-                    method: 'POST',
-                    body: userToCreate,
-                };
-            },
+        addUser: builder.mutation<User, Omit<User, 'id'> & { id: string }>({
+            query: (newUser) => ({
+                url: '',
+                method: 'POST',
+                body: newUser,
+            }),
         }),
 
         updateUsername: builder.mutation<User, { id: string; newUsername: string }>({

@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {User} from "@/models/user";
+import { ItemApp, ItemCvs, User } from "@/models/user";
 
 interface AuthState {
-    username: string | null;
-    user: User | null,
+    username: string;
+    user: User,
 }
 
 const initialState: AuthState = {
-    username: null,
-    user: null,
+    username: "mockup username",
+    user: {id: '', username: '', password: '', applications: [], cvs: []},
 };
 
 const authSlice = createSlice({
@@ -19,7 +19,13 @@ const authSlice = createSlice({
             state.username = action.payload;
         },
         resetUsername: (state) => {
-            state.username = null;
+            state.user = initialState.user;
+        },
+        updateApplications: (state, action: PayloadAction<ItemApp[]>) => {
+            state.user.applications = action.payload;
+        },
+        updateCvs: (state, action: PayloadAction<ItemCvs[]>) => {
+            state.user.cvs = action.payload;
         },
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload
@@ -27,5 +33,5 @@ const authSlice = createSlice({
     },
 });
 
-export const { setUsername, resetUsername, setUser } = authSlice.actions;
+export const { setUsername, resetUsername, setUser, updateApplications, updateCvs } = authSlice.actions;
 export default authSlice.reducer;

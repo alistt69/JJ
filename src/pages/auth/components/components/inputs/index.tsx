@@ -1,7 +1,7 @@
 import classes from "./classes.module.scss"
 import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
-import { useAddUserMutation, useGetUserByUsernameQuery} from '@/api/auth';
+import {generateId, useAddUserMutation, useGetUserByUsernameQuery} from '@/api/auth';
 import {useDispatch} from "react-redux";
 import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,6 @@ import { ItemApp, ItemCvs } from "@/models/user";
 
 
 const Inputs: React.FC<{ number: string }> = ({ number }) => {
-
 
     const dispatch = useDispatch();
     const [addUser] = useAddUserMutation();
@@ -31,6 +30,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
     console.log(user)
 
     const applications: ItemApp[] = [{
+        id: generateId(),
         name: 'Junior Frontend Developer',
         description:
             'Lorem ipsum dolor sit amet,' +
@@ -42,6 +42,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         salary: "1000$",
         location: "Ryazan, Russia"
     }, {
+        id: generateId(),
         name: 'Junior Backend Developer',
         description:
             "Lorem ipsum dolor sit amet, " +
@@ -55,6 +56,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
     }]
 
     const cvs: ItemCvs[] = [{
+        id: generateId(),
         name: 'Artyom Kachyro',
         profession: "Frontend Developer",
         description:
@@ -65,8 +67,9 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
             "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
             "mollit anim id est laborum.",
         location: "Moscow, Italy",
-        wantedSalary: "1$"
+        salary: "1$"
     }, {
+        id: generateId(),
         name: 'Artyom Listov',
         profession: "Backend Developer",
         description:
@@ -77,7 +80,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
             "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
             "mollit anim id est laborum.",
         location: "Rome, Italy",
-        wantedSalary: "10$"
+        salary: "10$"
     }]
 
     const handleSubmitSignIn = async (e: React.FormEvent) => {
@@ -85,7 +88,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         if (user && user.password === password) {
             dispatch(setUsername(username));
             console.log('success');
-            dispatch(setUser({username, password, applications, cvs}))
+            dispatch(setUser({id: generateId(), username, password, applications, cvs}))
             navigate('/main/home');
 
         } else {
@@ -97,9 +100,9 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         e.preventDefault();
 
         if (!user) {
-
-            await addUser({ username, password, applications, cvs }).unwrap();
-            dispatch(setUser( {username, password, applications, cvs}))
+            const id = generateId();
+            await addUser({ id, username, password, applications, cvs }).unwrap();
+            dispatch(setUser({ id, username, password, applications, cvs }))
             dispatch(setUsername(username));
             console.log('success');
             navigate('/main/home');

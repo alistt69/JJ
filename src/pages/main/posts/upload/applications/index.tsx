@@ -4,8 +4,6 @@ import {useNavigate} from "react-router-dom";
 import {paths} from "@/routes/routes.ts";
 import {useUpdateApplicationsMutation} from "@/api/auth";
 import {useUserInit} from "@/hooks/init";
-import app from "@/app/App.tsx";
-import {ItemApp} from "@/models/user";
 
 const UploadApplications = () => {
 
