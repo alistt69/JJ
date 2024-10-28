@@ -2,8 +2,7 @@ import {NavLink} from "react-router-dom";
 import {paths} from "@/routes/routes.ts";
 import classes from "./classes.module.scss"
 import {useFunctions} from "@/context/context.tsx";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
+import { useUserInit } from "@/hooks/init";
 
 const Jobs = () => {
 
@@ -13,7 +12,8 @@ const Jobs = () => {
         setStarted(prev => !prev)
     }
 
-    const username = useSelector((state: RootState) => state.auth.username);
+    const user = useUserInit();
+    const username = user.username
 
     const handleChange = () => {
         setIsJobSeeker(!isJobSeeker)

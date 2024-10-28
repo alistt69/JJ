@@ -13,7 +13,7 @@ const UploadCvs = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    const [ updateCv ] = useUpdateCvsMutation()
+    const [ updateServerCvs ] = useUpdateCvsMutation()
 
     const user = useUserInit();
     const cvs = user.cvs
@@ -42,7 +42,7 @@ const UploadCvs = () => {
         e.preventDefault()
 
         const newCvs = cvsTransformer()
-        updateCv({id: user.id, newCvs})
+        updateServerCvs({id: user.id, newCvs})
             .then(() => {
                 dispatch(updateCvs(newCvs));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`)

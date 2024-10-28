@@ -18,6 +18,17 @@ export const userApi = createApi({
             transformResponse: (response: User[]) => response.length > 0,
         }),
 
+        getAllUsers: builder.query<User[], string | undefined>({
+            query: (excludedUsername) => {
+
+                if (excludedUsername) {
+                    return `?username_ne=${excludedUsername}`;
+                }
+
+                return `/users`;
+            },
+        }),
+
         addUser: builder.mutation<User, Omit<User, 'id'> & { id: string }>({
             query: (newUser) => ({
                 url: '',
@@ -49,15 +60,7 @@ export const userApi = createApi({
                 body: { cvs: newCvs },
             })
         }),
-
-        updatePosts: builder.mutation<User, { id: string; newArr: (ItemApp | ItemCvs)[], haveToBeUpdated: string}>({
-            query: ({ id, newArr, haveToBeUpdated }) => ({
-                url: `/${id}`,
-                method: 'PATCH',
-                body: haveToBeUpdated === "applications" ? { applications: newArr } : { cvs: newArr },
-            })
-        }),
     }),
 });
 
-export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery, useUpdateApplicationsMutation, useUpdateCvsMutation, useUpdatePostsMutation } = userApi;
+export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery, useUpdateApplicationsMutation, useUpdateCvsMutation, useGetAllUsersQuery } = userApi;

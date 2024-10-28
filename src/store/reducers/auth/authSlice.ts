@@ -15,18 +15,23 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
+
         setUsername: (state, action: PayloadAction<string>) => {
             state.username = action.payload;
         },
+
         resetUsername: (state) => {
             state.user = initialState.user;
         },
-        updateApplications: (state, action: PayloadAction<(ItemApp | ItemCvs)[]>) => {
+
+        updateApplications: (state, action: PayloadAction<ItemApp[]>) => {
             state.user.applications = action.payload;
         },
-        updateCvs: (state, action: PayloadAction<(ItemCvs |ItemApp)[]>) => {
+
+        updateCvs: (state, action: PayloadAction<ItemCvs[]>) => {
             state.user.cvs = action.payload;
         },
+
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload
         }

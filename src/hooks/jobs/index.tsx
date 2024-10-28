@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {paths} from "@/routes/routes.ts";
+import { paths } from "@/routes/routes.ts";
 
 const useJobsState = () => {
 

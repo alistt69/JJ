@@ -13,7 +13,7 @@ const UploadApplications = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    const [ updateApplication ] = useUpdateApplicationsMutation()
+    const [ updateServerApplications ] = useUpdateApplicationsMutation()
 
     const user = useUserInit();
     const applications = user.applications;
@@ -40,7 +40,7 @@ const UploadApplications = () => {
 
         const newApplications = applicationTransformer()
 
-        updateApplication({id: user.id, newApplications})
+        updateServerApplications({id: user.id, newApplications})
             .then(() => {
                 dispatch(updateApplications(newApplications));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)

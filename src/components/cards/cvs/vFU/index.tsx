@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import classes from "./classes.module.scss"
+import classes from "../../styles/vFU/classes.module.scss"
 import { DeleteOutlined, EditOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import { Popconfirm } from "antd";
 

@@ -11,7 +11,7 @@ const MyApplications = () => {
 
     const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updateApplication ] = useUpdateApplicationsMutation()
+    const [ updateServerApplications ] = useUpdateApplicationsMutation()
 
     const applications = user.applications
 
@@ -21,7 +21,7 @@ const MyApplications = () => {
 
         const newApplications = applications.filter(item => item.id !== application_id);
 
-        updateApplication({id: user.id, newApplications})
+        updateServerApplications({id: user.id, newApplications})
             .then(() => {
                 dispatch(updateApplications(newApplications))
                 alert('success')

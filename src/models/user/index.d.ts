@@ -1,3 +1,11 @@
+export interface User {
+    id: string;
+    username: string;
+    password: string;
+    applications: ItemApp[];
+    cvs: ItemCvs[];
+}
+
 export interface ItemApp {
     id: string;
     profession: string;
@@ -13,12 +21,4 @@ export interface ItemCvs {
     description: string;
     location: string;
     salary: string;
-}
-
-export interface User {
-    id: string;
-    username: string;
-    password: string;
-    applications: ItemApp[];
-    cvs: ItemCvs[];
 }

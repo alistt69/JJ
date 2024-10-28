@@ -1,14 +1,15 @@
 import classes from "./classes.module.scss";
-import {EditOutlined, CheckOutlined, CloseOutlined} from "@ant-design/icons";
-import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
-import {resetUsername, setUsername} from "@/store/reducers/auth/authSlice.ts";
-import {useEffect, useRef, useState} from "react";
-import {useIsUserNameUniqueQuery, useUpdateUsernameMutation} from "@/api/auth";
-import {useUserInit} from "@/hooks/init";
-import {RootState} from "@/store";
-import {paths} from "@/routes/routes.ts";
+import { EditOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { resetUsername, setUsername } from "@/store/reducers/auth/authSlice.ts";
+import { useEffect, useRef, useState } from "react";
+import { useIsUserNameUniqueQuery, useUpdateUsernameMutation } from "@/api/auth";
+import { useUserInit } from "@/hooks/init";
+import { RootState} from "@/store";
+import { paths} from "@/routes/routes.ts";
 import logout_image from '@/images/logout/logout.png'
+import { useAppSelector } from "@/store/hooks";
 
 
 const Profile = () => {
@@ -18,7 +19,7 @@ const Profile = () => {
 
     const user = useUserInit();
     const [updateUsername] = useUpdateUsernameMutation();
-    const username = useSelector((state: RootState) => state.auth.username);
+    const username = useAppSelector((state: RootState) => state.auth.username);
 
     const [newUsername, setNewUsername] = useState<string>('');
     const [isChangingUserName, setIsChangingUserName] = useState<boolean>(false);

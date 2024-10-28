@@ -11,7 +11,7 @@ const MyCvs = () => {
 
     const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updateCv ] = useUpdateCvsMutation()
+    const [ updateServerCvs ] = useUpdateCvsMutation()
 
     const cvs = user.cvs;
 
@@ -21,7 +21,7 @@ const MyCvs = () => {
 
         const newCvs = cvs.filter(item => item.id !== cvs_id);
 
-        updateCv({id: user.id, newCvs})
+        updateServerCvs({id: user.id, newCvs})
             .then(() => {
                 dispatch(updateCvs(newCvs))
                 alert('success')

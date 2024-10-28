@@ -7,10 +7,6 @@
   border-radius: calc($index * 10);
   padding: calc($index * 11) calc($index * 18);
 
-  p {
-    margin-bottom: calc($index * 3);
-  }
-
   .profession {
     font-size: $font-m;
     color: rgba(0, 0, 0, 0.65);
@@ -31,10 +27,13 @@
     }
   }
 
+  p {
+    margin-bottom: calc($index * 3);
+  }
+
   .id {
     font-size: $font-xs;
     margin-top: calc($index * 10);
     color: rgba(0, 0, 0, 0.4);
   }
 }
-

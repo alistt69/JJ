@@ -16,11 +16,10 @@ const ApplicationsEditing: React.FC<{
 }> = ({ appId, profession, description, location, salary, setEditingId }) => {
 
     const dispatch = useDispatch();
-    const [ updateApplication ] = useUpdateApplicationsMutation()
+    const [ updateServerApplications ] = useUpdateApplicationsMutation()
 
     const user = useUserInit();
     const post = user.applications;
-
 
     const [newProfession, setNewProfession] = useState(profession)
     const [newLocation, setNewLocation] = useState(location)
@@ -49,7 +48,7 @@ const ApplicationsEditing: React.FC<{
 
         const newApplications = applicationTransformer()
 
-        updateApplication({id: user.id, newApplications})
+        updateServerApplications({id: user.id, newApplications})
             .then(() => {
                 dispatch(updateApplications(newApplications));
                 setEditingId('')

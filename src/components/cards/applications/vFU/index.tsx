@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import classes from "./classes.module.scss"
+import classes from "../../styles/vFU/classes.module.scss"
 import { EditOutlined, DeleteOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import { Popconfirm } from "antd";
 
@@ -17,7 +17,7 @@ const FullCard: React.FC<{
 
     return (
         <div className={classes.cart_container}>
-            <div className={classes.name}>
+            <div className={classes.profession}>
                 <p>{profession}</p>
                 {withEdit && setEditingId && handleDeleting && (
                     <div>
@@ -36,9 +36,9 @@ const FullCard: React.FC<{
                 )}
             </div>
 
-            <p className={classes.location}>Location: {location}</p>
-            <p className={classes.salary}>Starting salary: {salary}</p>
-            <p className={classes.description}>{description}</p>
+            <p>Location: {location}</p>
+            <p>Starting salary: {salary}</p>
+            <p>{description}</p>
             <p className={classes.id}>{appId}</p>
         </div>
     );
