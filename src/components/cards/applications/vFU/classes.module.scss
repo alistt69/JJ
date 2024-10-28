@@ -7,7 +7,7 @@
   border-radius: calc($index * 10);
   padding: calc($index * 11) calc($index * 18);
 
-  div {
+  p {
     margin-bottom: calc($index * 3);
   }
 
@@ -39,18 +39,6 @@
         transform: scale(1.13);
       }
     }
-  }
-
-  .location {
-    color: $primary;
-  }
-
-  .salary {
-    color: $primary;
-  }
-
-  .description {
-    color: $primary;
   }
 
   .id {

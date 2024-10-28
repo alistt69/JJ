@@ -29,16 +29,20 @@ $forms-index: calc($index * 12);
   padding: $forms-index 0 0;
   width: 100%;
 
-  &:nth-child(1) {
-    width: 30%;
-  }
-
   &:nth-child(2) {
-    width: 25%;
+    width: 30%;
   }
 
   &:nth-child(3) {
     width: 25%;
+  }
+
+  &:nth-child(4) {
+    width: 25%;
+  }
+
+  &:nth-child(5) {
+    width: 27%;
   }
 }
 
@@ -104,7 +108,7 @@ $forms-index: calc($index * 12);
 
   &:hover {
     background-color: $accent;
-    color: $secondary-light;
+    color: $secondary;
   }
 }
 
