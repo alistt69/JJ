@@ -20,5 +20,5 @@ export interface User {
     username: string;
     password: string;
     applications: ItemApp[];
-    cvs: ItemCvs[];
+    cvs: (ItemApp | ItemCvs)[];
 }

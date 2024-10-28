@@ -7,8 +7,6 @@ import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
 import { generateId } from "@/services/id_generator";
-import { useUserInit } from "@/hooks/init";
-
 
 
 const Inputs: React.FC<{ number: string }> = ({ number }) => {

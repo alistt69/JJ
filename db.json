@@ -1,85 +1,33 @@
 {
   "users": [
     {
-      "id": "ID14OP2JKR9",
-      "username": "a",
-      "password": "a",
+      "id": "ID057JFVPRI",
+      "username": "d",
+      "password": "d",
       "applications": [
         {
-          "id": "ID98NYO32D4",
+          "id": "ID612BQH5PB",
           "profession": "Junior Frontend Developer",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "salary": "1000$",
           "location": "Ryazan, Russia"
         },
         {
-          "id": "ID98GZNS21A",
+          "id": "ID61943WB0P",
           "profession": "Junior Backend Developer",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "salary": "1100$",
           "location": "Berlin, Germany"
-        },
-        {
-          "id": "ID27UPN077C",
-          "profession": "1",
-          "description": "1",
-          "salary": "1",
-          "location": "1"
-        },
-        {
-          "id": "ID787R0TSRT",
-          "profession": "aaaaaaaaa",
-          "description": "a",
-          "salary": "aaaaaaa",
-          "location": "aaaaaaaaa"
-        },
-        {
-          "id": "ID68RSPU5YO",
-          "profession": "awd",
-          "description": "wad",
-          "salary": "adw",
-          "location": "adw"
-        },
-        {
-          "id": "ID5704EM41R",
-          "profession": "f",
-          "description": "ffffffffffffffff",
-          "salary": "fffffffffffff",
-          "location": "fffffffffffff"
         }
       ],
       "cvs": [
         {
-          "id": "ID9827SUTKA",
-          "name": "Artyom Kachyro",
-          "profession": "Frontend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Moscow, Italy",
-          "salary": "1$"
-        },
-        {
-          "id": "ID98CVCRBZR",
-          "name": "Artyom Listov",
-          "profession": "Backend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Rome, Italy",
-          "salary": "10$"
-        },
-        {
-          "id": "ID53T33IUY0",
-          "profession": "d",
-          "name": "d",
-          "description": "d",
-          "salary": "d",
-          "location": "d"
-        },
-        {
-          "id": "ID9539WBSRR",
-          "profession": "f",
-          "name": "f",
-          "description": "f",
-          "salary": "f",
-          "location": "f"
+          "id": "ID07GPLYT52",
+          "profession": "daaaaaaaa111111111111111111111",
+          "name": "dddddddddddddd",
+          "description": "ddddddddddddd",
+          "salary": "dddddddddddd",
+          "location": "ddddddddd"
         }
       ]
     }

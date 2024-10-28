@@ -21,10 +21,10 @@ const authSlice = createSlice({
         resetUsername: (state) => {
             state.user = initialState.user;
         },
-        updateApplications: (state, action: PayloadAction<ItemApp[]>) => {
+        updateApplications: (state, action: PayloadAction<(ItemApp | ItemCvs)[]>) => {
             state.user.applications = action.payload;
         },
-        updateCvs: (state, action: PayloadAction<ItemCvs[]>) => {
+        updateCvs: (state, action: PayloadAction<(ItemCvs |ItemApp)[]>) => {
             state.user.cvs = action.payload;
         },
         setUser: (state, action: PayloadAction<User>) => {
