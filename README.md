@@ -1,4 +1,4 @@
-# React + TypeScript + Vite (run "npm run server" to start user experience)
+# React + TypeScript + Vite (run "npm run server + npm run dev" to start)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
