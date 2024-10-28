@@ -1,6 +1,6 @@
 export interface ItemApp {
     id: string;
-    name: string;
+    profession: string;
     description: string;
     salary: string;
     location: string;

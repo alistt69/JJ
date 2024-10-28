@@ -1,11 +1,13 @@
 import classes from "./classes.module.scss"
 import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
-import {generateId, useAddUserMutation, useGetUserByUsernameQuery} from '@/api/auth';
+import { useAddUserMutation, useGetUserByUsernameQuery } from '@/api/auth';
 import {useDispatch} from "react-redux";
 import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
+import { generateId } from "@/services/id_generator";
+import { useUserInit } from "@/hooks/init";
 
 
 
@@ -31,7 +33,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
 
     const applications: ItemApp[] = [{
         id: generateId(),
-        name: 'Junior Frontend Developer',
+        profession: 'Junior Frontend Developer',
         description:
             'Lorem ipsum dolor sit amet,' +
             ' consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
@@ -43,7 +45,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         location: "Ryazan, Russia"
     }, {
         id: generateId(),
-        name: 'Junior Backend Developer',
+        profession: 'Junior Backend Developer',
         description:
             "Lorem ipsum dolor sit amet, " +
             "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
@@ -88,7 +90,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         if (user && user.password === password) {
             dispatch(setUsername(username));
             console.log('success');
-            dispatch(setUser({id: generateId(), username, password, applications, cvs}))
+            dispatch(setUser({id: user.id, username: user.username, password: user.password, applications: user.applications, cvs: user.cvs}))
             navigate('/main/home');
 
         } else {

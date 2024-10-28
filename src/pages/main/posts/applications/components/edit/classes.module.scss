@@ -1,17 +1,37 @@
 @import "src/styles/index";
 
+
 $forms-main-color: black;
 $forms-accent-color: rgba(0, 0, 0, 0.65);
-$forms-index: calc($index * 13);
+$forms-index: calc($index * 12);
 
 .input_container {
   width: auto;
+  position: relative;
+  max-width: calc($index * 900);
+  background-color: $secondary-light;
+  border-radius: calc($index * 10);
+  padding: calc($index * 11) calc($index * 18);
+}
+
+
+.close {
+  position: absolute;
+  right: calc($index * 20);
+  top: calc($index * 20);
+  transition: all .25s ease;
+
+  &:hover {
+    transform: rotate(270deg) scale(1.3);
+    color: $accent;
+  }
 }
 
 .forms_container {
   position: relative;
   padding: $forms-index 0 0;
   width: 100%;
+  margin-top: calc($index * 5);
 
   &:nth-child(1) {
     width: 30%;
@@ -93,10 +113,10 @@ $forms-index: calc($index * 13);
 }
 
 .forms_description {
-  margin-top: calc($index * 25);
+  margin-top: calc($index * 15);
 
   textarea {
-    height: calc($index * 150);
+    height: calc($index * 100);
     padding: calc($index * 7);
     border-radius: calc($index * 5);
     resize: none;

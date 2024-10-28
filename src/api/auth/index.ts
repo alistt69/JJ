@@ -3,11 +3,6 @@ import { ItemApp, ItemCvs, User } from "@/models/user";
 
 const BASE_URL = 'http://localhost:5000/users';
 
-export function generateId() {
-    const id: string = `ID${Date.now().toString().slice(-2)}${Math.random().toString(36).substring(2, 9).toUpperCase()}`
-    return id;
-}
-
 export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),

@@ -1,53 +1,55 @@
 import classes from "./classes.module.scss";
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {paths} from "@/routes/routes.ts";
-import {useUpdateApplicationsMutation} from "@/api/auth";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@/routes/routes.ts";
+import { useUpdatePostsMutation } from "@/api/auth";
 import {useUserInit} from "@/hooks/init";
+import { handleEditing } from "@/services/posts/editing";
+import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
+import { useDispatch } from "react-redux";
+import { generateId } from "@/services/id_generator";
 
 const UploadApplications = () => {
 
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
+    const [ updatePosts ] = useUpdatePostsMutation()
+
+    const user = useUserInit();
+    const applications = user.applications;
 
     const [newProfession, setNewProfession] = useState("")
     const [newLocation, setNewLocation] = useState("")
     const [newSalary, setNewSalary] = useState("")
     const [newDescription, setNewDescription] = useState("")
 
-    const [updateApplication] = useUpdateApplicationsMutation()
-    const user = useUserInit();
-    if (!user || !user.applications) {return null;}
-    const applications = user.applications;
+    const handlePostAdding = () => {
+        const newApplications = [...applications]
 
-    const generateId = () => {
-        const id: string = `ID${Date.now().toString().slice(-2)}${Math.random().toString(36).substring(2, 9).toUpperCase()}`
-        return id;
-    }
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        try {
-            const newApplications = [...applications]
-            const newApplication = {
+        newApplications.push({
                 id: generateId(),
-                name: newProfession,
+                profession: newProfession,
                 description: newDescription,
                 salary: newSalary,
                 location: newLocation
-            }
-            newApplications.push(newApplication)
-            const id: string = user ? user.id ? user.id : '' : ''
-            await updateApplication({id, newApplications}).unwrap();
-            alert(`Application added successfully!`);
-            navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
-        } catch (error) {
-            alert(`Failed to add application, cause of ${error}`);
-        }
+        })
+
+        dispatch(updateApplications(newApplications));
+        navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
+
+        return newApplications;
     }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={handleSubmit}>
+            <form className={classes.input_container} onSubmit={(e) => handleEditing(
+                e,
+                updatePosts,
+                user.id,
+                "applications",
+                handlePostAdding
+            )}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession} onChange={(e) => setNewProfession(e.target.value)} required/>

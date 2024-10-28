@@ -1,27 +1,57 @@
-import {useNavigate} from "react-router-dom";
-import React, {useState} from "react";
-import {paths} from "@/routes/routes.ts";
-import classes from "@/pages/main/posts/upload/applications/classes.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { paths } from "@/routes/routes.ts";
+import classes from "./classes.module.scss";
+import { handleEditing } from "@/services/posts/editing";
+import { useUpdatePostsMutation } from "@/api/auth";
+import { useUserInit } from "@/hooks/init";
+import { generateId } from "@/services/id_generator";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useDispatch } from "react-redux";
 
 const UploadCvs = () => {
 
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
+    const [ updatePosts ] = useUpdatePostsMutation()
 
-    const [newProfession, setNewProfession] = useState<string>();
-    const [newName, setNewName] = useState<string>();
-    const [newLocation, setNewLocation] = useState<string>();
-    const [newSalary, setNewSalary] = useState<string>();
-    const [newDescription, setNewDescription] = useState<string>();
+    const user = useUserInit();
+    const cvs = user.cvs
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log(newProfession, newLocation, newSalary, newDescription, newName)
-        navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
+    const [newProfession, setNewProfession] = useState("");
+    const [newName, setNewName] = useState("");
+    const [newLocation, setNewLocation] = useState("");
+    const [newSalary, setNewSalary] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+
+    const handleCvsAdding = () => {
+        const newCvs = [...cvs]
+
+        newCvs.push({
+            id: generateId(),
+            profession: newProfession,
+            name: newName,
+            description: newDescription,
+            salary: newSalary,
+            location: newLocation
+        })
+
+        dispatch(updateCvs(newCvs));
+        navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`)
+
+        return newCvs;
     }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={handleSubmit}>
+            <form className={classes.input_container} onSubmit={(e) => handleEditing(
+                e,
+                updatePosts,
+                user.id,
+                "cvs",
+                handleCvsAdding
+            )}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession}
