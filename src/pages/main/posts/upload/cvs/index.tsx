@@ -1,20 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { paths } from "@/routes/routes.ts";
+import React, { useState } from "react";
 import classes from "./classes.module.scss";
-import { handleEditing } from "@/services/posts/editing";
-import { useUpdatePostsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "@/api/auth";
 import { useUserInit } from "@/hooks/init";
 import { generateId } from "@/services/id_generator";
-import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { paths } from "@/routes/routes.ts";
 
 const UploadCvs = () => {
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateCv ] = useUpdateCvsMutation()
 
     const user = useUserInit();
     const cvs = user.cvs
@@ -25,7 +24,7 @@ const UploadCvs = () => {
     const [newSalary, setNewSalary] = useState("");
     const [newDescription, setNewDescription] = useState("");
 
-    const handleCvsAdding = () => {
+    const cvsTransformer = () => {
         const newCvs = [...cvs]
 
         newCvs.push({
@@ -36,22 +35,25 @@ const UploadCvs = () => {
             salary: newSalary,
             location: newLocation
         })
-
-        dispatch(updateCvs(newCvs));
-        navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`)
-
         return newCvs;
+    }
+
+    const sendData = (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const newCvs = cvsTransformer()
+        updateCv({id: user.id, newCvs})
+            .then(() => {
+                dispatch(updateCvs(newCvs));
+                navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`)
+                alert('success')
+            })
+            .catch((e) => alert(e))
     }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={(e) => handleEditing(
-                e,
-                updatePosts,
-                user.id,
-                "cvs",
-                handleCvsAdding
-            )}>
+            <form className={classes.input_container} onSubmit={sendData}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession}

@@ -1,8 +1,7 @@
 import { CloseOutlined } from "@ant-design/icons";
 import classes from "./classes.module.scss";
-import { handleEditing } from "@/services/posts/editing";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { useUpdatePostsMutation } from "@/api/auth";
+import { useUpdateApplicationsMutation } from "@/api/auth";
 import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
 import { useUserInit } from "@/hooks/init";
@@ -17,7 +16,7 @@ const ApplicationsEditing: React.FC<{
 }> = ({ appId, profession, description, location, salary, setEditingId }) => {
 
     const dispatch = useDispatch();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateApplication ] = useUpdateApplicationsMutation()
 
     const user = useUserInit();
     const post = user.applications;
@@ -29,9 +28,9 @@ const ApplicationsEditing: React.FC<{
     const [newDescription, setNewDescription] = useState(description)
 
 
-    const handleEditingApplications = () => {
+    const applicationTransformer = () => {
 
-        const newArr = post.map(item => {
+        return post.map(item => {
             if (item.id === appId) {
                 return {
                     ...item,
@@ -43,22 +42,25 @@ const ApplicationsEditing: React.FC<{
             }
             return item;
         });
-
-        dispatch(updateApplications(newArr));
-        setEditingId('');
-
-        return newArr;
     };
+
+    const sendData = (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const newApplications = applicationTransformer()
+
+        updateApplication({id: user.id, newApplications})
+            .then(() => {
+                dispatch(updateApplications(newApplications));
+                setEditingId('')
+                alert('success')
+            })
+            .catch((e) => alert(e))
+    }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={(e) => handleEditing(
-                e,
-                updatePosts,
-                user.id,
-                "applications",
-                handleEditingApplications
-            )}>
+            <form className={classes.input_container} onSubmit={sendData}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="app_profession"

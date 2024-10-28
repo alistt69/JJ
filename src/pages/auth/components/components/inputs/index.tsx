@@ -23,6 +23,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         setIsPasswordVisible(!isPasswordVisible);
     };
 
+
     const { data: user } = useGetUserByUsernameQuery(username, {
         skip: username.length === 0,
     });

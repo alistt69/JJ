@@ -1,22 +1,33 @@
 import { useUserInit } from "@/hooks/init";
 import FullCard from "@/components/cards/applications/vFU";
-import { useUpdatePostsMutation } from "@/api/auth";
-import { handleDeleting } from "@/services/posts/deleting";
+import { useUpdateApplicationsMutation } from "@/api/auth";
 import NoData from "@/components/no-data";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import ApplicationsEditing from "@/pages/main/posts/applications/components/edit";
+import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 
 const MyApplications = () => {
 
     const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateApplication ] = useUpdateApplicationsMutation()
 
     const applications = user.applications
 
     const [editingId, setEditingId] = useState<string>('');
 
+    const sendData = (application_id: string) => {
+
+        const newApplications = applications.filter(item => item.id !== application_id);
+
+        updateApplication({id: user.id, newApplications})
+            .then(() => {
+                dispatch(updateApplications(newApplications))
+                alert('success')
+            })
+            .catch((e) => alert(e))
+    }
     return(
         <>
             {
@@ -32,7 +43,7 @@ const MyApplications = () => {
                                           appId={item.id}
                                           withEdit={true}
                                           setEditingId={setEditingId}
-                                          handleDeleting={() => handleDeleting(item.id, applications, updatePosts, user, dispatch, "applications")} />
+                                          handleDeleting={() => sendData(item.id)} />
                                 :
 
                                 <ApplicationsEditing profession={item.profession}

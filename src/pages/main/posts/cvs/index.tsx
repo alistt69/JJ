@@ -3,19 +3,31 @@ import FullCard from "@/components/cards/cvs/vFU";
 import { useState } from "react";
 import CvsEditing from "@/pages/main/posts/cvs/components/edit";
 import NoData from "@/components/no-data";
-import { handleDeleting } from "@/services/posts/deleting";
 import { useDispatch } from "react-redux";
-import { useUpdatePostsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "@/api/auth";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 
 const MyCvs = () => {
 
     const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateCv ] = useUpdateCvsMutation()
 
     const cvs = user.cvs;
 
     const [editingId, setEditingId] = useState<string>('');
+
+    const sendData = (cvs_id: string) => {
+
+        const newCvs = cvs.filter(item => item.id !== cvs_id);
+
+        updateCv({id: user.id, newCvs})
+            .then(() => {
+                dispatch(updateCvs(newCvs))
+                alert('success')
+            })
+            .catch((e) => alert(e))
+    }
 
     return(
         <>
@@ -33,7 +45,7 @@ const MyCvs = () => {
                                           salary={item.salary}
                                           setEditingId={setEditingId}
                                           withEdit={true}
-                                          handleDeleting={() => handleDeleting(item.id, cvs, updatePosts, user, dispatch, "cvs")} />
+                                          handleDeleting={() => sendData(item.id)} />
                                 :
 
                                 <CvsEditing name={item.name}

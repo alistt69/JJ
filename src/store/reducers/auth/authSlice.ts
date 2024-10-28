@@ -7,7 +7,7 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-    username: "mockup username",
+    username: '',
     user: {id: '', username: '', password: '', applications: [], cvs: []},
 };
 

@@ -1,11 +1,10 @@
 import { CloseOutlined } from "@ant-design/icons";
 import classes from "./classes.module.scss";
-import { handleEditing } from "@/services/posts/editing";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
-import { useUpdatePostsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "@/api/auth";
 import { useUserInit } from "@/hooks/init";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 
 const CvsEditing: React.FC<{
     name: string;
@@ -18,7 +17,7 @@ const CvsEditing: React.FC<{
 }> = ({ name, profession, description, location, salary, cvsId, setEditingId }) => {
 
     const dispatch = useDispatch();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateCv ] = useUpdateCvsMutation()
 
     const user = useUserInit();
     const post = user.cvs;
@@ -29,9 +28,8 @@ const CvsEditing: React.FC<{
     const [newDescription, setNewDescription] = useState(description)
     const [newSalary, setNewSalary] = useState(salary)
 
-
-    const handleEditingCvs = () => {
-        const newArr = post.map(item => {
+    const cvsTransformer = () => {
+        return post.map(item => {
             if (item.id === cvsId) {
                 return {
                     ...item,
@@ -44,21 +42,25 @@ const CvsEditing: React.FC<{
             }
             return item;
         });
-
-        dispatch(updateCvs(newArr));
-        setEditingId('');
-        return newArr;
     };
+
+    const sendData = (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const newCvs = cvsTransformer()
+
+        updateCv({id: user.id, newCvs})
+            .then(() => {
+                dispatch(updateCvs(newCvs));
+                setEditingId('');
+                alert('success')
+            })
+            .catch((e) => alert(e))
+    }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={(e) => handleEditing(
-                e,
-                updatePosts,
-                user.id,
-                "cvs",
-                handleEditingCvs
-            )}>
+            <form className={classes.input_container} onSubmit={sendData}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="cvs_profession"

@@ -14,6 +14,7 @@ const FullCard: React.FC<{
     setEditingId?: Dispatch<SetStateAction<string>>;
     handleDeleting?: () => void;
 }> = ({ profession, description, location, salary, appId, withEdit, setEditingId, handleDeleting }) => {
+
     return (
         <div className={classes.cart_container}>
             <div className={classes.name}>

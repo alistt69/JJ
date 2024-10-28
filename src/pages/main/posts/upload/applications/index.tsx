@@ -1,10 +1,9 @@
 import classes from "./classes.module.scss";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { paths } from "@/routes/routes.ts";
-import { useUpdatePostsMutation } from "@/api/auth";
-import {useUserInit} from "@/hooks/init";
-import { handleEditing } from "@/services/posts/editing";
+import { useUpdateApplicationsMutation } from "@/api/auth";
+import { useUserInit } from "@/hooks/init";
 import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
 import { generateId } from "@/services/id_generator";
@@ -14,7 +13,7 @@ const UploadApplications = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    const [ updatePosts ] = useUpdatePostsMutation()
+    const [ updateApplication ] = useUpdateApplicationsMutation()
 
     const user = useUserInit();
     const applications = user.applications;
@@ -24,9 +23,8 @@ const UploadApplications = () => {
     const [newSalary, setNewSalary] = useState("")
     const [newDescription, setNewDescription] = useState("")
 
-    const handlePostAdding = () => {
+    const applicationTransformer = () => {
         const newApplications = [...applications]
-
         newApplications.push({
                 id: generateId(),
                 profession: newProfession,
@@ -34,22 +32,27 @@ const UploadApplications = () => {
                 salary: newSalary,
                 location: newLocation
         })
-
-        dispatch(updateApplications(newApplications));
-        navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
-
         return newApplications;
+    }
+
+    const sendData = (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const newApplications = applicationTransformer()
+
+        updateApplication({id: user.id, newApplications})
+            .then(() => {
+                dispatch(updateApplications(newApplications));
+                navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
+                alert('success')
+            })
+            .catch((e) => alert(e))
+
     }
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={(e) => handleEditing(
-                e,
-                updatePosts,
-                user.id,
-                "applications",
-                handlePostAdding
-            )}>
+            <form className={classes.input_container} onSubmit={sendData}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession} onChange={(e) => setNewProfession(e.target.value)} required/>

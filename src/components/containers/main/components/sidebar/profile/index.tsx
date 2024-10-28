@@ -18,17 +18,19 @@ const Profile = () => {
 
     const user = useUserInit();
     const [updateUsername] = useUpdateUsernameMutation();
-    const username = useSelector((state: RootState) => state.auth.username) || '';
+    const username = useSelector((state: RootState) => state.auth.username);
 
     const [newUsername, setNewUsername] = useState<string>('');
     const [isChangingUserName, setIsChangingUserName] = useState<boolean>(false);
 
-    const { data: isUnique } = useIsUserNameUniqueQuery(newUsername)
+    const { data: isUnique } = useIsUserNameUniqueQuery(newUsername, {
+        skip: newUsername.length === 0,
+    })
 
     const handleNewUserName = async (newUsername: string) => {
         if (!isUnique) {
             try {
-                const id: string = user?.id ? user.id : ''
+                const id: string = user.id
                 const updatedUser = await updateUsername({id, newUsername}).unwrap();
                 dispatch(setUsername(updatedUser.username));
                 setIsChangingUserName(false)

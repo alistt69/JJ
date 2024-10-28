@@ -9,10 +9,10 @@ const ProtectedRoute: React.FC<{ children: ReactNode}> = ({ children }) => {
     const user = useSelector((state: RootState) => state.auth.user);
 
     useEffect(() => {
-        if (!user) {
+        if (user.username === '') {
             navigate('/')
         }
-    }, [])
+    }, [user, navigate]);
 
     return children;
 };
