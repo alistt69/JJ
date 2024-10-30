@@ -1,5 +1,5 @@
 import classes from "./classes.module.scss"
-import { useGetAllUsersQuery } from "@/api/auth";
+import { useGetAllUsersQuery } from "../../../../api/user";
 import { useUserInit } from "@/hooks/init";
 
 const Applications = () => {

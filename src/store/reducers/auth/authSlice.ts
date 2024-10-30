@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ItemApp, ItemCvs, User } from "@/models/user";
+import { User } from "@/models/user";
 
 interface AuthState {
     username: string;
@@ -24,11 +24,11 @@ const authSlice = createSlice({
             state.user = initialState.user;
         },
 
-        updateApplications: (state, action: PayloadAction<ItemApp[]>) => {
+        updateApplications: (state, action: PayloadAction<string[]>) => {
             state.user.applications = action.payload;
         },
 
-        updateCvs: (state, action: PayloadAction<ItemCvs[]>) => {
+        updateCvs: (state, action: PayloadAction<string[]>) => {
             state.user.cvs = action.payload;
         },
 

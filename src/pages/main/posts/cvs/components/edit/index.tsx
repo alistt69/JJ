@@ -2,7 +2,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import classes from "./classes.module.scss";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "../../../../../../api/user";
 import { useUserInit } from "@/hooks/init";
 import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 

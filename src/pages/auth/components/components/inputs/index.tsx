@@ -1,18 +1,20 @@
 import classes from "./classes.module.scss"
 import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
-import { useAddUserMutation, useGetUserByUsernameQuery } from '@/api/auth';
+import { useAddUserMutation, useGetUserByUsernameQuery } from '../../../../../api/user';
 import {useDispatch} from "react-redux";
 import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
 import { generateId } from "@/services/id_generator";
+import { useSetApplicationMutation } from "@/api/posts";
 
 
 const Inputs: React.FC<{ number: string }> = ({ number }) => {
 
     const dispatch = useDispatch();
     const [addUser] = useAddUserMutation();
+    const [setApplication] = useSetApplicationMutation();
     const navigate = useNavigate();
 
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -23,15 +25,16 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         setIsPasswordVisible(!isPasswordVisible);
     };
 
-
+    const idForNewUser = generateId()
     const { data: user } = useGetUserByUsernameQuery(username, {
         skip: username.length === 0,
     });
 
     console.log(user)
 
-    const applications: ItemApp[] = [{
+    const applications: ItemApp = {
         id: generateId(),
+        author_id: idForNewUser,
         profession: 'Junior Frontend Developer',
         description:
             'Lorem ipsum dolor sit amet,' +
@@ -42,21 +45,9 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
             'mollit anim id est laborum.',
         salary: "1000$",
         location: "Ryazan, Russia"
-    }, {
-        id: generateId(),
-        profession: 'Junior Backend Developer',
-        description:
-            "Lorem ipsum dolor sit amet, " +
-            "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
-            "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-            "mollit anim id est laborum.",
-        salary: "1100$",
-        location: "Berlin, Germany"
-    }]
+    }
 
-    const cvs: ItemCvs[] = [{
+    const cvs: ItemCvs = {
         id: generateId(),
         name: 'Artyom Kachyro',
         profession: "Frontend Developer",
@@ -69,20 +60,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
             "mollit anim id est laborum.",
         location: "Moscow, Italy",
         salary: "1$"
-    }, {
-        id: generateId(),
-        name: 'Artyom Listov',
-        profession: "Backend Developer",
-        description:
-            "Lorem ipsum dolor sit amet, " +
-            "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat " +
-            "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-            "mollit anim id est laborum.",
-        location: "Rome, Italy",
-        salary: "10$"
-    }]
+    }
 
     const handleSubmitSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -101,9 +79,9 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         e.preventDefault();
 
         if (!user) {
-            const id = generateId();
-            await addUser({ id, username, password, applications, cvs }).unwrap();
-            dispatch(setUser({ id, username, password, applications, cvs }))
+            await addUser({ id: idForNewUser, username, password, applications: [applications.id], cvs: [cvs.id] }).unwrap();
+            await setApplication(applications)
+            dispatch(setUser({ id: idForNewUser, username, password, applications: [applications.id], cvs: [cvs.id] }))
             dispatch(setUsername(username));
             console.log('success');
             navigate('/main/home');

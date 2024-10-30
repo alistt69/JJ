@@ -2,7 +2,7 @@ import classes from "./classes.module.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { paths } from "@/routes/routes.ts";
-import { useUpdateApplicationsMutation } from "@/api/auth";
+import { useUpdateApplicationsMutation } from "../../../../../api/user";
 import { useUserInit } from "@/hooks/init";
 import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";

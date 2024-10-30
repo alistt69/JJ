@@ -4,7 +4,7 @@ import { useState } from "react";
 import CvsEditing from "@/pages/main/posts/cvs/components/edit";
 import NoData from "@/components/no-data";
 import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "../../../../api/user";
 import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 
 const MyCvs = () => {

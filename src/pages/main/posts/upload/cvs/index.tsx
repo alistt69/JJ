@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import classes from "./classes.module.scss";
-import { useUpdateCvsMutation } from "@/api/auth";
+import { useUpdateCvsMutation } from "../../../../../api/user";
 import { useUserInit } from "@/hooks/init";
 import { generateId } from "@/services/id_generator";
 import { useDispatch } from "react-redux";

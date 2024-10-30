@@ -1,82 +1,34 @@
 {
   "users": [
     {
-      "id": "ID44H2VQXWE",
+      "id": "ID59ELHWEUU",
       "username": "1",
       "password": "1",
       "applications": [
-        {
-          "id": "ID999VEXN5I",
-          "profession": "Junior Frontend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "salary": "1000$",
-          "location": "Ryazan, Russia"
-        },
-        {
-          "id": "ID99MHP75J0",
-          "profession": "Junior Backend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "salary": "1100$",
-          "location": "Berlin, Germany"
-        }
+        "ID59793ZYJ3"
       ],
       "cvs": [
-        {
-          "id": "ID99O2RB1ZQ",
-          "name": "Artyom Kachyro",
-          "profession": "Frontend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Moscow, Italy",
-          "salary": "1$"
-        },
-        {
-          "id": "ID992T5Q3IL",
-          "name": "Artyom Listov",
-          "profession": "Backend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Rome, Italy",
-          "salary": "10$"
-        }
-      ]
-    },
-    {
-      "id": "ID25WNQ2QQP",
-      "username": "2",
-      "password": "2",
-      "applications": [
-        {
-          "id": "ID22PUK4M7X",
-          "profession": "Junior Frontend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "salary": "1000$",
-          "location": "Ryazan, Russia"
-        },
-        {
-          "id": "ID2218JWEQS",
-          "profession": "Junior Backend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "salary": "1100$",
-          "location": "Berlin, Germany"
-        }
-      ],
-      "cvs": [
-        {
-          "id": "ID22X3BVV7L",
-          "name": "Artyom Kachyro",
-          "profession": "Frontend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Moscow, Italy",
-          "salary": "1$"
-        },
-        {
-          "id": "ID22S1WMU5U",
-          "name": "Artyom Listov",
-          "profession": "Backend Developer",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "location": "Rome, Italy",
-          "salary": "10$"
-        }
+        "ID59YKI1UKO"
       ]
     }
-  ]
+  ],
+  "applications": [
+    {
+      "id": "ID59793ZYJ3",
+      "author_id": "ID59ELHWEUU",
+      "profession": "Junior Frontend Developer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "salary": "1000$",
+      "location": "Ryazan, Russia"
+    },
+    {
+      "id": "ID59793ZYJ3",
+      "author_id": "ID59ELHWEUU",
+      "profession": "Junior backend Developer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "salary": "1000$",
+      "location": "Ryazan, Russia"
+    }
+  ],
+  "cvs": []
 }
