@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+/*import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import classes from "./classes.module.scss";
 import { useUpdateCvsMutation } from "../../../../../api/user";
@@ -6,11 +6,11 @@ import { useUserInit } from "@/hooks/init";
 import { generateId } from "@/services/id_generator";
 import { useDispatch } from "react-redux";
 import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
-import { paths } from "@/routes/routes.ts";
+import { paths } from "@/routes/routes.ts";*/
 
 const UploadCvs = () => {
 
-    const dispatch = useDispatch();
+    /*const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const [ updateServerCvs ] = useUpdateCvsMutation()
@@ -49,11 +49,11 @@ const UploadCvs = () => {
                 alert('success')
             })
             .catch((e) => alert(e))
-    }
+    }*/
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={sendData}>
+            {/*<form className={classes.input_container} onSubmit={sendData}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession}
@@ -87,7 +87,8 @@ const UploadCvs = () => {
                               value={newDescription} onChange={(e) => setNewDescription(e.target.value)} required/>
                 </div>
                 <button className={classes.submit_btn} type="submit">PUSH!</button>
-            </form>
+            </form>*/}
+            cvs upl
         </>
     )
 }

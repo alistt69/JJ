@@ -1,5 +1,4 @@
 import classes from "./classes.module.scss"
-import { useGetAllUsersQuery } from "@/api/user";
 import { useUserInit } from "@/hooks/init";
 import { useGetAllApplicationsQuery } from "@/api/posts";
 

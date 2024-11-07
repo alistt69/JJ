@@ -1,4 +1,4 @@
-import classes from "./classes.module.scss";
+/*import classes from "./classes.module.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { paths } from "@/routes/routes.ts";
@@ -6,11 +6,11 @@ import { useUpdateApplicationsMutation } from "../../../../../api/user";
 import { useUserInit } from "@/hooks/init";
 import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
-import { generateId } from "@/services/id_generator";
+import { generateId } from "@/services/id_generator";*/
 
 const UploadApplications = () => {
 
-    const dispatch = useDispatch();
+    /*const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const [ updateServerApplications ] = useUpdateApplicationsMutation()
@@ -48,11 +48,11 @@ const UploadApplications = () => {
             })
             .catch((e) => alert(e))
 
-    }
+    }*/
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={sendData}>
+            {/*<form className={classes.input_container} onSubmit={sendData}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession} onChange={(e) => setNewProfession(e.target.value)} required/>
@@ -75,7 +75,8 @@ const UploadApplications = () => {
                     <textarea placeholder="description" autoComplete="off" name="description" id="description" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} required/>
                 </div>
                 <button className={classes.submit_btn} type="submit">PUSH!</button>
-            </form>
+            </form>*/}
+            app upl
         </>
     )
 }

@@ -1,3 +1,4 @@
+/*
 import React from "react";
 
 const ShortCard: React.FC<{
@@ -14,4 +15,4 @@ const ShortCard: React.FC<{
     )
 }
 
-export default ShortCard;
+export default ShortCard;*/

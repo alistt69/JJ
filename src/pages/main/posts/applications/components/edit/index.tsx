@@ -2,7 +2,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import classes from "./classes.module.scss";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { useUpdateApplicationsMutation } from "@/api/user";
-import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
+//import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useDispatch } from "react-redux";
 import { useUserInit } from "@/hooks/init";
 
@@ -21,13 +21,15 @@ const ApplicationsEditing: React.FC<{
     const user = useUserInit();
     const post = user.applications;
 
+    console.log(appId, dispatch, updateServerApplications, post);
+
     const [newProfession, setNewProfession] = useState(profession)
     const [newLocation, setNewLocation] = useState(location)
     const [newSalary, setNewSalary] = useState(salary)
     const [newDescription, setNewDescription] = useState(description)
 
 
-    const applicationTransformer = () => {
+    /*const applicationTransformer = () => {
 
         return post.map(item => {
             if (item.id === appId) {
@@ -41,9 +43,9 @@ const ApplicationsEditing: React.FC<{
             }
             return item;
         });
-    };
+    };*/
 
-    const sendData = (e: React.FormEvent) => {
+/*    const sendData = (e: React.FormEvent) => {
         e.preventDefault()
 
         const newApplications = applicationTransformer()
@@ -55,11 +57,12 @@ const ApplicationsEditing: React.FC<{
                 alert('success')
             })
             .catch((e) => alert(e))
-    }
+    }*/
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={sendData}>
+            {/* onSubmit={sendData}*/}
+            <form className={classes.input_container}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="app_profession"

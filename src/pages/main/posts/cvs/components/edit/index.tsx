@@ -2,9 +2,9 @@ import { CloseOutlined } from "@ant-design/icons";
 import classes from "./classes.module.scss";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "../../../../../../api/user";
+import { useUpdateCvsMutation } from "@/api/user";
 import { useUserInit } from "@/hooks/init";
-import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+//import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 
 const CvsEditing: React.FC<{
     name: string;
@@ -22,13 +22,15 @@ const CvsEditing: React.FC<{
     const user = useUserInit();
     const post = user.cvs;
 
+    console.log(dispatch, cvsId, updateServerCvs, post)
+
     const [newProfession, setNewProfession] = useState(profession)
     const [newName, setNewName] = useState(name)
     const [newLocation, setNewLocation] = useState(location)
     const [newDescription, setNewDescription] = useState(description)
     const [newSalary, setNewSalary] = useState(salary)
 
-    const cvsTransformer = () => {
+    /*const cvsTransformer = () => {
         return post.map(item => {
             if (item.id === cvsId) {
                 return {
@@ -56,11 +58,12 @@ const CvsEditing: React.FC<{
                 alert('success')
             })
             .catch((e) => alert(e))
-    }
+    }*/
 
     return(
         <>
-            <form className={classes.input_container} onSubmit={sendData}>
+            {/*onSubmit={sendData}*/}
+            <form className={classes.input_container}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="cvs_profession"

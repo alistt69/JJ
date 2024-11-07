@@ -1,15 +1,16 @@
-import {useUserInit} from "@/hooks/init";
+/*import {useUserInit} from "@/hooks/init";
 import FullCard from "@/components/cards/cvs/vFU";
 import { useState } from "react";
 import CvsEditing from "@/pages/main/posts/cvs/components/edit";
 import NoData from "@/components/no-data";
 import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "../../../../api/user";
-import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useUpdateCvsMutation } from "@/api/user";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";*/
+
 
 const MyCvs = () => {
 
-    const user = useUserInit();
+   /* const user = useUserInit();
     const dispatch = useDispatch();
     const [ updateServerCvs ] = useUpdateCvsMutation()
 
@@ -27,11 +28,11 @@ const MyCvs = () => {
                 alert('success')
             })
             .catch((e) => alert(e))
-    }
+    }*/
 
     return(
         <>
-            {
+            {/*{
                 cvs.length ?
                     cvs.map((item) => (
                         <div key={item.id}>
@@ -59,7 +60,8 @@ const MyCvs = () => {
                         </div>
                     )) :
                     <NoData />
-            }
+            }*/}
+            cvs
         </>
     )
 }
