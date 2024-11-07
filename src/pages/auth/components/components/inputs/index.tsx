@@ -1,13 +1,14 @@
 import classes from "./classes.module.scss"
 import React, {useState} from "react";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
-import { useAddUserMutation, useGetUserByUsernameQuery } from '../../../../../api/user';
+import { useAddUserMutation, useGetUserByUsernameQuery } from '@/api/user';
 import {useDispatch} from "react-redux";
 import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
 import { generateId } from "@/services/id_generator";
 import { useSetApplicationMutation } from "@/api/posts";
+import { paths } from "@/routes/routes.ts";
 
 
 const Inputs: React.FC<{ number: string }> = ({ number }) => {
@@ -68,7 +69,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
             dispatch(setUsername(username));
             console.log('success');
             dispatch(setUser({id: user.id, username: user.username, password: user.password, applications: user.applications, cvs: user.cvs}))
-            navigate('/main/home');
+            navigate(paths.MAIN);
 
         } else {
             alert('Invalid credentials');
