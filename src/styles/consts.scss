@@ -1,9 +1,10 @@
 $index: min(1.15px, calc((1vw + 1vh) * 0.04441667));
-$primary: rgb(31, 31, 31);
-$primary-dark: rgb(7, 7, 7);
+$primary: rgb(61, 61, 61);
+$primary-dark: rgb(0, 0, 0);
 $secondary: rgba(252, 252, 252, 0.87);
-$secondary-light: rgba(0, 0, 0, 0.06);
+$secondary-light: #f8f8f8;
 $accent: rgb(82, 76, 161);
+$accent-gradient: linear-gradient(128deg, #382f6e, #3a2d8a, #5b4da4);
 
 $font-xs: calc($index * 12);
 $font-s: calc($index * 15);

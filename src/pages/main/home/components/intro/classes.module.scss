@@ -8,7 +8,7 @@
   div {
     border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
     padding: calc($index * 20);
-    background-color: $secondary;
+    background-color: white;
     display: grid;
     grid-template-rows: auto auto;
 

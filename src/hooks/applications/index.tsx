@@ -9,5 +9,5 @@ export const useGettingUserApplications = () => {
         skip: user.id.length === 0,
     });
 
-    return applications;
+    return applications || [];
 }

@@ -12,14 +12,14 @@ const Sidebar = () => {
         <>
 
             <div className={classes.sidebar_container}>
-                <a className={classes.heading}>JobaJob.</a>
+                <a className={classes.heading}>*</a>
                 <ul>
                     <p>main menu</p>
 
                     <li>
-                        <NavLink to={paths.HOME}
+                        <NavLink to={"."} end
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} HOME
+                            {">"} Home
                         </NavLink>
 
                     </li>
@@ -27,13 +27,13 @@ const Sidebar = () => {
                     <li>
                         <NavLink to={paths.ABOUT}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} ABOUT
+                            {">"} About
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to={'1'} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} NOTIFICATIONS
+                            {">"} Notifications
                         </NavLink>
                     </li>
 
@@ -42,36 +42,36 @@ const Sidebar = () => {
                     <li>
                         <NavLink to={offersLink === paths.CVS ? `${paths.MYPOSTS}/${paths.APPLICATIONS}` : `${paths.MYPOSTS}/${paths.CVS}`}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} MY POSTS
+                            {">"} Mine
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to={`${paths.JOBS}/${offersLink}`}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} OFFERS
+                            {">"} Offers
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to={paths.LIKED}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} LIKED
+                            {">"} Liked
                         </NavLink>
                     </li>
 
                     <p>help</p>
 
-                    <li>
+                    {/*<li>
                         <NavLink to={paths.HELP}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} HELP
+                            <SubnodeOutlined /> Help
                         </NavLink>
-                    </li>
+                    </li>*/}
 
                     <li>
                         <NavLink to={'2'} className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {'>'} FAQ
+                            {">"} FAQ
                         </NavLink>
                     </li>
 

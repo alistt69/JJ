@@ -9,6 +9,7 @@ const Home = () => {
     return(
         <>
             <div className={classes.home_container}>
+                <p className={classes.name}>Home</p>
                 <Intro/>
                 <Features/>
                 <Stats/>

@@ -1,19 +1,20 @@
 import classes from "./classes.module.scss"
-import { useGetAllUsersQuery } from "../../../../api/user";
+import { useGetAllUsersQuery } from "@/api/user";
 import { useUserInit } from "@/hooks/init";
+import { useGetAllApplicationsQuery } from "@/api/posts";
 
 const Applications = () => {
 
     const user = useUserInit()
 
-    const { data: users } = useGetAllUsersQuery(user.username);
+    const { data: applications } = useGetAllApplicationsQuery(user.id)
 
-    const allApplications = users?.flatMap(user => user.applications) || [];
+    console.log(applications);
 
     return(
         <>
             <p className={classes.head}>Vacancies page</p>
-            {allApplications.map(application => (
+            {applications?.map(application => (
                 <div key={application.id}>
                     <h3>{application.profession}</h3>
                     <p>{application.description}</p>

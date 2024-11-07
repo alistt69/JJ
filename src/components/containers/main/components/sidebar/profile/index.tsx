@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetUsername, setUsername } from "@/store/reducers/auth/authSlice.ts";
 import { useEffect, useRef, useState } from "react";
-import { useIsUserNameUniqueQuery, useUpdateUsernameMutation } from "../../../../../../api/user";
+import { useIsUserNameUniqueQuery, useUpdateUsernameMutation } from "@/api/user";
 import { useUserInit } from "@/hooks/init";
 import { RootState} from "@/store";
 import { paths} from "@/routes/routes.ts";

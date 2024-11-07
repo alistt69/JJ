@@ -5,7 +5,7 @@
   grid-template-rows: auto auto;
   padding: calc($index * 10);
   border-radius: calc($index * 12);
-  background-color: $secondary;
+  background-color: white;
 
   .title {
     font-size: $font-l;
@@ -38,7 +38,7 @@
       &:after {
         content: '';
         position: absolute;
-        background-color: $accent;
+        background-image: $accent-gradient;
         z-index: -1;
         width: 0;
         left: 0;

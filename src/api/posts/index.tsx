@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ItemApp, User } from "@/models/user";
+import { ItemApp } from "@/models/user";
 
 const BASE_URL = 'http://localhost:5000';
 
@@ -12,10 +12,10 @@ export const postsApi = createApi({
             query: (excludedUsername) => {
 
                 if (excludedUsername) {
-                    return `?username_ne=${excludedUsername}`;
+                    return `/applications?author_id_ne=${excludedUsername}`;
                 }
 
-                return `/users`;
+                return `/applications`;
             },
         }),
 
@@ -27,7 +27,7 @@ export const postsApi = createApi({
             }),
         }),
 
-        getApplicationByAuthor: builder.query<ItemApp, string>({
+        getApplicationByAuthor: builder.query<ItemApp[], string>({
             query: (user_id) => `/applications?author_id=${user_id}`,
         }),
     }),

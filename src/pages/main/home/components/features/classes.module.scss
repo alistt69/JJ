@@ -8,7 +8,7 @@
   row-gap: calc($index * 10);
   border-radius: calc($index * 14);
   padding: calc($index * 20);
-  background-color: $secondary;
+  background-color: white;
 
   .features_intro {
 
@@ -69,7 +69,7 @@
       &::after {
         content: '';
         position: absolute;
-        background-color: $accent;
+        background-image: $accent-gradient;
         z-index: -1;
         width: 0;
         left: 0;

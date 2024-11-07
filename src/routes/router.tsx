@@ -31,7 +31,7 @@ const router = createBrowserRouter(
                 </ProtectedRoute>
             }>
 
-                <Route path={paths.HOME} element={<Home />} />
+                <Route index element={<Home />} />
                 <Route path={paths.MYPOSTS} element={<PostsLayout />}>
 
                     <Route path={paths.CVS} element={<MyCvs />} />

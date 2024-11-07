@@ -5,23 +5,18 @@
   display: grid;
   grid-template-rows: calc($index * 55) auto auto;
   row-gap: calc($index * 10);
-  height: calc(100vh - calc($index * 45));
-  width: calc($index * 225);
+  height: 100vh;
+  width: calc($index * 260);
   font-size: calc($index * 15);
   padding: calc($index * 10) calc($index * 15) calc($index * 15);
-  border-radius: calc($index * 15);
-  background-color: $secondary;
+  background-image: linear-gradient(180deg, #1f1650, #342b70, #3c2f79);
 
   .heading {
     align-content: center;
-    margin-top: calc($index * 5);
-    background-color: $secondary-light;
+    text-align: center;
     border-radius: calc($index * 12);
-    padding-left: calc($index * 10);
     font-size: $font-l;
-    font-weight: bold;
-    color: $accent;
-    line-height: calc($font-l * 1.2);
+    color: $secondary;
   }
 
   ul {
@@ -29,14 +24,13 @@
       font-size: $font-xs;
       letter-spacing: calc($index * 1);
       position: relative;
-      color: rgba(0, 0, 0, 0.55);
+      color: rgba(155, 155, 155, 0.8);
       margin-left: calc($index * 15);
       margin-top: calc($index * 7);
       margin-bottom: calc($index * 7);
 
 
       &::after {
-        color: rgba(0, 0, 0, 0.55);
         letter-spacing: calc($index * -2.6);
         transform: translate(-50%, -50%);
         position: absolute;
@@ -45,7 +39,6 @@
       }
 
       &::before {
-        color: rgba(0, 0, 0, 0.55);
         content: '__';
         letter-spacing: calc($index * -2.8);
         transform: translate(-50%, -50%);
@@ -86,7 +79,7 @@
       height: calc($index * 30);
 
       a {
-        color: $primary-dark;
+        color: rgba(206, 206, 206, 0.8);
         height: 100%;
         letter-spacing: calc($index * .6);
         align-content: center;
@@ -97,11 +90,12 @@
         transition: all .4s ease;
 
         &:hover {
-          background-color: rgba(82, 76, 161, 0.25);
+          background-color: rgba(121, 114, 199, 0.25);
         }
 
         &.active {
-          background-color: $secondary-light;
+          background-color: rgba(121, 114, 199, 0.25);
+          color: rgba(255, 255, 255, 0.9);
         }
       }
     }
