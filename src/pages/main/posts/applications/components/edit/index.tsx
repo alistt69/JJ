@@ -1,10 +1,13 @@
-import { CloseOutlined } from "@ant-design/icons";
-import classes from "./classes.module.scss";
+import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
+import { useEditPostMutation } from "@/api/posts";
+
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { useUpdateApplicationsMutation } from "@/api/user";
-//import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
-import { useDispatch } from "react-redux";
+import { CloseOutlined } from "@ant-design/icons";
 import { useUserInit } from "@/hooks/init";
+import { useDispatch } from "react-redux";
+
+import classes from "./classes.module.scss";
+
 
 const ApplicationsEditing: React.FC<{
     appId: string,
@@ -16,53 +19,38 @@ const ApplicationsEditing: React.FC<{
 }> = ({ appId, profession, description, location, salary, setEditingId }) => {
 
     const dispatch = useDispatch();
-    const [ updateServerApplications ] = useUpdateApplicationsMutation()
 
     const user = useUserInit();
-    const post = user.applications;
-
-    console.log(appId, dispatch, updateServerApplications, post);
-
-    const [newProfession, setNewProfession] = useState(profession)
-    const [newLocation, setNewLocation] = useState(location)
+    const [ editPost ] = useEditPostMutation()
     const [newSalary, setNewSalary] = useState(salary)
+    const [newLocation, setNewLocation] = useState(location)
+    const [newProfession, setNewProfession] = useState(profession)
     const [newDescription, setNewDescription] = useState(description)
 
 
-    /*const applicationTransformer = () => {
-
-        return post.map(item => {
-            if (item.id === appId) {
-                return {
-                    ...item,
-                    profession: newProfession,
-                    description: newDescription,
-                    salary: newSalary,
-                    location: newLocation
-                };
-            }
-            return item;
-        });
-    };*/
-
-/*    const sendData = (e: React.FormEvent) => {
+    const handlePostEditing = (e: React.FormEvent, post_id: string, post_type: string) => {
         e.preventDefault()
+        const new_post = {
+            id: post_id,
+            author_id: user.id,
+            profession: newProfession,
+            description: newDescription,
+            salary: newSalary,
+            location: newLocation
+        }
 
-        const newApplications = applicationTransformer()
-
-        updateServerApplications({id: user.id, newApplications})
+        editPost({post_id, post_type, new_post})
             .then(() => {
-                dispatch(updateApplications(newApplications));
                 setEditingId('')
+                dispatch(updateApplications([...user.applications]))
                 alert('success')
             })
             .catch((e) => alert(e))
-    }*/
+    }
 
     return(
         <>
-            {/* onSubmit={sendData}*/}
-            <form className={classes.input_container}>
+            <form className={classes.input_container} onSubmit={(e) => handlePostEditing(e, appId, "applications")}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="app_profession"

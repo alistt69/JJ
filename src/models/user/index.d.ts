@@ -17,6 +17,7 @@ export interface ItemApp {
 
 export interface ItemCvs {
     id: string;
+    author_id: string;
     name: string;
     profession: string;
     description: string;

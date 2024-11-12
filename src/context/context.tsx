@@ -6,14 +6,8 @@ interface ContextType {
     setStarted: (p: (prev: boolean) => boolean) => void;
     isJobSeeker: boolean;
     setIsJobSeeker: (isJobSeeker: boolean) => void;
-    offersLink: string;
-}
-
-interface ContextType {
-    started: boolean;
-    setStarted: (p: (prev: boolean) => boolean) => void;
-    isJobSeeker: boolean;
-    setIsJobSeeker: (isJobSeeker: boolean) => void;
+    isUploading: boolean;
+    setIsUploading: (isUploading: boolean) => void;
     offersLink: string;
 }
 
@@ -21,7 +15,7 @@ export const FunctionsContext = createContext<ContextType | undefined>(undefined
 
 export const FunctionsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-   const [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink] = useJobsState()
+   const [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink, isUploading, setIsUploading ] = useJobsState()
 
     return (
         <FunctionsContext.Provider value={{
@@ -29,6 +23,8 @@ export const FunctionsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             setStarted,
             isJobSeeker,
             setIsJobSeeker,
+            isUploading,
+            setIsUploading,
             offersLink,
         }}>
             {children}

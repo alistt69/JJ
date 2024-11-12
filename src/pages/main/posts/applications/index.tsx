@@ -1,38 +1,40 @@
+import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
+import { useDeleteUsersApplicationMutation } from "@/api/user";
+import { useDeletePostMutation } from "@/api/posts";
+
+import { useGettingUserApplications } from "@/hooks/applications";
 import { useUserInit } from "@/hooks/init";
-import FullCard from "@/components/cards/applications/vFU";
-import { useUpdateApplicationsMutation } from "@/api/user";
-import NoData from "@/components/no-data";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+
 import ApplicationsEditing from "@/pages/main/posts/applications/components/edit";
-import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
-import { useGettingUserApplications } from "@/hooks/applications";
-import { ItemApp } from "@/models/user";
+import FullCard from "@/components/cards/applications/vFU";
+import NoData from "@/components/no-data";
+
 
 const MyApplications = () => {
 
-    const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updateServerApplications ] = useUpdateApplicationsMutation()
 
-    const applications: ItemApp[] = useGettingUserApplications()
-
-    console.log(applications)
-
+    const user = useUserInit();
+    const applications = useGettingUserApplications()
     const [editingId, setEditingId] = useState<string>('');
+    const [ deletePost ] = useDeletePostMutation()
+    const [ deleteUsersApplication ] = useDeleteUsersApplicationMutation()
 
-    if (!applications) return null;
 
-    const sendData = (application_id: string) => {
+    const handlePostDeleting = (post_id: string, post_type: string) => {
+        const newApplicationsArr: string[] = user.applications.filter(item => item !== post_id);
 
-        const newApplications = applications.filter(item => item.id !== application_id);
-
-        updateServerApplications({id: user.id, newApplications})
+        Promise.all([
+                deletePost({ post_id, post_type }),
+                deleteUsersApplication({ id: user.id, newApplicationsArr })
+            ])
             .then(() => {
-                dispatch(updateApplications(['aaaa']))
-                alert('success')
+                dispatch(updateApplications(newApplicationsArr));
+                alert('success');
             })
-            .catch((e) => alert(e))
+            .catch((e) => alert(e));
     }
 
     return(
@@ -50,7 +52,7 @@ const MyApplications = () => {
                                           appId={item.id}
                                           withEdit={true}
                                           setEditingId={setEditingId}
-                                          handleDeleting={() => sendData(item.id)} />
+                                          handleDeleting={() => handlePostDeleting(item.id, "applications")} />
                                 :
 
                                 <ApplicationsEditing profession={item.profession}

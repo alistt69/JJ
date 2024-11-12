@@ -1,82 +1,91 @@
-/*import classes from "./classes.module.scss";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { paths } from "@/routes/routes.ts";
-import { useUpdateApplicationsMutation } from "../../../../../api/user";
-import { useUserInit } from "@/hooks/init";
 import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
+import { useAddApplicationMutation } from "@/api/posts";
+import { paths } from "@/routes/routes.ts";
+
+import React, { useState } from "react";
+import { generateId } from "@/services/id_generator";
+import { useNavigate } from "react-router-dom";
+import { useUserInit } from "@/hooks/init";
 import { useDispatch } from "react-redux";
-import { generateId } from "@/services/id_generator";*/
+import { ItemApp } from "@/models/user";
+
+import classes from "./classes.module.scss";
+
 
 const UploadApplications = () => {
 
-    /*const dispatch = useDispatch();
-
-    const navigate = useNavigate();
-    const [ updateServerApplications ] = useUpdateApplicationsMutation()
+    const dispatch = useDispatch()
 
     const user = useUserInit();
-    const applications = user.applications;
-
-    const [newProfession, setNewProfession] = useState("")
-    const [newLocation, setNewLocation] = useState("")
+    const navigate = useNavigate()
     const [newSalary, setNewSalary] = useState("")
+    const [newLocation, setNewLocation] = useState("")
+    const [newProfession, setNewProfession] = useState("")
     const [newDescription, setNewDescription] = useState("")
+    const [ addApplication ] = useAddApplicationMutation()
 
-    const applicationTransformer = () => {
-        const newApplications = [...applications]
-        newApplications.push({
-                id: generateId(),
-                profession: newProfession,
-                description: newDescription,
-                salary: newSalary,
-                location: newLocation
-        })
-        return newApplications;
-    }
 
-    const sendData = (e: React.FormEvent) => {
+    const handleApplicationAdding = (e: React.FormEvent) => {
         e.preventDefault()
+        const new_application: ItemApp = {
+            id: generateId(),
+            author_id: user.id,
+            profession: newProfession,
+            description: newDescription,
+            salary: newSalary,
+            location: newLocation
+        }
 
-        const newApplications = applicationTransformer()
-
-        updateServerApplications({id: user.id, newApplications})
+        addApplication(new_application)
             .then(() => {
-                dispatch(updateApplications(newApplications));
+                dispatch(updateApplications([...user.applications, new_application.id]));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`)
                 alert('success')
             })
             .catch((e) => alert(e))
 
-    }*/
+    }
 
     return(
         <>
-            {/*<form className={classes.input_container} onSubmit={sendData}>
-                <div className={classes.forms_container}>
+            <form className={classes.form} onSubmit={handleApplicationAdding}>
+
+                <div className={classes.form_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
-                           autoComplete="off" name="profession" id="profession" value={newProfession} onChange={(e) => setNewProfession(e.target.value)} required/>
+                           autoComplete="off" name="profession" id="profession" value={newProfession}
+                           onChange={(e) => setNewProfession(e.target.value)} required/>
                     <label htmlFor="profession" className={classes.form_label}>profession</label>
                 </div>
 
-                <div className={classes.forms_container}>
+                <div className={classes.form_container}>
                     <input type="input" className={classes.form_field} placeholder="location"
-                           autoComplete="off" name="location" id="location" value={newLocation} onChange={(e) => setNewLocation(e.target.value)} required/>
+                           autoComplete="off" name="location" id="location" value={newLocation}
+                           onChange={(e) => setNewLocation(e.target.value)} required/>
                     <label htmlFor="location" className={classes.form_label}>location</label>
                 </div>
 
-                <div className={classes.forms_container}>
+                <div className={`${classes.form_container} ${classes.salary_container}`}>
                     <input type="input" className={classes.form_field} placeholder="salary"
-                           autoComplete="off" name="salary" id="salary" value={newSalary} onChange={(e) => setNewSalary(e.target.value)} required/>
+                           autoComplete="off" name="salary" id="salary" value={newSalary}
+                           onChange={(e) => setNewSalary(e.target.value)} required/>
                     <label htmlFor="salary" className={classes.form_label}>starting salary</label>
+                    <select>
+                        <option value="USD">$ USD</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="RUB">₽ RUB</option>
+                        {/* Добавьте другие валюты по мере необходимости */}
+                    </select>
                 </div>
 
-                <div className={classes.forms_description}>
-                    <textarea placeholder="description" autoComplete="off" name="description" id="description" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} required/>
+                <div className={classes.form_container}>
+                    <textarea
+                        className={`${classes.form_field} ${classes.form_area}`} placeholder="description"
+                        autoComplete="off" name="description" id="description" value={newDescription}
+                        onChange={(e) => setNewDescription(e.target.value)} required/>
+                    <label htmlFor="description" className={classes.form_label}>description</label>
                 </div>
                 <button className={classes.submit_btn} type="submit">PUSH!</button>
-            </form>*/}
-            app upl
+            </form>
         </>
     )
 }

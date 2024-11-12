@@ -1,8 +1,4 @@
 @import "src/styles/index";
 
 .jobs {
-  background-color: #fafafa;
-  padding: calc($index * 16.2) calc($index * 15) calc($index * 15);
-  min-height: calc(100vh - calc($index * 60));
-  position: relative;
 }

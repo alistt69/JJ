@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react';
 import { paths } from "@/routes/routes.ts";
 
+
 const useJobsState = () => {
 
     const [started, setStarted] = useState(() => {
         const saved = localStorage.getItem('started');
+        return saved === 'true';
+    });
+
+    const [isUploading, setIsUploading] = useState<boolean>(() => {
+        const saved = localStorage.getItem('isUploading');
         return saved === 'true';
     });
 
@@ -26,7 +32,12 @@ const useJobsState = () => {
         console.log(isJobSeeker, newOffersLink);
     }, [isJobSeeker]);
 
-    return [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink] as const;
+    useEffect(() => {
+        localStorage.setItem('isUploading', JSON.stringify(isUploading));
+        console.log(isUploading);
+    }, [isUploading]);
+
+    return [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink, isUploading, setIsUploading] as const;
 };
 
 export default useJobsState;

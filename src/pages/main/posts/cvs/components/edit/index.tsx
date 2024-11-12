@@ -1,10 +1,13 @@
-import { CloseOutlined } from "@ant-design/icons";
-import classes from "./classes.module.scss";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useEditPostMutation } from "@/api/posts";
+
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "@/api/user";
+import { CloseOutlined } from "@ant-design/icons";
 import { useUserInit } from "@/hooks/init";
-//import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useDispatch } from "react-redux";
+
+import classes from "./classes.module.scss";
+
 
 const CvsEditing: React.FC<{
     name: string;
@@ -17,53 +20,40 @@ const CvsEditing: React.FC<{
 }> = ({ name, profession, description, location, salary, cvsId, setEditingId }) => {
 
     const dispatch = useDispatch();
-    const [ updateServerCvs ] = useUpdateCvsMutation()
 
     const user = useUserInit();
-    const post = user.cvs;
-
-    console.log(dispatch, cvsId, updateServerCvs, post)
-
-    const [newProfession, setNewProfession] = useState(profession)
+    const [ editPost ] = useEditPostMutation()
     const [newName, setNewName] = useState(name)
-    const [newLocation, setNewLocation] = useState(location)
-    const [newDescription, setNewDescription] = useState(description)
     const [newSalary, setNewSalary] = useState(salary)
+    const [newLocation, setNewLocation] = useState(location)
+    const [newProfession, setNewProfession] = useState(profession)
+    const [newDescription, setNewDescription] = useState(description)
 
-    /*const cvsTransformer = () => {
-        return post.map(item => {
-            if (item.id === cvsId) {
-                return {
-                    ...item,
-                    profession: newProfession,
-                    name: newName,
-                    description: newDescription,
-                    salary: newSalary,
-                    location: newLocation
-                };
-            }
-            return item;
-        });
-    };
 
-    const sendData = (e: React.FormEvent) => {
+    const handlePostEditing = (e: React.FormEvent, post_id: string, post_type: string) => {
         e.preventDefault()
+        const new_post = {
+            id: post_id,
+            author_id: user.id,
+            name: newName,
+            profession: newProfession,
+            description: newDescription,
+            location: newLocation,
+            salary: newSalary
+        }
 
-        const newCvs = cvsTransformer()
-
-        updateServerCvs({id: user.id, newCvs})
+        editPost({post_id, post_type, new_post})
             .then(() => {
-                dispatch(updateCvs(newCvs));
-                setEditingId('');
+                setEditingId('')
+                dispatch(updateCvs([...user.cvs]))
                 alert('success')
             })
             .catch((e) => alert(e))
-    }*/
+    }
 
     return(
         <>
-            {/*onSubmit={sendData}*/}
-            <form className={classes.input_container}>
+            <form className={classes.input_container} onSubmit={(e) => handlePostEditing(e, cvsId, "cvs")}>
                 <CloseOutlined className={classes.close} onClick={() => setEditingId('')}/>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="cvs_profession"

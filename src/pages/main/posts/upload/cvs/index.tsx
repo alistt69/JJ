@@ -1,59 +1,56 @@
-/*import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import classes from "./classes.module.scss";
-import { useUpdateCvsMutation } from "../../../../../api/user";
-import { useUserInit } from "@/hooks/init";
-import { generateId } from "@/services/id_generator";
-import { useDispatch } from "react-redux";
 import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
-import { paths } from "@/routes/routes.ts";*/
+import { useAddCvMutation } from "@/api/posts";
+import { paths } from "@/routes/routes.ts";
+
+import React, { useState } from "react";
+import { generateId } from "@/services/id_generator";
+import { useNavigate } from "react-router-dom";
+import { useUserInit } from "@/hooks/init";
+import { useDispatch } from "react-redux";
+import { ItemCvs } from "@/models/user";
+
+import classes from "./classes.module.scss";
+
 
 const UploadCvs = () => {
 
-    /*const dispatch = useDispatch();
-
-    const navigate = useNavigate();
-    const [ updateServerCvs ] = useUpdateCvsMutation()
+    const dispatch = useDispatch();
 
     const user = useUserInit();
-    const cvs = user.cvs
-
-    const [newProfession, setNewProfession] = useState("");
+    const navigate = useNavigate();
     const [newName, setNewName] = useState("");
-    const [newLocation, setNewLocation] = useState("");
     const [newSalary, setNewSalary] = useState("");
+    const [newLocation, setNewLocation] = useState("");
+    const [newProfession, setNewProfession] = useState("");
     const [newDescription, setNewDescription] = useState("");
+    const [ addCv ] = useAddCvMutation()
 
-    const cvsTransformer = () => {
-        const newCvs = [...cvs]
 
-        newCvs.push({
+    const handleCvAdding = (e: React.FormEvent) => {
+        e.preventDefault()
+        const new_cv: ItemCvs = {
             id: generateId(),
+            author_id: user.id,
             profession: newProfession,
             name: newName,
             description: newDescription,
             salary: newSalary,
             location: newLocation
-        })
-        return newCvs;
-    }
+        }
 
-    const sendData = (e: React.FormEvent) => {
-        e.preventDefault()
-
-        const newCvs = cvsTransformer()
-        updateServerCvs({id: user.id, newCvs})
+        addCv(new_cv)
             .then(() => {
-                dispatch(updateCvs(newCvs));
+                dispatch(updateCvs([...user.cvs, new_cv.id]));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`)
                 alert('success')
             })
             .catch((e) => alert(e))
-    }*/
+
+    }
 
     return(
         <>
-            {/*<form className={classes.input_container} onSubmit={sendData}>
+            <form className={classes.input_container} onSubmit={handleCvAdding}>
                 <div className={classes.forms_container}>
                     <input type="input" className={classes.form_field} placeholder="profession"
                            autoComplete="off" name="profession" id="profession" value={newProfession}
@@ -87,8 +84,7 @@ const UploadCvs = () => {
                               value={newDescription} onChange={(e) => setNewDescription(e.target.value)} required/>
                 </div>
                 <button className={classes.submit_btn} type="submit">PUSH!</button>
-            </form>*/}
-            cvs upl
+            </form>
         </>
     )
 }

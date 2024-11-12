@@ -1,38 +1,45 @@
-/*import {useUserInit} from "@/hooks/init";
-import FullCard from "@/components/cards/cvs/vFU";
-import { useState } from "react";
-import CvsEditing from "@/pages/main/posts/cvs/components/edit";
-import NoData from "@/components/no-data";
+import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
+import { useDeleteUsersCvMutation } from "@/api/user";
+import { useDeletePostMutation } from "@/api/posts";
+
+import { useGettingUserCvs } from "@/hooks/cvs";
+import { useUserInit } from "@/hooks/init";
 import { useDispatch } from "react-redux";
-import { useUpdateCvsMutation } from "@/api/user";
-import { updateCvs } from "@/store/reducers/auth/authSlice.ts";*/
+import { useState } from "react";
+
+import CvsEditing from "@/pages/main/posts/cvs/components/edit";
+import FullCard from "@/components/cards/cvs/vFU";
+import NoData from "@/components/no-data";
 
 
 const MyCvs = () => {
 
-   /* const user = useUserInit();
     const dispatch = useDispatch();
-    const [ updateServerCvs ] = useUpdateCvsMutation()
 
-    const cvs = user.cvs;
-
+    const user = useUserInit();
+    const cvs = useGettingUserCvs()
     const [editingId, setEditingId] = useState<string>('');
+    const [ deletePost ] = useDeletePostMutation();
+    const [ deleteUsersCv ] = useDeleteUsersCvMutation()
 
-    const sendData = (cvs_id: string) => {
 
-        const newCvs = cvs.filter(item => item.id !== cvs_id);
+    const handlePostDeleting = (post_id: string, post_type: string) => {
+        const newCvsArr: string[] = user.cvs.filter(item => item !== post_id);
 
-        updateServerCvs({id: user.id, newCvs})
+        Promise.all([
+                deletePost({ post_id, post_type }),
+                deleteUsersCv({ id: user.id, newCvsArr })
+            ])
             .then(() => {
-                dispatch(updateCvs(newCvs))
-                alert('success')
+                dispatch(updateCvs(newCvsArr));
+                alert('success');
             })
-            .catch((e) => alert(e))
-    }*/
+            .catch((e) => alert(e));
+    }
 
     return(
         <>
-            {/*{
+            {
                 cvs.length ?
                     cvs.map((item) => (
                         <div key={item.id}>
@@ -46,7 +53,7 @@ const MyCvs = () => {
                                           salary={item.salary}
                                           setEditingId={setEditingId}
                                           withEdit={true}
-                                          handleDeleting={() => sendData(item.id)} />
+                                          handleDeleting={() => handlePostDeleting(item.id, "cvs")} />
                                 :
 
                                 <CvsEditing name={item.name}
@@ -60,8 +67,7 @@ const MyCvs = () => {
                         </div>
                     )) :
                     <NoData />
-            }*/}
-            cvs
+            }
         </>
     )
 }

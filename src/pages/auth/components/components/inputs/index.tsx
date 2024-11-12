@@ -7,15 +7,16 @@ import {setUser, setUsername} from "@/store/reducers/auth/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { ItemApp, ItemCvs } from "@/models/user";
 import { generateId } from "@/services/id_generator";
-import { useSetApplicationMutation } from "@/api/posts";
+import { useAddApplicationMutation, useAddCvMutation } from "@/api/posts";
 import { paths } from "@/routes/routes.ts";
 
 
 const Inputs: React.FC<{ number: string }> = ({ number }) => {
 
     const dispatch = useDispatch();
-    const [addUser] = useAddUserMutation();
-    const [setApplication] = useSetApplicationMutation();
+    const [ addUser ] = useAddUserMutation();
+    const [ setApplication ] = useAddApplicationMutation();
+    const [ setCv ] = useAddCvMutation();
     const navigate = useNavigate();
 
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -50,6 +51,7 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
 
     const cvs: ItemCvs = {
         id: generateId(),
+        author_id: idForNewUser,
         name: 'Artyom Kachyro',
         profession: "Frontend Developer",
         description:
@@ -82,10 +84,11 @@ const Inputs: React.FC<{ number: string }> = ({ number }) => {
         if (!user) {
             await addUser({ id: idForNewUser, username, password, applications: [applications.id], cvs: [cvs.id] }).unwrap();
             await setApplication(applications)
+            await setCv(cvs)
             dispatch(setUser({ id: idForNewUser, username, password, applications: [applications.id], cvs: [cvs.id] }))
             dispatch(setUsername(username));
             console.log('success');
-            navigate('/main/home');
+            navigate(paths.MAIN);
         } else {
             alert('user with this username already exists!')
         }

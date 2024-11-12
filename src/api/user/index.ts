@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ItemApp, ItemCvs, User } from "@/models/user";
+import { User } from "@/models/user";
 
 const BASE_URL = 'http://localhost:5000/users';
+
 
 export const userApi = createApi({
     reducerPath: 'userApi',
@@ -16,17 +17,6 @@ export const userApi = createApi({
         isUserNameUnique: builder.query<boolean, string>({
             query: (username) => `?username=${username}`,
             transformResponse: (response: User[]) => response.length > 0,
-        }),
-
-        getAllUsers: builder.query<User[], string | undefined>({
-            query: (excludedUsername) => {
-
-                if (excludedUsername) {
-                    return `?username_ne=${excludedUsername}`;
-                }
-
-                return `/users`;
-            },
         }),
 
         addUser: builder.mutation<User, Omit<User, 'id'> & { id: string }>({
@@ -45,22 +35,23 @@ export const userApi = createApi({
             })
         }),
 
-        updateApplications: builder.mutation<User, { id: string; newApplications: ItemApp[] }>({
-            query: ({ id, newApplications }) => ({
+        deleteUsersApplication: builder.mutation<User, { id: string, newApplicationsArr: string[] }>({
+            query: ({ id, newApplicationsArr }) => ({
                 url: `/${id}`,
                 method: 'PATCH',
-                body: { applications: newApplications },
+                body: { applications: newApplicationsArr },
             })
         }),
 
-        updateCvs: builder.mutation<User, { id: string; newCvs: ItemCvs[] }>({
-            query: ({ id, newCvs }) => ({
+        deleteUsersCv: builder.mutation<User, { id: string, newCvsArr: string[] }>({
+            query: ({ id, newCvsArr }) => ({
                 url: `/${id}`,
                 method: 'PATCH',
-                body: { cvs: newCvs },
+                body: { cvs: newCvsArr },
             })
-        }),
+        })
     }),
 });
 
-export const { useGetUserByUsernameQuery, useAddUserMutation, useUpdateUsernameMutation, useIsUserNameUniqueQuery, useUpdateApplicationsMutation, useUpdateCvsMutation, useGetAllUsersQuery } = userApi;
+
+export const { useGetUserByUsernameQuery, useIsUserNameUniqueQuery, useAddUserMutation, useUpdateUsernameMutation, useDeleteUsersApplicationMutation, useDeleteUsersCvMutation } = userApi;

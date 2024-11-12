@@ -1,21 +1,13 @@
 @import "src/styles/index";
 
 .upload_wrap {
-  position: absolute;
-  background-color: #f0eff9;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
-  padding: calc($index * 15);
 
   .heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: calc($index * 1.2);
-    border-bottom: calc($index * 1.5) solid $accent;
 
     .title {
       font-size: calc($font-m * .97);
@@ -40,8 +32,6 @@
 
   .upload_container {
     border-radius: calc($index * 10);
-    background-color: $secondary-light;
-    padding: calc($index * 15);
     margin-top: calc($index * 15);
   }
 

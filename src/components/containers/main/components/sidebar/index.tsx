@@ -1,12 +1,28 @@
 import classes from "./classes.module.scss"
-import {NavLink} from "react-router-dom";
-import {paths} from "@/routes/routes.ts";
-import {useFunctions} from "@/context/context.tsx";
+import { NavLink } from "react-router-dom";
+import { paths } from "@/routes/routes.ts";
+import { useFunctions } from "@/context/context.tsx";
 import Profile from "@/components/containers/main/components/sidebar/profile";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
 
-    const {offersLink} = useFunctions()
+    const { offersLink, isUploading } = useFunctions()
+    
+    const [link, setLink] = useState<string>('')
+    
+    useEffect(() => {
+        if (isUploading) {
+            setLink(`${paths.MYPOSTS}/${paths.UPLOAD}`)
+        } else {
+            if (offersLink === paths.CVS) {
+                setLink(`${paths.MYPOSTS}/${paths.APPLICATIONS}`)
+            } else {
+                setLink(`${paths.MYPOSTS}/${paths.CVS}`)
+            }
+        }
+    }, [isUploading, offersLink]) //TODO: fix shitcode
+        
 
     return(
         <>
@@ -40,9 +56,9 @@ const Sidebar = () => {
                     <p>jobs</p>
 
                     <li>
-                        <NavLink to={offersLink === paths.CVS ? `${paths.MYPOSTS}/${paths.APPLICATIONS}` : `${paths.MYPOSTS}/${paths.CVS}`}
+                        <NavLink to={link}
                                  className={({isActive}) => (isActive ? `${classes.active}` : undefined)}>
-                            {">"} Mine
+                            {">"} My posts
                         </NavLink>
                     </li>
 
