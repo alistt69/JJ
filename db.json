@@ -161,6 +161,17 @@
       "cvs": [
         "ID25W74NR2D"
       ]
+    },
+    {
+      "id": "ID59BUHMX4P",
+      "username": "fsf",
+      "password": "s",
+      "applications": [
+        "ID59WOMN3I9"
+      ],
+      "cvs": [
+        "ID591QQ6FEE"
+      ]
     }
   ],
   "applications": [
@@ -327,6 +338,14 @@
     {
       "id": "ID257SU471F",
       "author_id": "ID25SLEGME6",
+      "profession": "Junior Frontend Developer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "salary": "1000$",
+      "location": "Ryazan, Russia"
+    },
+    {
+      "id": "ID59WOMN3I9",
+      "author_id": "ID59BUHMX4P",
       "profession": "Junior Frontend Developer",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "salary": "1000$",
@@ -499,6 +518,15 @@
     {
       "id": "ID25W74NR2D",
       "author_id": "ID25SLEGME6",
+      "name": "Artyom Kachyro",
+      "profession": "Frontend Developer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "location": "Moscow, Italy",
+      "salary": "1$"
+    },
+    {
+      "id": "ID591QQ6FEE",
+      "author_id": "ID59BUHMX4P",
       "name": "Artyom Kachyro",
       "profession": "Frontend Developer",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
