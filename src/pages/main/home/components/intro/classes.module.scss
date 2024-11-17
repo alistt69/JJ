@@ -10,12 +10,12 @@
     padding: calc($index * 20);
     background-color: white;
     display: grid;
-    grid-template-rows: auto auto;
+    row-gap: calc($index * 10);
 
     &:nth-child(1) {
 
       p:nth-child(2) {
-        max-width: calc($index * 240);
+        max-width: calc($index * 245);
       }
     }
 
@@ -36,7 +36,6 @@
     line-height: calc($font-l * 1.2);
     letter-spacing: calc($font-l * -.02);
     color: $primary-dark;
-    margin-bottom: calc($index * 15);
   }
 
   .description {

@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import classes from "./classes.module.scss"
-import Sidebar from "@/components/containers/main/components/sidebar";
 import Nav from "@/components/containers/main/components/nav";
+import Sidebar from "@/components/sidebar";
 
 const MainContainer: React.FC<{children: ReactNode}> = ({ children }) => {
 

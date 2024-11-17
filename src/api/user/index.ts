@@ -15,7 +15,7 @@ export const userApi = createApi({
         }),
 
         isUserNameUnique: builder.query<boolean, string>({
-            query: (username) => `?username=${username}`,
+            query: (username) => `?username=${username.trim()}`,
             transformResponse: (response: User[]) => response.length > 0,
         }),
 

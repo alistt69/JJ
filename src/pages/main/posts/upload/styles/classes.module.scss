@@ -4,34 +4,51 @@ $secondary-color: #000000A0;
 $primary-color: #000000E5;
 
 .form {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: calc($index * 500);
+}
+
+.submit_btn {
+  margin-top: calc($index * 7);
+  border-radius: calc($index * 5);
+  background-color: transparent;
+  padding: calc($index * 2) calc($index * 20);
+  color: $accent;
+  border: $index solid $accent;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all .4s ease;
+  max-width: 100px;
+
+  &:hover {
+    background-color: $accent;
+    color: $secondary-light;
+  }
 }
 
 .form_container {
   position: relative;
   padding: 15.5px 0 0;
 
-  &:nth-child(1) {
-    max-width: calc($index * 500);
+  &.profession {
   }
 
-  &:nth-child(2) {
-    max-width: calc($index * 300);
+  &.location {
+    width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%);
   }
 
-  &:nth-child(3) {
-    max-width: calc($index * 250);
+  &.salary {
+    width: min(max(calc(calc($index * 1000) - 50vw - 62px), calc(70% - 62px)), calc(100% - 62px));
   }
 
-  &:nth-child(4) {
-    max-width: calc($index * 500);
+  &.name {
+    width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%);
   }
 
 
 }
-.salary_container {
+.salary {
 
   .form_field {
     border-right: none;
@@ -108,3 +125,10 @@ $primary-color: #000000E5;
   border-image-slice: 1;
   border-color: $primary-color;
 }
+
+
+
+.type {
+  max-width: calc($index * 500);
+}
+

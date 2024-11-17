@@ -1,7 +1,6 @@
 @import "src/styles/index";
 
-
-.sidebar_container {
+.sidebar {
   display: grid;
   grid-template-rows: calc($index * 55) auto auto;
   row-gap: calc($index * 10);
@@ -12,18 +11,32 @@
   background-image: linear-gradient(180deg, #1f1650, #342b70, #3c2f79);
 
   .heading {
-    align-content: center;
-    text-align: center;
-    border-radius: calc($index * 12);
-    font-size: $font-l;
-    color: $secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc($index * 8);
+    background-color: rgba(52, 41, 131, 0.28);
+    border-radius: calc($index * 8);
+    letter-spacing: calc($index * -1.1);
+    font-size: calc($font-l * .82);
+    color: rgba(255, 255, 255, 0.8);
+
+    svg {
+      color: rgba(151, 140, 222, 0.85);
+      height: calc($index * 32);
+      width: calc($index * 32);
+    }
   }
 
-  ul {
-    p {
-      font-size: $font-xs;
-      letter-spacing: calc($index * 1);
+  .navigation {
+    position: relative;
+    overflow: hidden;
+
+    .section_name {
       position: relative;
+      display: inline-block;
+      font-size: $font-xs;
+      letter-spacing: calc($index * .5);
       color: rgba(155, 155, 155, 0.8);
       margin-left: calc($index * 15);
       margin-top: calc($index * 7);
@@ -31,51 +44,28 @@
 
 
       &::after {
-        letter-spacing: calc($index * -2.6);
-        transform: translate(-50%, -50%);
+        content: '';
         position: absolute;
-        right: 0;
-        top: 23%;
+        top: 50%;
+        left: calc(100% + 4px);
+        width: 1000px;
+        height: 1.5px;
+        background-color: rgba(255, 255, 255, 0.15);
       }
 
       &::before {
-        content: '__';
-        letter-spacing: calc($index * -2.8);
-        transform: translate(-50%, -50%);
+        content: '';
         position: absolute;
-        top: 23%;
-        left: -6%;
-        right: 102%;
-      }
-
-      &:nth-child(1) {
-        margin-top: 0;
-        &::after {
-          content: '_____________________';
-          left: 58.5%;
-        }
-      }
-
-      &:nth-child(5) {
-
-        &::after {
-          content: '_____________________________';
-          left: 42.7%
-        }
-      }
-
-      &:nth-child(9) {
-
-        &::after {
-          content: '_____________________________';
-          left: 43.3%;
-        }
+        top: 50%;
+        right: calc(100% + 4px);
+        width: 1000px;
+        height: 1.5px;
+        background-color: rgba(255, 255, 255, 0.15);
       }
     }
 
 
     li {
-      position: relative;
       height: calc($index * 30);
 
       a {

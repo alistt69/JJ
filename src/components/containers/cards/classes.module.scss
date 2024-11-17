@@ -1,7 +1,7 @@
 @import "src/styles/index";
 
 .wrap {
-  max-height: calc(100vh - calc($index * 214));
+  height: calc(100vh - calc($index * 214));
   padding: calc($index * 12);
   background-color: white;
   border-radius: calc($index * 12);

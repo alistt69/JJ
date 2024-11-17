@@ -3,7 +3,6 @@
 .home_container {
   display: grid;
   grid-template-rows: auto auto auto;
-  min-height: 100%;
   row-gap: calc($index * 10);
 
   .name {

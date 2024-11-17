@@ -17,12 +17,12 @@ const authSlice = createSlice({
     reducers: {
 
         setUsername: (state, action: PayloadAction<string>) => {
-            state.username = action.payload;
+            state.user.username = action.payload;
         },
 
         resetUsername: (state) => {
             state.user = initialState.user;
-        },
+        }, //TODO: rename
 
         updateApplications: (state, action: PayloadAction<string[]>) => {
             state.user.applications = action.payload;
