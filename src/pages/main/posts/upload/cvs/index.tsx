@@ -51,21 +51,21 @@ const UploadCvs = () => {
 
     return(
         <form className={classes.form} onSubmit={handleCvAdding}>
-            <div className={`${classes.form_container} ${classes.profession}`}>
+            <div className={`${classes.input_container} ${classes.profession}`}>
                 <input type="input" className={classes.form_field} placeholder="profession"
                        autoComplete="off" name="profession" id="profession" value={newProfession}
                        onChange={(e) => setNewProfession(e.target.value)} required/>
                 <label htmlFor="profession" className={classes.form_label}>profession</label>
             </div>
 
-            <div className={`${classes.form_container} ${classes.location}`}>
+            <div className={`${classes.input_container} ${classes.location}`}>
                 <input type="input" className={classes.form_field} placeholder="location"
                        autoComplete="off" name="location" id="location" value={newLocation}
                        onChange={(e) => setNewLocation(e.target.value)} required/>
                 <label htmlFor="location" className={classes.form_label}>location</label>
             </div>
 
-            <div className={`${classes.form_container} ${classes.salary}`}>
+            <div className={`${classes.input_container} ${classes.salary}`}>
                 <input type="number" className={classes.form_field} placeholder="salary"
                        autoComplete="off" name="salary" id="salary" value={newSalary}
                        onChange={(e) => setNewSalary(e.target.value)} required/>
@@ -77,14 +77,14 @@ const UploadCvs = () => {
                 </select>
             </div>
 
-            <div className={`${classes.form_container} ${classes.name}`}>
+            <div className={`${classes.input_container} ${classes.name}`}>
                 <input type="input" className={classes.form_field} placeholder="name"
                        autoComplete="off" name="name" id="name" value={newName}
                        onChange={(e) => setNewName(e.target.value)} required/>
                 <label htmlFor="name" className={classes.form_label}>full name</label>
             </div>
 
-            <div className={`${classes.form_container} ${classes.description}`}>
+            <div className={`${classes.input_container} ${classes.description}`}>
                 <textarea
                     className={`${classes.form_field} ${classes.form_area}`} placeholder="description"
                     autoComplete="off" name="description" id="description" value={newDescription}

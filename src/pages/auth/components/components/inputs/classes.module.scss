@@ -7,13 +7,9 @@ $forms-index: calc($index * 15);
 
 
 
-.form {
-  width: calc($forms-index * 19);
-}
-
 .forms_container {
   position: relative;
-  padding: $forms-index 0 0;
+  padding: 15.5px 0 0;
   width: 100%;
 
   div {
@@ -26,10 +22,9 @@ $forms-index: calc($index * 15);
 
     svg {
       color: $forms-accent-color;
-      height: calc($forms-index * 1.2);
-      width: calc($forms-index * 1.2);
+      height: 18.6px;
+      width: 18.6px;
       cursor: pointer;
-
     }
   }
 }
@@ -37,11 +32,11 @@ $forms-index: calc($index * 15);
 .form_field {
   width: 100%;
   border: 0;
-  border-bottom: calc($forms-index * .0683) solid $forms-main-color;
+  border-bottom: 1.05865px solid $forms-main-color;
   outline: 0;
-  font-size: $forms-index;
+  font-size: 15.5px;
   color: $forms-main-color;
-  padding: calc($forms-index * .4783) 0;
+  padding: 7.41465px 0;
   background: transparent;
   transition: border-color 0.2s;
 
@@ -50,7 +45,7 @@ $forms-index: calc($index * 15);
   }
 
   &:placeholder-shown ~ .form_label {
-    font-size: $forms-index;
+    font-size: 15.5px;
     cursor: text;
     top: 50%;
     color: $forms-accent-color;
@@ -64,7 +59,7 @@ $forms-index: calc($index * 15);
   padding: 0;
   display: block;
   transition: 0.2s;
-  font-size: calc($forms-index * .8);
+  font-size: 12.4px;
   color: $forms-accent-color;
 }
 
@@ -74,11 +69,11 @@ $forms-index: calc($index * 15);
     top: 0;
     display: block;
     transition: 0.2s;
-    font-size: calc($forms-index * .8);
+    font-size: 12.4px;
     color: $forms-main-color;
   }
 
-  padding-bottom: calc($forms-index * .4783);
+  padding-bottom: 7.41465px;
   border-image-slice: 1;
   border-color: $forms-main-color;
 }

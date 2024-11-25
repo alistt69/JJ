@@ -26,7 +26,7 @@ const Upload = () => {
 
     return(
         <div>
-            <div className={`${classes.form_container} ${classes.type}`}>
+            <div className={`${classes.input_container} ${classes.type}`}>
                 <select
                     id="type"
                     name="type"

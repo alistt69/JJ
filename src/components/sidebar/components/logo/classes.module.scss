@@ -1,0 +1,42 @@
+@import "src/styles/index";
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: calc($index * 55);
+    width: calc($index * 55);
+    border-radius: calc($index * 16);
+
+    background-color: rgba(108, 90, 217, 0.24);
+    backdrop-filter: blur(24px);
+
+    > svg {
+      height: calc($index * 40);
+      width: calc($index * 40);
+      color: #d3d3d3;
+    }
+  }
+
+  .title {
+    padding: calc($index * 7);
+    font-size: $font-l;
+    animation: fadeIn 2s forwards;
+    text-transform: uppercase;
+
+    @keyframes fadeIn {
+      from {
+        color: transparent;
+      }
+      to {
+        color: #dcdcdc;
+      }
+    }
+  }
+}

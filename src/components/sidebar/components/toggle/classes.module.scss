@@ -1,0 +1,31 @@
+@import "src/styles/index";
+
+.sidebar_toggle {
+  position: absolute;
+  background-color: rgba(108, 90, 217, 0.24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: calc($index * 37);
+  transform: translateY(-50%);
+  height: calc($index * 55);
+  width: calc($index * 19);
+  border-top-left-radius: calc($index * 16);
+  border-bottom-left-radius: calc($index * 16);
+  cursor: pointer;
+
+  > img {
+    position: absolute;
+    left: 1px;
+    height: 28px;
+    width: 20px;
+    transform: rotate(180deg);
+  }
+
+  &.arrow_forward {
+    > img {
+      transform: rotate(0deg);
+    }
+  }
+}

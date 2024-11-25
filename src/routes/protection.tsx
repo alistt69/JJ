@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import {RootState} from "@/store";
-import React, {ReactNode, useEffect} from "react";
+import { RootState } from "@/store";
+import React, { ReactNode, useEffect } from "react";
 import { useAppSelector } from "@/store/hooks";
 
 const ProtectedRoute: React.FC<{ children: ReactNode}> = ({ children }) => {

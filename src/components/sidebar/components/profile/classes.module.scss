@@ -1,0 +1,117 @@
+@import "src/styles/index";
+
+$secondary-color: rgba(255, 255, 255, 0.6);
+$primary-color: rgba(255, 255, 255, 0.7);
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-self: end;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.9);
+
+  .user_info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+
+    .avatar {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+
+      height: calc($index * 55);
+      width: calc($index * 55);
+
+      background-color: rgba(76, 62, 161, 0.82);
+      border-radius: calc($index * 16);
+      backdrop-filter: blur(24px);
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: calc(100% - 15px);
+        width: calc(100% - 15px);
+
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #7464c2;
+      }
+    }
+
+    .username {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      color: rgba(255, 255, 255, 0.8);
+
+      .value {
+        align-self: end;
+        font-size: calc($font-m * .8);
+        line-height: 1.1;
+      }
+
+      .edit {
+        align-self: start;
+        font-size: calc($font-xs);
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    > form {
+      position: absolute;
+      right: calc($index * -74);
+      transform: translateX(-50%);
+
+
+      .input_container {
+        position: relative;
+        margin-bottom: 15.5px;
+        @include input_container($secondary-color, $primary-color, #3a2e77);
+        .form_field {width: calc($index * 170)}
+      }
+
+      .actions {
+        position: absolute;
+        top: calc(50% + 1px);
+        right: 8px;
+        transform: translatey(-50%);
+        display: flex;
+        gap: 4px;
+
+        .action_btn {
+          color: rgba(255, 255, 255, 0.9);
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
+  .logout_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+
+    img {
+      height: calc($index * 28);
+      width: calc($index * 28);
+      transition: all .4s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -1,134 +1,28 @@
 @import "src/styles/index";
 
-$secondary-color: #000000A0;
-$primary-color: #000000E5;
-
 .form {
   display: flex;
   flex-direction: column;
   max-width: calc($index * 500);
-}
 
-.submit_btn {
-  margin-top: calc($index * 7);
-  border-radius: calc($index * 5);
-  background-color: transparent;
-  padding: calc($index * 2) calc($index * 20);
-  color: $accent;
-  border: $index solid $accent;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all .4s ease;
-  max-width: 100px;
+  .submit_btn {
+    margin-top: calc($index * 7);
+    border-radius: calc($index * 5);
+    background-color: transparent;
+    padding: calc($index * 2) calc($index * 20);
+    color: $accent;
+    border: $index solid $accent;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .4s ease;
+    max-width: 100px;
 
-  &:hover {
-    background-color: $accent;
-    color: $secondary-light;
+    &:hover {
+      background-color: $accent;
+      color: $secondary-light;
+    }
   }
 }
 
-.form_container {
-  position: relative;
-  padding: 15.5px 0 0;
-
-  &.profession {
-  }
-
-  &.location {
-    width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%);
-  }
-
-  &.salary {
-    width: min(max(calc(calc($index * 1000) - 50vw - 62px), calc(70% - 62px)), calc(100% - 62px));
-  }
-
-  &.name {
-    width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%);
-  }
-
-
-}
-.salary {
-
-  .form_field {
-    border-right: none;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  select {
-    position: absolute;
-    top: 15.5px;
-    bottom: 0;
-    border-radius: 0 6px 6px 0;
-  }
-}
-
-.form_field {
-  width: 100%;
-  border: 1.05865px solid $secondary-color;
-  border-radius: 6px;
-  outline: 0;
-  font-size: 15.5px;
-  color: $primary-color;
-  padding: 8.5px;
-  background: transparent;
-  transition: all 0.2s;
-
-  &::placeholder {
-    font-size: 0;
-  }
-
-  &:placeholder-shown ~ .form_label {
-    font-size: 15.5px;
-    cursor: text;
-    top: 42%;
-    color: $secondary-color;
-  }
-}
-
-.form_area {
-  resize: none;
-  height: 139.5px;
-
-  &:placeholder-shown ~ .form_label {
-    font-size: 15.5px;
-    cursor: text;
-    top: 15%;
-    color: $secondary-color;
-  }
-}
-
-.form_label {
-  position: absolute;
-  top: 5px;
-  left: 14px;
-  margin: 0;
-  padding: 0;
-  display: block;
-  transition: 0.2s;
-  background-color: white;
-  font-size: 13.175px;
-  color: $secondary-color;
-}
-
-.form_field:focus {
-  ~ .form_label {
-    position: absolute;
-    top: 5px;
-    display: block;
-    transition: 0.2s;
-    font-size: 13.95px;
-    color: $primary-color;
-  }
-
-  border-image-slice: 1;
-  border-color: $primary-color;
-}
-
-
-
-.type {
-  max-width: calc($index * 500);
-}
-
+.input_container {@include input_container(#000000A0, #000000E5, #fff)}
+.type {max-width: calc($index * 500)}

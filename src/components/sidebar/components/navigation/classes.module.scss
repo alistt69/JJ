@@ -1,0 +1,108 @@
+@import "src/styles/index";
+
+.navigation {
+  position: relative;
+  overflow: hidden;
+
+  &.full {
+    > ul > li {
+      height: calc($index * 30);
+
+      > a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        gap: 5px;
+
+        font-size: $font-s;
+        letter-spacing: calc($index * .6);
+        color: rgba(206, 206, 206, 0.8);
+
+        padding-left: calc($index * 12);
+        border-radius: calc($index * 9);
+        transition: all .4s ease;
+
+        &:hover {
+          background-color: rgba(121, 114, 199, 0.25);
+        }
+
+        &.active {
+          background-color: rgba(121, 114, 199, 0.25);
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        > img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  &.short {
+    .section_name {
+      &::after {left: 100%}
+      &::before {right: 100%}
+    }
+
+    > ul > li {
+      height: calc($index * 60);
+
+      > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: calc($index * 55);
+        width: calc($index * 55);
+
+        border-radius: calc($index * 16);
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(24px);
+        transition: all .4s ease;
+
+        &.active {
+          background-color: rgba(99, 82, 213, 0.2);
+        }
+
+        > img {
+          height: calc($index * 35);
+          width: calc($index * 35);
+        }
+      }
+    }
+  }
+
+  .section_name {
+    position: relative;
+    display: inline-block;
+
+    font-size: $font-xs;
+    letter-spacing: calc($index * .5);
+    color: rgba(155, 155, 155, 0.8);
+
+    margin-left: calc($index * 15);
+    margin-top: calc($index * 7);
+    margin-bottom: calc($index * 7);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 4px);
+      width: 1000px;
+      height: 1.5px;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 4px);
+      width: 1000px;
+      height: 1.5px;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}

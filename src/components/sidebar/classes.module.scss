@@ -2,96 +2,17 @@
 
 .sidebar {
   display: grid;
+  position: relative;
   grid-template-rows: calc($index * 55) auto auto;
-  row-gap: calc($index * 10);
-  height: 100vh;
-  width: calc($index * 260);
-  font-size: calc($index * 15);
+  row-gap: 10px;
+
+  width: calc($index * 95);
   padding: calc($index * 10) calc($index * 15) calc($index * 15);
+
   background-image: linear-gradient(180deg, #1f1650, #342b70, #3c2f79);
+  transition: all .5s ease;
 
-  .heading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc($index * 8);
-    background-color: rgba(52, 41, 131, 0.28);
-    border-radius: calc($index * 8);
-    letter-spacing: calc($index * -1.1);
-    font-size: calc($font-l * .82);
-    color: rgba(255, 255, 255, 0.8);
-
-    svg {
-      color: rgba(151, 140, 222, 0.85);
-      height: calc($index * 32);
-      width: calc($index * 32);
-    }
-  }
-
-  .navigation {
-    position: relative;
-    overflow: hidden;
-
-    .section_name {
-      position: relative;
-      display: inline-block;
-      font-size: $font-xs;
-      letter-spacing: calc($index * .5);
-      color: rgba(155, 155, 155, 0.8);
-      margin-left: calc($index * 15);
-      margin-top: calc($index * 7);
-      margin-bottom: calc($index * 7);
-
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: calc(100% + 4px);
-        width: 1000px;
-        height: 1.5px;
-        background-color: rgba(255, 255, 255, 0.15);
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: calc(100% + 4px);
-        width: 1000px;
-        height: 1.5px;
-        background-color: rgba(255, 255, 255, 0.15);
-      }
-    }
-
-
-    li {
-      height: calc($index * 30);
-
-      a {
-        color: rgba(206, 206, 206, 0.8);
-        height: 100%;
-        letter-spacing: calc($index * .6);
-        align-content: center;
-        font-size: $font-s;
-        display: block;
-        padding-left: calc($index * 12);
-        border-radius: calc($index * 9);
-        transition: all .4s ease;
-
-        &:hover {
-          background-color: rgba(121, 114, 199, 0.25);
-        }
-
-        &.active {
-          background-color: rgba(121, 114, 199, 0.25);
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-    }
+  &.full_sidebar {
+    width: calc($index * 260);
   }
 }
-
-
-
-

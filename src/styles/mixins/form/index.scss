@@ -1,0 +1,87 @@
+@import "src/styles/consts";
+
+@mixin input_container($light, $dark, $background) {
+  position: relative;
+  padding: 15.5px 0 0;
+
+  &.name {width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%)}
+  &.location {width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%)}
+  &.salary {
+    width: min(max(calc(calc($index * 1000) - 50vw - 62px), calc(70% - 62px)), calc(100% - 62px));
+
+    .form_field {
+      border-right: none;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    > select {
+      position: absolute;
+      top: 15.5px;
+      bottom: 0;
+      border-radius: 0 6px 6px 0;
+    }
+  }
+
+  .form_field {
+    width: 100%;
+    border: 1px solid $light;
+    border-radius: 6px;
+    outline: 0;
+    font-size: 15.5px;
+    color: $dark;
+    padding: 8.5px;
+    background: transparent;
+    transition: all 0.2s;
+
+    &::placeholder {
+      font-size: 0;
+    }
+
+    &:placeholder-shown ~ .form_label {
+      font-size: 15.5px;
+      cursor: text;
+      top: 42%;
+      color: $light;
+    }
+  }
+
+  .form_area {
+    resize: none;
+    height: 139.5px;
+
+    &:placeholder-shown ~ .form_label {
+      font-size: 15.5px;
+      cursor: text;
+      top: 15%;
+      color: $light;
+    }
+  }
+
+  .form_label {
+    position: absolute;
+    top: 5px;
+    left: 14px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    transition: 0.2s;
+    background-color: $background;
+    font-size: 13.175px;
+    color: $light;
+  }
+
+  .form_field:focus {
+    ~ .form_label {
+      position: absolute;
+      top: 5px;
+      display: block;
+      transition: 0.2s;
+      font-size: 13.95px;
+      color: $dark;
+    }
+
+    border-image-slice: 1;
+    border-color: $dark;
+  }
+}
