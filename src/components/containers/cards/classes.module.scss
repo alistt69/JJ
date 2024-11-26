@@ -1,13 +1,16 @@
 @import "src/styles/index";
 
-.wrap {
-  height: calc(100vh - calc($index * 214));
-  padding: calc($index * 12);
-  background-color: white;
-  border-radius: calc($index * 12);
+.position_wrap {
   overflow: scroll;
-  display: grid;
-  grid-auto-rows: auto;
-  row-gap: calc($index * 15);
+  height: calc(100vh - calc($index * 214));
   margin-top: calc($index * 15);
+  padding: calc($index * 12);
+  border-radius: calc($index * 12);
+  background-color: white;
+
+  .content_wrap {
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: calc($index * 15);
+  }
 }

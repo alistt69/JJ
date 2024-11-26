@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { ItemCvs } from "@/models/user";
 
 import classes from "../styles/classes.module.scss";
+import { useNotification } from "@/context/notification.tsx";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
 
 const UploadCvs = () => {
@@ -17,6 +19,7 @@ const UploadCvs = () => {
     const dispatch = useDispatch();
 
     const user = useUserInit();
+    const { notify } = useNotification();
     const navigate = useNavigate();
     const [newName, setNewName] = useState("");
     const [newSalary, setNewSalary] = useState("");
@@ -43,9 +46,9 @@ const UploadCvs = () => {
             .then(() => {
                 dispatch(updateCvs([...user.cvs, new_cv.id]));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.CVS}`);
-                alert('success');
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'new cv added successfully!')
             })
-            .catch((e) => alert(e));
+            .catch((e) =>  notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e));
 
     };
 

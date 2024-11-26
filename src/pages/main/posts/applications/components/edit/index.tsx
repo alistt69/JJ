@@ -2,11 +2,12 @@ import { updateApplications } from "@/store/reducers/auth/authSlice.ts";
 import { useEditPostMutation } from "@/api/posts";
 
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { CloseOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { useUserInit } from "@/hooks/init";
 import { useDispatch } from "react-redux";
 
 import classes from "./classes.module.scss";
+import { useNotification } from "@/context/notification.tsx";
 
 
 const ApplicationsEditing: React.FC<{
@@ -21,6 +22,7 @@ const ApplicationsEditing: React.FC<{
     const dispatch = useDispatch();
 
     const user = useUserInit();
+    const { notify } = useNotification();
     const [ editPost ] = useEditPostMutation()
     const [newSalary, setNewSalary] = useState(salary)
     const [newLocation, setNewLocation] = useState(location)
@@ -43,9 +45,9 @@ const ApplicationsEditing: React.FC<{
             .then(() => {
                 setEditingId('')
                 dispatch(updateApplications([...user.applications]))
-                alert('success')
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'edited successfully!')
             })
-            .catch((e) => alert(e))
+            .catch((e) =>  notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e))
     }
 
     return(

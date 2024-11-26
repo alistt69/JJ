@@ -17,3 +17,5 @@ const AuthPage = () => {
 }
 
 export default AuthPage;
+
+//todo: remake all auth

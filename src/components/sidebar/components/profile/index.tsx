@@ -9,7 +9,8 @@ import { useUserInit } from "@/hooks/init";
 import { useDispatch } from "react-redux";
 
 import classes from "./classes.module.scss";
-import logout_image from "@/images/logout/logout.png"
+import logout_image from "@/images/logout/logout.png";
+import { useNotification } from "@/context/notification.tsx";
 
 
 const ERROR_MESSAGES = {
@@ -24,6 +25,7 @@ const Profile: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarOpen
     const user = useUserInit();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { notify } = useNotification();
 
     const [ updateUsername ] = useUpdateUsernameMutation();
     const [newUsername, setNewUsername] = useState<string>('');
@@ -46,7 +48,7 @@ const Profile: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarOpen
         const validationError = validateUsername(trimmedUsername);
 
         if (validationError) {
-            alert(validationError);
+            notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', validationError);
             return;
         }
 
@@ -55,10 +57,10 @@ const Profile: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarOpen
                 dispatch(setUsername(trimmedUsername));
                 setIsChangingUserName(false);
                 setNewUsername('');
-                alert('Username updated successfully!');
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', ERROR_MESSAGES.success);
             })
-            .catch((e) => alert(e));
-    }; //TODO: make notify
+            .catch((e) => notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e));
+    };
 
     const handleSignOut = () => {
         dispatch(resetUsername());

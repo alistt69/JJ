@@ -2,11 +2,12 @@ import { updateCvs } from "@/store/reducers/auth/authSlice.ts";
 import { useEditPostMutation } from "@/api/posts";
 
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { CloseOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { useUserInit } from "@/hooks/init";
 import { useDispatch } from "react-redux";
 
 import classes from "./classes.module.scss";
+import { useNotification } from "@/context/notification.tsx";
 
 
 const CvsEditing: React.FC<{
@@ -22,6 +23,7 @@ const CvsEditing: React.FC<{
     const dispatch = useDispatch();
 
     const user = useUserInit();
+    const { notify } = useNotification();
     const [ editPost ] = useEditPostMutation()
     const [newName, setNewName] = useState(name)
     const [newSalary, setNewSalary] = useState(salary)
@@ -46,9 +48,9 @@ const CvsEditing: React.FC<{
             .then(() => {
                 setEditingId('')
                 dispatch(updateCvs([...user.cvs]))
-                alert('success')
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'cv edited successfully!')
             })
-            .catch((e) => alert(e))
+            .catch((e) =>  notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e))
     }
 
     return(

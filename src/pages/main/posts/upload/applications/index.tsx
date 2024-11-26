@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { ItemApp } from "@/models/user";
 
 import classes from "../styles/classes.module.scss";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { useNotification } from "@/context/notification.tsx";
 
 
 const UploadApplications = () => {
@@ -17,6 +19,7 @@ const UploadApplications = () => {
     const dispatch = useDispatch();
 
     const user = useUserInit();
+    const { notify } = useNotification();
     const navigate = useNavigate();
     const [newSalary, setNewSalary] = useState("");
     const [newLocation, setNewLocation] = useState("");
@@ -41,9 +44,9 @@ const UploadApplications = () => {
             .then(() => {
                 dispatch(updateApplications([...user.applications, new_application.id]));
                 navigate(`/${paths.MAIN}/${paths.MYPOSTS}/${paths.APPLICATIONS}`);
-                alert('success');
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'new application added successfully!');
             })
-            .catch((e) => alert(e));
+            .catch((e) => notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e));
 
     };
 

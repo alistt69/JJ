@@ -15,7 +15,7 @@ export const FunctionsContext = createContext<ContextType | undefined>(undefined
 
 export const FunctionsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-   const [started, setStarted, isJobSeeker, setIsJobSeeker, offersLink, isUploading, setIsUploading ] = useJobsState()
+   const [ started, setStarted, isJobSeeker, setIsJobSeeker, offersLink, isUploading, setIsUploading ] = useJobsState()
 
     return (
         <FunctionsContext.Provider value={{

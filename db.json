@@ -197,7 +197,7 @@
     },
     {
       "id": "ID19V3ETGMS",
-      "username": "wada",
+      "username": "dad",
       "password": "dwa",
       "applications": [
         "ID19KR11UC1"
@@ -405,7 +405,7 @@
       "author_id": "ID19V3ETGMS",
       "profession": "Junior Frontend Developer",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "salary": "1000$",
+      "salary": "1000$dawa",
       "location": "Ryazan, Russia"
     }
   ],
@@ -638,11 +638,20 @@
     {
       "id": "ID58BOH6T9Y",
       "author_id": "ID19V3ETGMS",
-      "profession": "aaaaaaaaa",
+      "profession": "aaaaaaaaaaaaaaaaaaa111",
       "name": "11aa",
       "description": "a",
       "salary": "111$",
       "location": "aaaaaaaaaaa"
+    },
+    {
+      "id": "ID95SAPCUV6",
+      "author_id": "ID19V3ETGMS",
+      "profession": "dqwa",
+      "name": "da",
+      "description": "s",
+      "salary": "1$",
+      "location": "wad"
     }
   ]
 }

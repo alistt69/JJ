@@ -10,6 +10,8 @@ import { useState } from "react";
 import CvsEditing from "@/pages/main/posts/cvs/components/edit";
 import FullCard from "@/components/cards/cvs/vFU";
 import NoData from "@/components/no-data";
+import { useNotification } from "@/context/notification.tsx";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
 
 const MyCvs = () => {
@@ -17,6 +19,7 @@ const MyCvs = () => {
     const dispatch = useDispatch();
 
     const user = useUserInit();
+    const { notify } = useNotification();
     const cvs = useGettingUserCvs()
     const [editingId, setEditingId] = useState<string>('');
     const [ deletePost ] = useDeletePostMutation();
@@ -32,9 +35,9 @@ const MyCvs = () => {
             ])
             .then(() => {
                 dispatch(updateCvs(newCvsArr));
-                alert('success');
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'cv deleted successfully!')
             })
-            .catch((e) => alert(e));
+            .catch((e) =>  notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e));
     }
 
     return(

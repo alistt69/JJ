@@ -10,6 +10,8 @@ import { useState } from "react";
 import ApplicationsEditing from "@/pages/main/posts/applications/components/edit";
 import FullCard from "@/components/cards/applications/vFU";
 import NoData from "@/components/no-data";
+import { useNotification } from "@/context/notification.tsx";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
 
 const MyApplications = () => {
@@ -17,10 +19,11 @@ const MyApplications = () => {
     const dispatch = useDispatch();
 
     const user = useUserInit();
-    const applications = useGettingUserApplications()
+    const { notify } = useNotification();
+    const applications = useGettingUserApplications();
     const [editingId, setEditingId] = useState<string>('');
     const [ deletePost ] = useDeletePostMutation()
-    const [ deleteUsersApplication ] = useDeleteUsersApplicationMutation()
+    const [ deleteUsersApplication ] = useDeleteUsersApplicationMutation();
 
 
     const handlePostDeleting = (post_id: string, post_type: string) => {
@@ -32,10 +35,10 @@ const MyApplications = () => {
             ])
             .then(() => {
                 dispatch(updateApplications(newApplicationsArr));
-                alert('success');
+                notify(<CheckOutlined style={{color: "green"}} />, 'success', 'application deleted successfully!')
             })
-            .catch((e) => alert(e));
-    }
+            .catch((e) =>  notify(<CloseOutlined style={{color: "darkred"}} />, 'failure', e));
+    };
 
     return(
         <>
@@ -67,7 +70,7 @@ const MyApplications = () => {
                     <NoData />
             }
         </>
-    )
-}
+    );
+};
 
 export default MyApplications;

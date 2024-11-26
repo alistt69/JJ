@@ -2,10 +2,9 @@
 @import 'normalize';
 @import 'mixins/form';
 
-body {
+body, html, #root {
   font-family: 'Poppins', sans-serif;
   background-image: linear-gradient(128deg,  rgba(148, 158, 227, 0.88), rgb(167, 140, 234));
-  height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
 }

@@ -5,6 +5,7 @@
   position: relative;
   grid-template-rows: calc($index * 55) auto auto;
   row-gap: 10px;
+  height: 100vh;
 
   width: calc($index * 95);
   padding: calc($index * 10) calc($index * 15) calc($index * 15);

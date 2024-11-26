@@ -3,23 +3,27 @@
 .cart_container {
   position: relative;
   max-width: calc($index * 900);
-  background-color: $secondary-light;
-  border-radius: calc($index * 10);
   padding: calc($index * 11) calc($index * 18);
 
-  .profession {
-    font-size: $font-m;
-    color: rgba(0, 0, 0, 0.65);
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.75);
 
-    svg {
+  border-radius: calc($index * 10);
+  background-color: $secondary-light;
+
+  .profession {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: $font-m;
+    font-weight: bold;
+
+    > div > span > svg {
       height: calc($index * 17);
       margin-left: calc($index * 5);
-      cursor: pointer;
       transition: transform .4s ease;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.13);
@@ -27,13 +31,9 @@
     }
   }
 
-  p {
-    margin-bottom: calc($index * 3);
-  }
-
   .id {
+    line-height: 2.2;
     font-size: $font-xs;
-    margin-top: calc($index * 10);
     color: rgba(0, 0, 0, 0.4);
   }
 }

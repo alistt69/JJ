@@ -14,6 +14,18 @@ const Sidebar = () => {
     });
 
     useEffect(() => {
+        const handleResize = () => {
+            setIsShortSidebarOpen(window.innerWidth < 750);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
         localStorage.setItem('isShortSidebarOpen', JSON.stringify(isShortSidebarOpen));
     }, [isShortSidebarOpen]);
 
