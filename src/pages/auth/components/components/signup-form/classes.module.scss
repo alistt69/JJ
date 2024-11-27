@@ -1,0 +1,52 @@
+@import "src/styles/index";
+
+.signup_container {
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  transition: all 0.4s ease-in-out;
+
+  &.layer_is_on_right {
+    visibility: hidden;
+    left: 25%;
+    right: 25%;
+    opacity: 0;
+  }
+
+  &.layer_is_on_left {
+    left: 50%;
+    right: 0;
+    opacity: 1;
+  }
+
+  > h1 {
+    font-size: calc($font-l * 1.1);
+    margin-bottom: calc($index * 15);
+  }
+
+  .forgot_password {
+    visibility: hidden;
+    margin-top: calc($index * 4);
+    font-size: $font-xs;
+  }
+
+  .submit_btn {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin-top: calc($index * 52);
+    padding: calc($index * 10) calc($index * 45);
+
+    text-transform: uppercase;
+    font-size: calc($index * 15);
+    color: $secondary;
+
+    border: none;
+    background-color: $accent;
+    border-radius: calc($index * 5);
+  }
+}

@@ -1,75 +1,79 @@
 @import "src/styles/index";
 
 .layer_container {
-  text-align: center;
-  background-color: $accent;
   position: absolute;
+  overflow: hidden;
   top: 0;
-  right: 0;
   bottom: 0;
-  left: 50%;
-  width: calc($index * 400);
-  border-radius: 25% calc($index * 15) calc($index * 15) 25%;
-  transition: all .35s cubic-bezier(.69,.11,.44,.84);
-  color: $secondary;
+  background-image: linear-gradient(to right, #6256b7, $accent);
+  transition: all 0.4s ease-in-out;
 
-  &.left {
+  &.layer_is_on_right {
+    right: 0;
+    left: 50%;
+    border-top-left-radius: 130px;
+    border-bottom-left-radius: 130px;
+
+    .right_text_container {
+      left: 150%;
+      transition: all .4s ease-in-out;
+    }
+  }
+
+  &.layer_is_on_left {
     left: 0;
     right: 50%;
-    border-radius: calc($index * 15) 20% 20% calc($index * 15);
+    border-top-right-radius: 130px;
+    border-bottom-right-radius: 130px;
 
-    p:nth-child(1)::after {
-      content: ' Back!';
-    }
-
-    p:nth-child(2)::after {
-      content: 'enter your personal data to continue\A your user experience.';
-      white-space: pre-wrap;
-    }
-
-    button::after {
-      content: 'IN';
-      color: white;
+    .left_text_container {
+      left: -50%;
+      transition: all .4s ease-in-out;
     }
   }
 
-  p:nth-child(1) {
-    font-size: $font-l;
-    font-weight: bolder;
-    letter-spacing: $index;
-    margin-bottom: calc($index * 10);
-    margin-top: calc($index * 165);
+  .left_text_container,
+  .right_text_container {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    width: calc($index * 325);
+    color: white;
+    transform: translate(-50%, -50%);
+    transition: all .4s ease-in-out;
 
-    &::after {
-      content: ", Friend!"
+    > h1 {
+      margin-bottom: calc($index * 13);
+      margin-top: calc($index * 87);
+      font-size: calc($font-l * 1.1);
+    }
+
+    > p {
+      margin: 0 calc($index * 7);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    > button {
+      justify-self: center;
+      margin-top: calc($index * 123);
+      padding: calc($index * 9) calc($index * 44);
+      text-transform: uppercase;
+      font-size: calc($index * 15);
+      color: $secondary;
+      border: 1.5px solid white;
+      border-radius: calc($index * 5);
+      background-color: transparent;
+      transition: all .4s ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
     }
   }
 
-  p:nth-child(2) {
-    font-size: $font-xs;
-    color: #bbb;
-
-    &::after {
-      width: calc($index * 15);
-      letter-spacing: $index;
-      content: 'register with your personal data to \A start yout user experience.';
-      white-space: pre-wrap;
-    }
-  }
-
-  button {
-    background-color: transparent;
-    border: $index solid $secondary;
-    color: $secondary;
-    font-size: calc($index * 15);
-    border-radius: calc($index * 5);
-    padding: calc($index * 10) calc($index * 45);
-    margin-top: calc($index * 112.2);
-    cursor: pointer;
-
-    &::after {
-      content: 'UP';
-      color: white;
-    }
+  .right_text_container {
+    width: calc($index * 300);
   }
 }

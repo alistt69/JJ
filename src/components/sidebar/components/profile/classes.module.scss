@@ -73,7 +73,7 @@ $primary-color: rgba(255, 255, 255, 0.7);
       .input_container {
         position: relative;
         margin-bottom: 15.5px;
-        @include input_container($secondary-color, $primary-color, #3a2e77);
+        @include input_container($secondary-color, $primary-color, #3a2e77, 15.5px);
         .form_field {width: calc($index * 170)}
       }
 

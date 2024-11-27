@@ -1,19 +1,19 @@
 @import "src/styles/index";
 
 .icon_container {
-  display: flex;
-  justify-content: space-evenly;
+  display: inline-flex;
+  justify-content: center;
   justify-self: center;
-  width: 78%;
-  margin-bottom: calc($index * 15);
+  gap: 14px;
+  margin-bottom: calc($index * 22);
 
-  div {
+  > span {
     display: inline-block;
     position: relative;
+    width: calc($index * 44);
+    height: calc($index * 44);
     border: $index solid $primary-dark;
-    border-radius: calc($index * 8);
-    width: calc($index * 40);
-    height: calc($index * 40);
+    border-radius: calc($index * 10);
     transition: all .5s ease;
     cursor: pointer;
 
@@ -21,20 +21,20 @@
       background-color: rgb(0, 0, 0);
       transform: scale(1.1);
 
-      svg {
+      > svg {
         color: $secondary;
-        transition: all .5s ease;
       }
     }
 
-    svg {
-      color: $primary-dark;
+    > svg {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: calc($index * 20);
       height: calc($index * 20);
+      color: $primary-dark;
+      transform: translate(-50%, -50%);
+      transition: all .5s ease;
     }
   }
 }

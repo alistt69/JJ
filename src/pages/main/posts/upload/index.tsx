@@ -1,4 +1,4 @@
-import { useFunctions } from "@/context/context.tsx";
+import { useFunctions } from "@/context/function.tsx";
 
 import UploadApplications from "@/pages/main/posts/upload/applications";
 import UploadCvs from "@/pages/main/posts/upload/cvs";

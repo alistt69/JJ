@@ -1,8 +1,8 @@
 @import "src/styles/consts";
 
-@mixin input_container($light, $dark, $background) {
+@mixin input_container($light, $dark, $background, $form-size) {
   position: relative;
-  padding: 15.5px 0 0;
+  padding: $form-size 0 0;
 
   &.name {width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%)}
   &.location {width: min(max(calc(calc($index * 1000) - 50vw), 70%), 100%)}
@@ -17,29 +17,34 @@
 
     > select {
       position: absolute;
-      top: 15.5px;
+      top: $form-size;
       bottom: 0;
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 calc($form-size / 2.58) calc($form-size / 2.58) 0;
     }
   }
 
   .form_field {
     width: 100%;
-    border: 1px solid $light;
-    border-radius: 6px;
+    position: relative;
+    border: calc($form-size / 15) solid $light;
+    border-radius: calc($form-size / 2.58);
     outline: 0;
-    font-size: 15.5px;
+    font-size: $form-size;
     color: $dark;
-    padding: 8.5px;
+    padding: calc($form-size / 1.82);
     background: transparent;
     transition: all 0.2s;
+
+    &:user-invalid {
+      border-color: #c40000;
+    }
 
     &::placeholder {
       font-size: 0;
     }
 
     &:placeholder-shown ~ .form_label {
-      font-size: 15.5px;
+      font-size: $form-size;
       cursor: text;
       top: 42%;
       color: $light;
@@ -48,10 +53,10 @@
 
   .form_area {
     resize: none;
-    height: 139.5px;
+    height: calc($form-size * 9);
 
     &:placeholder-shown ~ .form_label {
-      font-size: 15.5px;
+      font-size: $form-size;
       cursor: text;
       top: 15%;
       color: $light;
@@ -60,24 +65,24 @@
 
   .form_label {
     position: absolute;
-    top: 5px;
-    left: 14px;
+    top: calc($form-size / 3.1);
+    left: calc($form-size / 1.1);
     margin: 0;
     padding: 0;
     display: block;
     transition: 0.2s;
     background-color: $background;
-    font-size: 13.175px;
+    font-size: calc($form-size / 1.176);
     color: $light;
   }
 
   .form_field:focus {
     ~ .form_label {
       position: absolute;
-      top: 5px;
+      top: calc($form-size / 3.1);
       display: block;
       transition: 0.2s;
-      font-size: 13.95px;
+      font-size: calc($form-size / 1.13);
       color: $dark;
     }
 

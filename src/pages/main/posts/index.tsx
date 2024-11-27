@@ -1,4 +1,4 @@
-import { useFunctions } from "@/context/context.tsx";
+import { useFunctions } from "@/context/function.tsx";
 import { NavLink } from "react-router-dom";
 import { paths } from "@/routes/routes.ts";
 

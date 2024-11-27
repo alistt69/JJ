@@ -1,0 +1,16 @@
+@import "src/styles/index";
+
+.password_visibility_toggle {
+  display: inline-block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: -2.5px;
+  right: 3px;
+
+  > span > svg {
+    height: 18.6px;
+    width: 18.6px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+}

@@ -24,5 +24,5 @@
   }
 }
 
-.input_container {@include input_container(#000000A0, #000000E5, #fff)}
+.input_container {@include input_container(#000000A0, #000000E5, #fff, 15.5px)}
 .type {max-width: calc($index * 500)}

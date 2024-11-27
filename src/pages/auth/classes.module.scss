@@ -1,19 +1,13 @@
 @import "src/styles/index";
 
-$auth-index: $index;
-
 .auth_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   top: 50%;
   left: 50%;
+  height: calc($index * 525);
+  width: calc($index * 950);
   transform: translate(-50%, -50%);
-  background-color: $secondary;
-  height: calc($auth-index * 500);
-  width: calc($auth-index * 800);
-  border: none;
-  border-radius: calc($auth-index * 17);
+  border-radius: 24px;
+  background: #fff;
 }

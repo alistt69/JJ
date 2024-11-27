@@ -1,18 +1,16 @@
-import classes from "./classes.module.scss"
-import { GooglePlusOutlined, TwitterOutlined, GithubOutlined, InstagramOutlined } from "@ant-design/icons"
+import { GooglePlusOutlined, TwitterOutlined, GithubOutlined, InstagramOutlined } from "@ant-design/icons";
+import classes from "./classes.module.scss";
+
 
 const Icons = () => {
-
     return(
-        <>
-            <div className={classes.icon_container}>
-                <div><GooglePlusOutlined /></div>
-                <div><TwitterOutlined /></div>
-                <div><GithubOutlined /></div>
-                <div><InstagramOutlined /></div>
-            </div>
-        </>
-    )
-}
+        <div className={classes.icon_container}>
+            <GooglePlusOutlined />
+            <TwitterOutlined />
+            <GithubOutlined />
+            <InstagramOutlined />
+        </div>
+    );
+};
 
 export default Icons;

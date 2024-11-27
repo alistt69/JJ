@@ -8,7 +8,7 @@ import liked from "@/components/sidebar/assets/liked.png";
 import faq from "@/components/sidebar/assets/faq.png";
 import classes from "./classes.module.scss";
 import { NavLink } from "react-router-dom";
-import { useFunctions } from "@/context/context.tsx";
+import { useFunctions } from "@/context/function.tsx";
 import { paths } from "@/routes/routes.ts";
 
 

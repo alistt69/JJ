@@ -19,9 +19,7 @@
         "ID93W9QQ9KC",
         "ID20TQUDZM7"
       ],
-      "cvs": [
-        "ID93077LSO2"
-      ]
+      "cvs": []
     },
     {
       "id": "ID25NMEXU4H",
@@ -205,6 +203,41 @@
       "cvs": [
         "ID19EHV396V"
       ]
+    },
+    {
+      "id": "ID22UAUYV5R",
+      "username": "adqw",
+      "password": "ыау",
+      "applications": [],
+      "cvs": []
+    },
+    {
+      "id": "ID98D2YKUZC",
+      "username": "a",
+      "password": "a",
+      "applications": [],
+      "cvs": []
+    },
+    {
+      "id": "ID4600WYZOS",
+      "username": "WWWWW",
+      "password": "1",
+      "applications": [],
+      "cvs": []
+    },
+    {
+      "id": "ID5655K7XJD",
+      "username": "123E",
+      "password": "2",
+      "applications": [],
+      "cvs": []
+    },
+    {
+      "id": "ID10K8QSIKY",
+      "username": "2a",
+      "password": "2",
+      "applications": [],
+      "cvs": []
     }
   ],
   "applications": [
@@ -418,42 +451,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "location": "Moscow, Italya",
       "salary": "1$"
-    },
-    {
-      "id": "ID93077LSO2",
-      "author_id": "ID93MWV892H",
-      "name": "Artyom Kachyro",
-      "profession": "not Frontend Developerss",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "location": "Moscow, Italy",
-      "salary": "1$aaaa"
-    },
-    {
-      "id": "ID70HSR41HX",
-      "author_id": "ID93MWV892H",
-      "profession": "a",
-      "name": "a",
-      "description": "a",
-      "salary": "a",
-      "location": "a"
-    },
-    {
-      "id": "ID66DLB0A0X",
-      "author_id": "ID93MWV892H",
-      "profession": "s",
-      "name": "s",
-      "description": "s",
-      "salary": "s",
-      "location": "s"
-    },
-    {
-      "id": "ID38PJ1P9F5",
-      "author_id": "ID93MWV892H",
-      "profession": "aasa",
-      "name": "sas",
-      "description": "d",
-      "salary": "sasas",
-      "location": "a"
     },
     {
       "id": "ID25FB6E0T8",
