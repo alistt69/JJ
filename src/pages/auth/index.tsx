@@ -10,9 +10,11 @@ const AuthPage = () => {
 
     return (
         <div className={classes.auth_container}>
-            <SignInForm layerIsOnRight={layerIsOnRight} />
-            <SignUpForm layerIsOnRight={layerIsOnRight} />
-            <Layer layerIsOnRight={layerIsOnRight} setLayerIsOnRight={setLayerIsOnRight} />
+            <div className={classes.auth_content}>
+                <SignInForm layerIsOnRight={layerIsOnRight}/>
+                <SignUpForm layerIsOnRight={layerIsOnRight}/>
+                <Layer layerIsOnRight={layerIsOnRight} setLayerIsOnRight={setLayerIsOnRight}/>
+            </div>
         </div>
     );
 }
