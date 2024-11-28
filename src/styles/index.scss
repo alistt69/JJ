@@ -2,7 +2,7 @@
 @import 'normalize';
 @import 'mixins/form';
 
-body, html, #root {
+body {
   height: 100vh;
   background-image: linear-gradient(to right bottom, rgba(135, 145, 210, 0.88), rgb(179, 163, 224));
   scroll-behavior: smooth;

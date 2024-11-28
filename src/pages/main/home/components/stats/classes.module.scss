@@ -7,15 +7,19 @@
   border-radius: calc($index * 12);
   background-color: white;
 
-  .title {
-    font-size: $font-l;
-    line-height: calc($font-l * 1.2);
-    color: $primary-dark;
-    letter-spacing: calc($font-l * -.02);
+  div {
+    padding: calc($index * 10);
+  }
 
-    p {
-      font-size: $font-s;
-      line-height: calc($index * 30);
+  .title {
+    font-size: $font-menu-l;
+    line-height: calc($font-menu-l * 1.2);
+    color: $primary-dark;
+    letter-spacing: calc($font-menu-l * -.02);
+
+    > p {
+      font-size: $font-menu-s;
+      line-height: 1.4;
       letter-spacing: calc($index * .3);
       color: $primary;
     }
@@ -23,15 +27,24 @@
 
   .stats_container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    column-gap: calc($index * 10);
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+    gap: calc($index * 10);
 
-    div {
+    > div > span {
+      font-size: $font-menu-l;
+    }
+
+    > div > p {
+      font-size: $font-menu-s;
+      align-self: end;
+    }
+
+    > div {
       color: $primary-dark;
       display: grid;
       position: relative;
       grid-template-rows: auto auto;
-      border-radius: calc($index * 12);
+      border-radius: 12px;
       background-color: $secondary-light;
       transition: all .5s ease;
 
@@ -57,19 +70,6 @@
           width: 100%;
         }
       }
-
-      p:nth-child(1) {
-        font-size: $font-l;
-      }
-
-      p:nth-child(2) {
-        font-size: $font-s;
-        align-self: end;
-      }
     }
-  }
-
-  div {
-    padding: calc($index * 10);
   }
 }

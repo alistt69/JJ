@@ -1,9 +1,11 @@
 @import "src/styles/index";
 
 .home_container {
-  display: grid;
-  grid-template-rows: auto auto auto;
+  display: flex;
+  flex-direction: column;
   row-gap: calc($index * 10);
+  max-height: calc(100vh - calc($index * 104));
+  overflow: scroll;
 
   .name {
     font-size: $font-l;

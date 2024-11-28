@@ -2,45 +2,40 @@
 
 .intro {
   display: grid;
-  grid-template-columns: auto auto;
-  column-gap: calc($index * 10);
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: calc($index * 10);
 
-  div {
+  .discover_vacancies,
+  .why_jj {
     border-radius: calc($index * 7) calc($index * 7) calc($index * 14) calc($index * 14);
     padding: calc($index * 20);
     background-color: white;
     display: grid;
     row-gap: calc($index * 10);
 
-    &:nth-child(1) {
-
-      p:nth-child(2) {
-        max-width: calc($index * 245);
-      }
+    .title {
+      font-size: $font-menu-l;
+      line-height: 1.4;
+      letter-spacing: calc($font-menu-l * -.02);
+      color: $primary-dark;
     }
 
-    &:nth-child(2) {
-
-      p:nth-child(2) {
-        max-width: calc($index * 290);
-      }
+    .description {
+      font-size: $font-menu-xs;
+      letter-spacing: calc($index * .3);
+      align-self: end;
     }
-
-
   }
 
-
-
-  .title {
-    font-size: $font-l;
-    line-height: calc($font-l * 1.2);
-    letter-spacing: calc($font-l * -.02);
-    color: $primary-dark;
+  .discover_vacancies {
+    .description {
+      max-width: calc($index * 245);
+    }
   }
 
-  .description {
-    font-size: $font-xs;
-    letter-spacing: calc($index * .3);
-    align-self: end;
+  .why_jj {
+    .description {
+      max-width: calc($index * 290);
+    }
   }
 }

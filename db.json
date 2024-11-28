@@ -238,6 +238,20 @@
       "password": "2",
       "applications": [],
       "cvs": []
+    },
+    {
+      "id": "ID05M1X92R5",
+      "username": "10",
+      "password": "10",
+      "applications": [],
+      "cvs": []
+    },
+    {
+      "id": "ID93X5PYSQ1",
+      "username": "dsfsdfd",
+      "password": "sf",
+      "applications": [],
+      "cvs": []
     }
   ],
   "applications": [
@@ -440,6 +454,14 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "salary": "1000$dawa",
       "location": "Ryazan, Russia"
+    },
+    {
+      "id": "ID86B2NY2HY",
+      "author_id": "ID05M1X92R5",
+      "profession": "dqwdaw",
+      "description": "1da",
+      "salary": "111$",
+      "location": "dwad"
     }
   ],
   "cvs": [
