@@ -118,7 +118,7 @@ const Profile: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarOpen
             </div>
             {!isShortSidebarOpen && !isChangingUserName && (
                 <button className={classes.logout_btn} onClick={handleSignOut}>
-                    <img src={logout_image} alt={"logout"}/>
+                    <img src={logout_image} alt={"logout"} loading="lazy" />
                 </button>
             )}
         </div>

@@ -2,30 +2,58 @@
 
 .sidebar_toggle {
   position: absolute;
-  background-color: rgba(108, 90, 217, 0.24);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  right: 0;
-  top: calc($index * 37);
-  transform: translateY(-50%);
-  height: calc($index * 55);
-  width: calc($index * 19);
-  border-top-left-radius: calc($index * 16);
-  border-bottom-left-radius: calc($index * 16);
+  height: 38px;
+  width: 20px;
+  right: -20px;
+  top: calc($index * 20);
   cursor: pointer;
 
-  > img {
+  .top,
+  .bottom {
     position: absolute;
-    left: 1px;
-    height: 28px;
-    width: 20px;
-    transform: rotate(180deg);
+    border-radius: 3px;
+    width: 5.5px;
+    background-color: #2d2069;
+    transition: all .2s ease;
+  }
+
+  .top {
+    top: 0;
+    bottom: 45%;
+  }
+
+  .bottom {
+    bottom: 0;
+    top: 45%;
+  }
+
+  &:hover {
+    .top {
+      background-color: #4b428c;
+      transform: rotate(-15deg);
+    }
+
+    .bottom {
+      background-color: #4b428c;
+      transform: rotate(15deg);
+    }
   }
 
   &.arrow_forward {
-    > img {
-      transform: rotate(0deg);
+    &:hover {
+      .top {
+        background-color: #4b428c;
+        transform: rotate(15deg);
+      }
+
+      .bottom {
+        background-color: #4b428c;
+        transform: rotate(-15deg);
+      }
     }
   }
 }
