@@ -2,6 +2,7 @@
 
 .position_wrap {
   overflow: scroll;
+  position: relative;
   height: calc(100vh - calc($index * 214));
   margin-top: calc($index * 15);
   padding: calc($index * 12);

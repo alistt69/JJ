@@ -3,6 +3,7 @@ import Toggle from "@/components/sidebar/components/toggle";
 import Logo from "@/components/sidebar/components/logo";
 import Navigation from "@/components/sidebar/components/navigation";
 import Profile from "@/components/sidebar/components/profile";
+import debounce from "lodash.debounce";
 import classes from "./classes.module.scss";
 
 
@@ -14,16 +15,20 @@ const Sidebar = () => {
     });
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsShortSidebarOpen(window.innerWidth < 750);
-        };
+        const handleResize = debounce(() => {
+            const shouldOpen = window.innerWidth < 750;
+            if (isShortSidebarOpen !== shouldOpen) {
+                setIsShortSidebarOpen(true);
+            }
+        }, 10);
 
         window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            handleResize.cancel();
         };
-    }, []);
+    }, [isShortSidebarOpen]);
 
     useEffect(() => {
         localStorage.setItem('isShortSidebarOpen', JSON.stringify(isShortSidebarOpen));

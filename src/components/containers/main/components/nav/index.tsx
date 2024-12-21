@@ -1,7 +1,6 @@
 import { useLocation, Location, NavLink } from "react-router-dom";
 import classes from './classes.module.scss'
 
-
 const Nav = () => {
 
     const location: Location = useLocation()

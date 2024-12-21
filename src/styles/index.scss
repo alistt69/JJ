@@ -8,3 +8,30 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
 }
+
+.ant-btn {
+  background-color: transparent;
+  color: $accent;
+  border: 1px solid $accent;
+
+  &:hover {
+    background-color: $accent !important;
+    color: white !important;
+    border-color: $accent !important;
+  }
+}
+
+.ant-notification-notice-wrapper {
+  background-color: #f8f8f8 !important;
+
+  .ant-notification-notice-message {
+    text-transform: uppercase;
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+
+  .ant-notification-notice-description {
+    text-transform: lowercase;
+    font-size: 16px !important;
+  }
+}

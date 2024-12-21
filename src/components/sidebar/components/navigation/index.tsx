@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useFunctions } from "@/context/function.tsx";
+import { NavLink } from "react-router-dom";
+import { paths } from "@/routes/routes.ts";
+import faq from "@/components/sidebar/assets/faq.png";
 import home from "@/components/sidebar/assets/home.png";
 import about from "@/components/sidebar/assets/about.png";
-import notification from "@/components/sidebar/assets/notification.png";
-import myposts from "@/components/sidebar/assets/myposts.png";
-import offers from "@/components/sidebar/assets/offers.png";
 import liked from "@/components/sidebar/assets/liked.png";
-import faq from "@/components/sidebar/assets/faq.png";
+import offers from "@/components/sidebar/assets/offers.png";
+import myposts from "@/components/sidebar/assets/myposts.png";
+import notification from "@/components/sidebar/assets/notification.png";
 import classes from "./classes.module.scss";
-import { NavLink } from "react-router-dom";
-import { useFunctions } from "@/context/function.tsx";
-import { paths } from "@/routes/routes.ts";
 
 
 const Navigation: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarOpen }) => {
@@ -102,7 +102,7 @@ const Navigation: React.FC<{ isShortSidebarOpen: boolean }> = ({ isShortSidebarO
 
             </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default Navigation;

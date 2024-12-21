@@ -1,19 +1,9 @@
 @import "src/styles/index";
 
-.container {
-  margin-top: calc($index * 120);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
-  .image {
-    max-width: 850px;
-  }
-
-  .text {
-    color: rgba(0, 0, 0, 0.15);
-    font-size: $font-xl;
-    font-weight: bold;
-  }
+.nodata {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $font-menu-l;
 }

@@ -5,7 +5,7 @@ const Intro = () => {
     return(
         <div className={classes.intro}>
             <div className={classes.discover_vacancies}>
-                <p className={classes.title}>Discover Thousands of Vacancies in Your Desired Field</p>
+                <p className={classes.title}>Discover Thousands of Vacancies</p>
                 <p className={classes.description}>
                     Welcome to JobaJob, your premier
                     destination for job searching and job

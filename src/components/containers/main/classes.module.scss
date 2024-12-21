@@ -9,7 +9,6 @@
 
     .content {
       background-color: #f8f8f8;
-      position: relative;
       height: calc(100vh - calc($index * 60));
       padding: calc($index * 30) calc($index * 40);
     }

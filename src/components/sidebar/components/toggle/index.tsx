@@ -14,7 +14,7 @@ const Toggle: React.FC<{
             <div className={classes.bottom}
                  onClick={() => setIsShortSidebarOpen(!isShortSidebarOpen)}/>
         </div>
-    )
-}
+    );
+};
 
 export default Toggle;
